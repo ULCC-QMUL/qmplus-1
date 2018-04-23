@@ -593,3 +593,6 @@
 [submodule "user/profile/field/oidc"]
 	path = user/profile/field/oidc
 	url = git@github.com:QMUL/moodle-profilefield_oidc.git
+[submodule "blocks/modulesdashboard"]
+	path = blocks/modulesdashboard
+	url = git@github.com:ULCC-QMUL/moodle-block_modulesdashboard.git
