@@ -561,29 +561,6 @@
 	path = theme/qmul
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul.git
 	branch = develop_34
-[submodule "theme/qmul_humanities"]
-	path = theme/qmul_humanities
-	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_humanities.git
-	branch = develop_34
-[submodule "theme/qmul_learning"]
-	path = theme/qmul_learning
-	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_learning.git
-	branch = develop_34
-[submodule "theme/qmul_lifesciences"]
-	path = theme/qmul_lifesciences
-	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_lifesciences.git
-	branch = develop_34
-[submodule "theme/qmul_medicine"]
-	path = theme/qmul_medicine
-	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_medicine.git
-	branch = develop_34
-[submodule "theme/qmul_science"]
-	path = theme/qmul_science
-	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_science.git
-	branch = develop_34
-[submodule "theme/adaptable"]
-	path = theme/adaptable
-	url = git@github.com:QMUL/moodle-theme_adaptable.git
 [submodule "theme/klass"]
 	path = theme/klass
 	url = git@github.com:QMUL/moodle-theme_klass.git
