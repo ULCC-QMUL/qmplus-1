@@ -588,6 +588,3 @@
 [submodule "theme/qmul_science"]
 	path = theme/qmul_science
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_science.git
-[submodule "theme/synergy_base"]
-	path = theme/synergy_base
-	url = git@github.com:ULCC-QMUL/moodle-theme_synergy_base.git
