@@ -573,3 +573,21 @@
 [submodule "blocks/modulesdashboard"]
 	path = blocks/modulesdashboard
 	url = git@github.com:ULCC-QMUL/moodle-block_modulesdashboard.git
+[submodule "theme/qmul_humanities"]
+	path = theme/qmul_humanities
+	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_humanities.git
+[submodule "theme/qmul_learning"]
+	path = theme/qmul_learning
+	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_learning.git
+[submodule "theme/qmul_lifesciences"]
+	path = theme/qmul_lifesciences
+	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_lifesciences.git
+[submodule "theme/qmul_medicine"]
+	path = theme/qmul_medicine
+	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_medicine.git
+[submodule "theme/qmul_science"]
+	path = theme/qmul_science
+	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_science.git
+[submodule "theme/synergy_base"]
+	path = theme/synergy_base
+	url = git@github.com:ULCC-QMUL/moodle-theme_synergy_base.git
