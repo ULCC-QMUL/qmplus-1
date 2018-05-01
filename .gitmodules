@@ -588,3 +588,6 @@
 [submodule "theme/qmul_science"]
 	path = theme/qmul_science
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_science.git
+[submodule "theme/ulip"]
+	path = theme/ulip
+	url = git@github.com:/ULCC-QMUL/moodle-theme_ulip
