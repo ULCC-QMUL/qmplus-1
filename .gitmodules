@@ -597,3 +597,6 @@
 [submodule "admin/tool/policy"]
 	path = admin/tool/policy
 	url = git@github.com:/moodlehq/moodle-tool_policy
+[submodule "admin/tool/dataprivacy"]
+	path = admin/tool/dataprivacy
+	url = git@github.com:/moodlehq/moodle-tool_dataprivacy
