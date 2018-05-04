@@ -600,3 +600,6 @@
 [submodule "admin/tool/dataprivacy"]
 	path = admin/tool/dataprivacy
 	url = git@github.com:/moodlehq/moodle-tool_dataprivacy
+[submodule "filter/imageopt"]
+	path = filter/imageopt
+	url = git@github.com:/gthomas2/moodle-filter_imageopt
