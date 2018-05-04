@@ -594,3 +594,6 @@
 [submodule "blocks/kalturamediagallery"]
 	path = blocks/kalturamediagallery
 	url = git@github.com:/ULCC-QMUL/kal_block_kalturamediagallery
+[submodule "admin/tool/policy"]
+	path = admin/tool/policy
+	url = git@github.com:/moodlehq/moodle-tool_policy
