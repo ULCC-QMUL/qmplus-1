@@ -606,3 +606,6 @@
 [submodule "lib/editor/atto/plugins/snippet"]
 	path = lib/editor/atto/plugins/snippet
 	url = git@github.com:/justinhunt/moodle-atto_snippet
+[submodule "lib/editor/atto/plugins/echo360attoplugin"]
+	path = lib/editor/atto/plugins/echo360attoplugin
+	url = git@github.com:/ULCC-QMUL/moodle-editor_atto_echo360attoplugin
