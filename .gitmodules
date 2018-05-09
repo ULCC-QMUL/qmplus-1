@@ -187,7 +187,7 @@
 	branch = develop_303
 [submodule "filter/kaltura"]
 	path = filter/kaltura
-	url = git@github.com:QMUL/moodle-filter_kaltura.git
+	url = git@github.com:ULCC-QMUL/moodle-filter_kaltura.git
 [submodule "filter/replace"]
 	path = filter/replace
 	url = git@github.com:QMUL/moodle-filter_replace.git
@@ -208,7 +208,7 @@
 	url = git@github.com:ULCC-QMUL/moodle-gradereport_qmul_sits.git
 [submodule "lib/editor/tinymce/plugins/kalturamedia"]
 	path = lib/editor/tinymce/plugins/kalturamedia
-	url = git@github.com:QMUL/moodle-editor_tinymce_kalturamedia.git
+	url = git@github.com:ULCC-QMUL/moodle-editor_tinymce_kalturamedia.git
 [submodule "lib/editor/tinymce/plugins/mathslate"]
 	path = lib/editor/tinymce/plugins/mathslate
 	url = git@github.com:ULCC-QMUL/moodle-editor_tinymce_mathslate.git
@@ -226,7 +226,7 @@
 	url = git@github.com:ULCC-QMUL/moodle-local_qmul_sync.git
 [submodule "local/kaltura"]
 	path = local/kaltura
-	url = git@github.com:QMUL/moodle-local_kaltura.git
+	url = git@github.com:ULCC-QMUL/moodle-local_kaltura.git
 [submodule "local/onenote"]
 	path = local/onenote
 	url = git@github.com:Microsoft/moodle-local_onenote.git
@@ -250,7 +250,7 @@
 	url = git@github.com:ULCC-QMUL/moodle-local_course_creation_wizard.git
 [submodule "local/kalturamediagallery"]
 	path = local/kalturamediagallery
-	url = git@github.com:ULCC-QMUL/kal_local_kalturamediagallery.git
+	url = git@github.com:ULCC-QMUL/moodle-local_kalturamediagallery.git
 [submodule "local/mass_enroll"]
 	path = local/mass_enroll
 	url = git@github.com:ULCC-QMUL/moodle-local_mass_enroll.git
@@ -259,7 +259,7 @@
 	url = git@github.com:Microsoft/moodle-local_msaccount.git
 [submodule "local/mymedia"]
 	path = local/mymedia
-	url = git@github.com:ULCC-QMUL/kal_local_mymedia.git
+	url = git@github.com:ULCC-QMUL/moodle-local_mymedia.git
 [submodule "local/office365"]
 	path = local/office365
 	url = git@github.com:Microsoft/moodle-local_office365.git
@@ -334,13 +334,13 @@
 	url = git@github.com:moodleou/moodle-mod_forumng.git
 [submodule "mod/kalvidassign"]
 	path = mod/kalvidassign
-	url = git@github.com:QMUL/moodle-mod_kalvidassign.git
+	url = git@github.com:ULCC-QMUL/moodle-mod_kalvidassign.git
 [submodule "mod/kalvidpres"]
 	path = mod/kalvidpres
-	url = git@github.com:QMUL/moodle-mod_kalvidpres.git
+	url = git@github.com:ULCC-QMUL/moodle-mod_kalvidpres.git
 [submodule "mod/kalvidres"]
 	path = mod/kalvidres
-	url = git@github.com:QMUL/moodle-mod_kalvidres.git
+	url = git@github.com:ULCC-QMUL/moodle-mod_kalvidres.git
 [submodule "mod/nln"]
 	path = mod/nln
 	url = git@github.com:tonyjbutler/moodle-mod_nln.git
@@ -529,7 +529,7 @@
 	url = git@github.com:ndunand/moodle-atto_morefontcolors.git
 [submodule "lib/editor/atto/plugins/kalturamedia"]
 	path = lib/editor/atto/plugins/kalturamedia
-	url = git@github.com:ULCC-QMUL/kal_lib_editor_atto_plugins_kalturamedia.git
+	url = git@github.com:ULCC-QMUL/moodle-editor_atto_kalturamedia.git
 [submodule "plagiarism/turnitin"]
 	path = plagiarism/turnitin
 	url = git@github.com:QMUL/moodle-plagiarism_turnitin.git
@@ -593,7 +593,7 @@
 	url = git@github.com:/ULCC-QMUL/moodle-theme_ulip
 [submodule "blocks/kalturamediagallery"]
 	path = blocks/kalturamediagallery
-	url = git@github.com:/ULCC-QMUL/kal_block_kalturamediagallery
+	url = git@github.com:/ULCC-QMUL/moodle-block_kalturamediagallery
 [submodule "admin/tool/policy"]
 	path = admin/tool/policy
 	url = git@github.com:/moodlehq/moodle-tool_policy
