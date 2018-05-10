@@ -353,9 +353,6 @@
 [submodule "mod/respondusws"]
 	path = mod/respondusws
 	url = git@github.com:ucsf-ckm/moodle-mod-respondusws.git
-[submodule "mod/subpage"]
-	path = mod/subpage
-	url = git@github.com:QMUL/moodle_mod_subpage.git
 [submodule "mod/facetoface"]
 	path = mod/facetoface
 	url = git@github.com:catalyst/moodle-mod_facetoface.git
