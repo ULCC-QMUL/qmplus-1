@@ -107,7 +107,7 @@
 	url = git@github.com:moodlehq/moodle-block_course_overview.git
 [submodule "blocks/course_reports"]
 	path = blocks/course_reports
-	url = git@github.com:QMUL/moodle-block_course_reports.git
+	url = git@github.com:ULCC-QMUL/moodle-block_course_reports.git
 [submodule "blocks/heatmap"]
 	path = blocks/heatmap
 	url = git@github.com:deraadt/moodle-block_heatmap.git
