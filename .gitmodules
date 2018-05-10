@@ -530,9 +530,6 @@
 [submodule "report/componentgrades"]
 	path = report/componentgrades
 	url = git@github.com:pauln/moodle-report_componentgrades.git
-[submodule "report/forumgraph"]
-	path = report/forumgraph
-	url = git@github.com:QMUL/moodle-report_forumgraph.git
 [submodule "report/overviewstats"]
 	path = report/overviewstats
 	url = git@github.com:QMUL/moodle-report_overviewstatistics.git
