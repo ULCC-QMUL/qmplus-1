@@ -215,9 +215,6 @@
 [submodule "local/landingpages"]
 	path = local/landingpages
 	url = git@github.com:ULCC-QMUL/moodle-local_landingpages.git
-[submodule "local/qmframework"]
-	path = local/qmframework
-	url = git@github.com:QMUL/moodle-local_qmframework.git
 [submodule "local/qmcw_coversheet"]
 	path = local/qmcw_coversheet
 	url = git@github.com:ULCC-QMUL/moodle-local_qmcw_coversheet.git
