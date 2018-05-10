@@ -196,7 +196,7 @@
 	url = git@github.com:davosmith/moodle-grade_checklist.git
 [submodule "grade/grading/form/btec"]
 	path = grade/grading/form/btec
-	url = git@github.com:QMUL/moodle-gradingform_btec.git
+	url = git@github.com:ULCC-QMUL/moodle-gradingform_btec.git
 [submodule "grade/import/directpearsonjson"]
 	path = grade/import/directpearsonjson
 	url = git@github.com:ULCC-QMUL/moodle-gradeimport_directpearsonjson.git
