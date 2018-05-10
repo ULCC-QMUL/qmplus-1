@@ -606,3 +606,6 @@
 [submodule "lib/editor/atto/plugins/echo360attoplugin"]
 	path = lib/editor/atto/plugins/echo360attoplugin
 	url = git@github.com:/ULCC-QMUL/moodle-editor_atto_echo360attoplugin
+[submodule "local/qmframework"]
+	path = local/qmframework
+	url = git@github.com:ULCC-QMUL/moodle-local_qmframework.git
