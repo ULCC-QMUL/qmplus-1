@@ -606,3 +606,6 @@
 [submodule "report/forumgraph"]
 	path = report/forumgraph
 	url = git@github.com:ctchanandy/moodle-report_forumgraph.git
+[submodule "auth/dbsyncother"]
+	path = auth/dbsyncother
+	url = git@github.com:ULCC-QMUL/moodle-auth_dbsyncother2.git
