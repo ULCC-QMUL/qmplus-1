@@ -1,9 +1,6 @@
 [submodule "admin/tool/mergeusers"]
 	path = admin/tool/mergeusers
 	url = git@github.com:ndunand/moodle-tool_mergeusers.git
-[submodule "auth/dbsyncother"]
-	path = auth/dbsyncother
-	url = git@github.com:ULCC-QMUL/moodle-auth_dbsyncother.git
 [submodule "auth/saml2"]
 	path = auth/saml2
 	url = git@github.com:catalyst/moodle-auth_saml2.git
