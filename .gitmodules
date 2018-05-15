@@ -13,9 +13,6 @@
 [submodule "auth/ulcc_sharedsecret_sso"]
 	path = auth/ulcc_sharedsecret_sso
 	url = git@github.com:QMUL/moodle-auth_ulcc_sharedsecret_sso.git
-[submodule "blocks/landingpage"]
-	path = blocks/landingpage
-	url = git@github.com:ULCC-QMUL/moodle-block_landingpage.git
 [submodule "blocks/aspirelists"]
 	path = blocks/aspirelists
 	url = git@github.com:ULCC-QMUL/talis-block_aspirelists.git
@@ -139,6 +136,7 @@
 [submodule "course/format/landingpage"]
 	path = course/format/landingpage
 	url = git@github.com:ULCC-QMUL/moodle-format_landingpage.git
+	branch = develop_34
 [submodule "course/format/topcoll"]
 	path = course/format/topcoll
 	url = git@github.com:gjb2048/moodle-format_topcoll.git
@@ -230,6 +228,7 @@
 [submodule "local/activitytodo"]
 	path = local/activitytodo
 	url = git@github.com:ULCC-QMUL/moodle-local_activitytodo.git
+	branch = develop_34
 [submodule "local/analytics"]
 	path = local/analytics
 	url = git@github.com:DBezemer/moodle-local_analytics.git
@@ -289,12 +288,14 @@
 [submodule "local/widgets"]
 	path = local/widgets
 	url = git@github.com:ULCC-QMUL/moodle-local_widgets.git
+	branch = develop_34
 [submodule "local/mobile"]
 	path = local/mobile
 	url = git@github.com:QMUL/moodle-local_mobile.git
 [submodule "mod/attendance"]
 	path = mod/attendance
 	url = git@github.com:danmarsden/moodle-mod_attendance.git
+	branch = MOODLE_34_STABLE
 [submodule "mod/turningtech"]
 	path = mod/turningtech
 	url = git@github.com:ULCC-QMUL/moodle-mod_turningtech.git
@@ -365,6 +366,7 @@
 [submodule "mod/questionnaire"]
 	path = mod/questionnaire
 	url = git@github.com:PoetOS/moodle-mod_questionnaire.git
+	branch = MOODLE_34_STABLE
 [submodule "mod/ratingallocate"]
 	path = mod/ratingallocate
 	url = git@github.com:learnweb/moodle-mod_ratingallocate.git
@@ -561,21 +563,27 @@
 [submodule "theme/qmul_humanities"]
 	path = theme/qmul_humanities
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_humanities.git
+	branch = develop_34
 [submodule "theme/qmul_learning"]
 	path = theme/qmul_learning
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_learning.git
+	branch = develop_34
 [submodule "theme/qmul_lifesciences"]
 	path = theme/qmul_lifesciences
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_lifesciences.git
+	branch = develop_34
 [submodule "theme/qmul_medicine"]
 	path = theme/qmul_medicine
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_medicine.git
+	branch = develop_34
 [submodule "theme/qmul_science"]
 	path = theme/qmul_science
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_science.git
+	branch = develop_34
 [submodule "theme/ulip"]
 	path = theme/ulip
 	url = git@github.com:/ULCC-QMUL/moodle-theme_ulip
+	branch = develop_34
 [submodule "blocks/kalturamediagallery"]
 	path = blocks/kalturamediagallery
 	url = git@github.com:/ULCC-QMUL/moodle-block_kalturamediagallery
@@ -585,6 +593,7 @@
 [submodule "admin/tool/dataprivacy"]
 	path = admin/tool/dataprivacy
 	url = git@github.com:/moodlehq/moodle-tool_dataprivacy
+	branch = MOODLE_34_STABLE
 [submodule "filter/imageopt"]
 	path = filter/imageopt
 	url = git@github.com:/gthomas2/moodle-filter_imageopt
@@ -597,6 +606,7 @@
 [submodule "local/qmframework"]
 	path = local/qmframework
 	url = git@github.com:ULCC-QMUL/moodle-local_qmframework.git
+	branch = client-qmul-3.2-prod
 [submodule "mod/subpage"]
 	path = mod/subpage
 	url = git@github.com:ULCC-QMUL/moodle-mod_subpage.git
@@ -612,3 +622,7 @@
 [submodule "course/format/tabtopics"]
 	path = course/format/tabtopics
 	url = git@github.com:opitz/moodle-format_tabtopics.git
+[submodule "blocks/landingpage"]
+	path = blocks/landingpage
+	url = git@github.com:ULCC-QMUL/moodle-block_landingpage.git
+	branch = develop_34
