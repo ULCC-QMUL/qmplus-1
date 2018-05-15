@@ -288,7 +288,7 @@
 [submodule "local/widgets"]
 	path = local/widgets
 	url = git@github.com:ULCC-QMUL/moodle-local_widgets.git
-	branch = develop_34
+	branch = develop_34_1
 [submodule "local/mobile"]
 	path = local/mobile
 	url = git@github.com:QMUL/moodle-local_mobile.git
@@ -607,12 +607,10 @@
 	path = local/qmframework
 	url = git@github.com:ULCC-QMUL/moodle-local_qmframework.git
 	branch = client-qmul-3.2-prod
-[submodule "mod/subpage"]
-	path = mod/subpage
-	url = git@github.com:ULCC-QMUL/moodle-mod_subpage.git
 [submodule "mod/tab"]
 	path = mod/tab
 	url = git@github.com:ULCC-QMUL/moodle-mod_tab.git
+	branch = develop_34
 [submodule "report/forumgraph"]
 	path = report/forumgraph
 	url = git@github.com:ctchanandy/moodle-report_forumgraph.git
@@ -626,3 +624,6 @@
 	path = blocks/landingpage
 	url = git@github.com:ULCC-QMUL/moodle-block_landingpage.git
 	branch = develop_34
+[submodule "mod/subpage"]
+	path = mod/subpage
+	url = git@github.com:moodleou/moodle-mod_subpage.git
