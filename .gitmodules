@@ -609,3 +609,6 @@
 [submodule "auth/dbsyncother"]
 	path = auth/dbsyncother
 	url = git@github.com:ULCC-QMUL/moodle-auth_dbsyncother2.git
+[submodule "course/format/tabtopics"]
+	path = course/format/tabtopics
+	url = git@github.com:opitz/moodle-format_tabtopics.git
