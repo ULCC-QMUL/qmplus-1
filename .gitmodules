@@ -556,9 +556,6 @@
 	path = blocks/quickmail
 	url = git@github.com:lsuits/block_quickmail.git
 	branch = dev-34
-[submodule "blocks/sharing_cart"]
-	path = blocks/sharing_cart
-	url = git@github.com:VERSION2-Inc/moodle-block_sharing_cart.git
 [submodule "blocks/side_bar"]
 	path = blocks/side_bar
 	url = git@github.com:ned-code/moodle-block_sidebar.git
@@ -574,6 +571,7 @@
 [submodule "local/mobile"]
 	path = local/mobile
 	url = git@github.com:moodlehq/moodle-local_mobile.git
+	branch = MOODLE_34_STABLE
 [submodule "mod/hvp"]
 	path = mod/hvp
 	url = git@github.com:h5p/h5p-moodle-plugin.git
@@ -634,3 +632,6 @@
 [submodule "local/sandbox"]
 	path = local/sandbox
 	url = git@github.com:moodleuulm/moodle-local_sandbox.git
+[submodule "blocks/sharing_cart"]
+	path = blocks/sharing_cart
+	url = git@github.com:ULCC-QMUL/moodle-block_sharing_cart.git
