@@ -49,9 +49,6 @@
 [submodule "blocks/qmplus_course_overview"]
 	path = blocks/qmplus_course_overview
 	url = git@github.com:ULCC-QMUL/moodle-block_qmplus_course_overview.git
-[submodule "blocks/massaction"]
-	path = blocks/massaction
-	url = git@github.com:QMUL/moodle-block_massaction.git
 [submodule "blocks/module_info"]
 	path = blocks/module_info
 	url = git@github.com:ULCC-QMUL/moodle-block_module_info.git
@@ -71,21 +68,9 @@
 	path = blocks/qmul_myprofile
 	url = git@github.com:ULCC-QMUL/moodle-block_qmul_myprofile.git
 	branch = July2017
-[submodule "blocks/quickmail"]
-	path = blocks/quickmail
-	url = git@github.com:QMUL/moodle-block_quickmail.git
-[submodule "blocks/sharing_cart"]
-	path = blocks/sharing_cart
-	url = git@github.com:QMUL/moodle-block_sharing_cart.git
-[submodule "blocks/side_bar"]
-	path = blocks/side_bar
-	url = git@github.com:QMUL/moodle-block_side_bar.git
 [submodule "blocks/turningtech"]
 	path = blocks/turningtech
 	url = git@github.com:ULCC-QMUL/moodle-block_turningtech.git
-[submodule "blocks/ulcc_diagnostics"]
-	path = blocks/ulcc_diagnostics
-	url = git@github.com:QMUL/moodle-block_ulcc_diagnostics.git
 [submodule "blocks/widgets"]
 	path = blocks/widgets
 	url = git@github.com:ULCC-QMUL/moodle-block_widgets.git
@@ -93,9 +78,6 @@
 [submodule "blocks/messages"]
 	path = blocks/messages
 	url = git@github.com:moodlehq/moodle-block_messages.git
-[submodule "blocks/accessibility"]
-	path = blocks/accessibility
-	url = git@github.com:QMUL/moodle-block_accessibility.git
 [submodule "blocks/course_overview"]
 	path = blocks/course_overview
 	url = git@github.com:moodlehq/moodle-block_course_overview.git
@@ -105,9 +87,6 @@
 [submodule "blocks/heatmap"]
 	path = blocks/heatmap
 	url = git@github.com:deraadt/moodle-block_heatmap.git
-[submodule "blocks/ilp"]
-	path = blocks/ilp
-	url = git@github.com:QMUL/moodle-block_ilp.git
 [submodule "blocks/microsoft"]
 	path = blocks/microsoft
 	url = git@github.com:Microsoft/moodle-block_microsoft.git
@@ -123,9 +102,6 @@
 [submodule "blocks/turnitin"]
 	path = blocks/turnitin
 	url = git@github.com:turnitin/moodle-block_turnitin.git
-[submodule "blocks/checklist"]
-	path = blocks/checklist
-	url = git@github.com:QMUL/moodle-block_checklist.git
 [submodule "blocks/course_contents"]
 	path = blocks/course_contents
 	url = git@github.com:QMUL/moodle-block_course_contents.git
@@ -170,9 +146,6 @@
 [submodule "filter/easychem"]
 	path = filter/easychem
 	url = git@github.com:ULCC-QMUL/moodle-filter_easychem.git
-[submodule "filter/oembed"]
-	path = filter/oembed
-	url = git@github.com:QMUL/moode-filer_oembed.git
 [submodule "filter/jmol"]
 	path = filter/jmol
 	url = git@github.com:geoffrowland/moodle-filter_jmol.git
@@ -289,9 +262,6 @@
 	path = local/widgets
 	url = git@github.com:ULCC-QMUL/moodle-local_widgets.git
 	branch = develop_34_1
-[submodule "local/mobile"]
-	path = local/mobile
-	url = git@github.com:QMUL/moodle-local_mobile.git
 [submodule "mod/attendance"]
 	path = mod/attendance
 	url = git@github.com:danmarsden/moodle-mod_attendance.git
@@ -299,9 +269,6 @@
 [submodule "mod/turningtech"]
 	path = mod/turningtech
 	url = git@github.com:ULCC-QMUL/moodle-mod_turningtech.git
-[submodule "mod/checklist"]
-	path = mod/checklist
-	url = git@github.com:QMUL/moodle-mod_checklist.git
 [submodule "mod/adaptivequiz"]
 	path = mod/adaptivequiz
 	url = git@github.com:QMUL/moodle-mod_adaptivequiz.git
@@ -357,9 +324,6 @@
 [submodule "mod/hotpot"]
 	path = mod/hotpot
 	url = git@github.com:gbateson/moodle-mod_hotpot.git
-[submodule "mod/hvp"]
-	path = mod/hvp
-	url = git@github.com:QMUL/moodle-mod_hvp.git
 [submodule "mod/journal"]
 	path = mod/journal
 	url = git@github.com:elearningsoftware/moodle-mod_journal.git
@@ -382,9 +346,6 @@
 [submodule "mod/turnitintooltwo"]
 	path = mod/turnitintooltwo
 	url = git@github.com:turnitin/moodle-mod_turnitintooltwo.git
-[submodule "mod/lightboxgallery"]
-	path = mod/lightboxgallery
-	url = git@github.com:QMUL/moodle-mod_lightboxgallery.git
 [submodule "mod/assign/feedback/onenote"]
 	path = mod/assign/feedback/onenote
 	url = git@github.com:Microsoft/moodle-assignfeedback_onenote.git
@@ -463,12 +424,6 @@
 [submodule "question/type/gapfill"]
 	path = question/type/gapfill
 	url = git@github.com:QMUL/moodle-qtype_gapfill.git
-[submodule "question/type/ddmatch"]
-	path = question/type/ddmatch
-	url = git@github.com:QMUL/moodle-qtype_ddmatch.git
-[submodule "question/type/order"]
-	path = question/type/order
-	url = git@github.com:QMUL/moodle-qtype_order.git
 [submodule "question/type/pmatchjme"]
 	path = question/type/pmatchjme
 	url = git@github.com:moodleou/moodle-qtype_pmatchjme.git
@@ -520,9 +475,6 @@
 [submodule "lib/editor/atto/plugins/kalturamedia"]
 	path = lib/editor/atto/plugins/kalturamedia
 	url = git@github.com:ULCC-QMUL/moodle-editor_atto_kalturamedia.git
-[submodule "plagiarism/turnitin"]
-	path = plagiarism/turnitin
-	url = git@github.com:QMUL/moodle-plagiarism_turnitin.git
 [submodule "report/qmplus"]
 	path = report/qmplus
 	url = git@github.com:ULCC-QMUL/moodle-report_qmplus.git
@@ -548,9 +500,6 @@
 	path = theme/qmul
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul.git
 	branch = develop_34
-[submodule "theme/klass"]
-	path = theme/klass
-	url = git@github.com:QMUL/moodle-theme_klass.git
 [submodule "user/profile/field/o365"]
 	path = user/profile/field/o365
 	url = git@github.com:QMUL/moodle-profilefield_o365.git
@@ -627,3 +576,54 @@
 [submodule "mod/subpage"]
 	path = mod/subpage
 	url = git@github.com:moodleou/moodle-mod_subpage.git
+[submodule "blocks/massaction"]
+	path = blocks/massaction
+	url = git@github.com:at-tools/moodle-block_massaction.git
+[submodule "blocks/quickmail"]
+	path = blocks/quickmail
+	url = git@github.com:lsuits/block_quickmail.git
+[submodule "blocks/sharing_cart"]
+	path = blocks/sharing_cart
+	url = git@github.com:VERSION2-Inc/moodle-block_sharing_cart.git
+[submodule "blocks/side_bar"]
+	path = blocks/side_bar
+	url = git@github.com:ned-code/moodle-block_sidebar.git
+[submodule "blocks/ulcc_diagnostics"]
+	path = blocks/ulcc_diagnostics
+	url = git@github.com:ULCC-QMUL/moodle-block_ulcc_diagnostics.git
+[submodule "blocks/accessibility"]
+	path = blocks/accessibility
+	url = git@github.com:marxjohnson/moodle-block_accessibility.git
+[submodule "blocks/ilp"]
+	path = blocks/ilp
+	url = git@github.com:ULCC/moodle-block_ilp.git
+[submodule "blocks/checklist"]
+	path = blocks/checklist
+	url = git@github.com:davosmith/moodle-block_checklist.git
+[submodule "filter/oembed"]
+	path = filter/oembed
+	url = git@github.com:brum1975/moodle-filter_oembed.git
+[submodule "local/mobile"]
+	path = local/mobile
+	url = git@github.com:moodlehq/moodle-local_mobile.git
+[submodule "mod/checklist"]
+	path = mod/checklist
+	url = git@github.com:Embanet-Compass/moodle-mod-checklist.git
+[submodule "mod/hvp"]
+	path = mod/hvp
+	url = git@github.com:h5p/h5p-moodle-plugin.git
+[submodule "mod/lightboxgallery"]
+	path = mod/lightboxgallery
+	url = git@github.com:netspotau/moodle-mod_lightboxgallery.git
+[submodule "question/type/ddmatch"]
+	path = question/type/ddmatch
+	url = git@github.com:jmvedrine/moodle-qtype_ddmatch.git
+[submodule "question/type/order"]
+	path = question/type/order
+	url = git@github.com:ewallah/moodle-qtype_order.git
+[submodule "plagiarism/turnitin"]
+	path = plagiarism/turnitin
+	url = git@github.com:turnitin/moodle-plagiarism_turnitin.git
+[submodule "theme/klass"]
+	path = theme/klass
+	url = git@github.com:lmsace/klass.git
