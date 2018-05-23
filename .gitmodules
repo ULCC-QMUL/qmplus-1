@@ -609,3 +609,6 @@
 [submodule "auth/dbsyncother"]
 	path = auth/dbsyncother
 	url = git@github.com:ULCC-QMUL/moodle-auth_dbsyncother2.git
+[submodule "blocks/completion_progress"]
+	path = blocks/completion_progress
+	url = git@github.com:/deraadt/moodle-block_completion_progress
