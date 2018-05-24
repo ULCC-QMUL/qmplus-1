@@ -638,3 +638,6 @@
 [submodule "blocks/checklist"]
 	path = blocks/checklist
 	url = git@github.com:davosmith/moodle-block_checklist.git
+[submodule "blocks/course_overview"]
+	path = blocks/course_overview
+	url = git@github.com:moodlehq/moodle-block_course_overview.git
