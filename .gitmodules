@@ -518,9 +518,6 @@
 [submodule "lib/editor/atto/plugins/kalturamedia"]
 	path = lib/editor/atto/plugins/kalturamedia
 	url = git@github.com:ULCC-QMUL/moodle-editor_atto_kalturamedia.git
-[submodule "plagiarism/turnitin"]
-	path = plagiarism/turnitin
-	url = git@github.com:QMUL/moodle-plagiarism_turnitin.git
 [submodule "report/qmplus"]
 	path = report/qmplus
 	url = git@github.com:ULCC-QMUL/moodle-report_qmplus.git
