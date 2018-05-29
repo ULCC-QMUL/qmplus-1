@@ -609,3 +609,6 @@
 [submodule "plagiarism/turnitin"]
 	path = plagiarism/turnitin
 	url = git@github.com:turnitin/moodle-plagiarism_turnitin.git
+[submodule "auth/cas_db"]
+	path = auth/cas_db
+	url = git@github.com:ULCC-QMUL/moodle-auth_cas_db.git
