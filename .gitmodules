@@ -609,3 +609,6 @@
 [submodule "auth/cas_db"]
 	path = auth/cas_db
 	url = git@github.com:ULCC-QMUL/moodle-auth_cas_db.git
+[submodule "auth/ulcc_sharedsecret_sso"]
+	path = auth/ulcc_sharedsecret_sso
+	url = git@github.com:ULCC-QMUL/moodle-auth_ulcc_sharedsecret_sso.git
