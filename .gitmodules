@@ -93,9 +93,6 @@
 [submodule "blocks/quickscan"]
 	path = blocks/quickscan
 	url = git@github.com:lucisgit/moodle-block_quickscan.git
-[submodule "blocks/reportsdash"]
-	path = blocks/reportsdash
-	url = git@github.com:QMUL/moodle-block_reportsdash.git
 [submodule "blocks/turnitin"]
 	path = blocks/turnitin
 	url = git@github.com:turnitin/moodle-block_turnitin.git
