@@ -609,3 +609,6 @@
 [submodule "blocks/accessibility"]
 	path = blocks/accessibility
 	url = git@github.com:ULCC-QMUL/moodle-block_accessibility.git
+[submodule "blocks/ilp"]
+	path = blocks/ilp
+	url = git@github.com:ULCC-QMUL/moodle-block_ilp.git
