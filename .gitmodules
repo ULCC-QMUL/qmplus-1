@@ -127,9 +127,6 @@
 [submodule "filter/easychem"]
 	path = filter/easychem
 	url = git@github.com:ULCC-QMUL/moodle-filter_easychem.git
-[submodule "filter/oembed"]
-	path = filter/oembed
-	url = git@github.com:QMUL/moode-filer_oembed.git
 [submodule "filter/jmol"]
 	path = filter/jmol
 	url = git@github.com:geoffrowland/moodle-filter_jmol.git
