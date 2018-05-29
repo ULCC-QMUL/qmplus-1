@@ -609,3 +609,6 @@
 [submodule "report/overviewstats"]
 	path = report/overviewstats
 	url = git@github.com:ULCC-QMUL/moodle-report_overviewstatistics.git
+[submodule "blocks/massaction"]
+	path = blocks/massaction
+	url = git@github.com:ULCC-QMUL/moodle-block_massaction.git
