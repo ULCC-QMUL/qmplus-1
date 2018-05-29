@@ -609,3 +609,6 @@
 [submodule "filter/oembed"]
 	path = filter/oembed
 	url = git@github.com:ULCC-QMUL/moode-filter_oembed.git
+[submodule "filter/replace"]
+	path = filter/replace
+	url = git@github.com:ULCC-QMUL/moodle-filter_replace.git
