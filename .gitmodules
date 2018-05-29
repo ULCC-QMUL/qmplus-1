@@ -374,9 +374,6 @@
 [submodule "question/type/varnumunit"]
 	path = question/type/varnumunit
 	url = git@github.com:moodleou/moodle-qtype_varnumunit.git
-[submodule "question/type/gapfill"]
-	path = question/type/gapfill
-	url = git@github.com:QMUL/moodle-qtype_gapfill.git
 [submodule "question/type/ddmatch"]
 	path = question/type/ddmatch
 	url = git@github.com:QMUL/moodle-qtype_ddmatch.git
