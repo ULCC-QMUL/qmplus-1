@@ -609,3 +609,6 @@
 [submodule "question/type/order"]
 	path = question/type/order
 	url = git@github.com:ULCC-QMUL/moodle-qtype_order.git
+[submodule "report/overviewstats"]
+	path = report/overviewstats
+	url = git@github.com:ULCC-QMUL/moodle-report_overviewstatistics.git
