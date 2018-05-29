@@ -609,3 +609,6 @@
 [submodule "filter/replace"]
 	path = filter/replace
 	url = git@github.com:ULCC-QMUL/moodle-filter_replace.git
+[submodule "local/mobile"]
+	path = local/mobile
+	url = git@github.com:moodlehq/moodle-local_mobile.git
