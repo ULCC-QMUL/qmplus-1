@@ -609,3 +609,6 @@
 [submodule "mod/checklist"]
 	path = mod/checklist
 	url = git@github.com:ULCC-QMUL/moodle-mod_checklist.git
+[submodule "mod/adaptivequiz"]
+	path = mod/adaptivequiz
+	url = git@github.com:ULCC-QMUL/moodle-mod_adaptivequiz.git
