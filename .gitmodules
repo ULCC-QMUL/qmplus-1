@@ -365,9 +365,6 @@
 [submodule "question/type/pmatchreverse"]
 	path = question/type/pmatchreverse
 	url = git@github.com:timhunt/moodle-qtype_pmatchreverse.git
-[submodule "question/type/poasquestion"]
-	path = question/type/poasquestion
-	url = git@github.com:QMUL/moodle-qtype_poasquestion.git
 [submodule "question/type/varnumeric"]
 	path = question/type/varnumeric
 	url = git@github.com:moodleou/moodle-qtype_varnumeric.git
