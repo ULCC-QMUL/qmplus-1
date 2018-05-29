@@ -609,3 +609,6 @@
 [submodule "question/type/order"]
 	path = question/type/order
 	url = git@github.com:QMUL/moodle-qtype_order.git
+[submodule "lib/editor/atto/plugins/chemistry"]
+	path = lib/editor/atto/plugins/chemistry
+	url = git@github.com:ULCC-QMUL/moodle-editor_atto_chemistry.git
