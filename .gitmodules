@@ -124,9 +124,6 @@
 [submodule "enrol/cohortcateg"]
 	path = enrol/cohortcateg
 	url = git@github.com:ULCC-QMUL/moodle-enrol_cohortcateg.git
-[submodule "enrol/databaseextended"]
-	path = enrol/databaseextended
-	url = git@github.com:QMUL/moodle-enrol_databaseextended.git
 [submodule "filter/easychem"]
 	path = filter/easychem
 	url = git@github.com:ULCC-QMUL/moodle-filter_easychem.git
