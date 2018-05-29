@@ -609,3 +609,6 @@
 [submodule "mod/lightboxgallery"]
 	path = mod/lightboxgallery
 	url = git@github.com:ULCC-QMUL/moodle-mod_lightboxgallery.git
+[submodule "mod/assign/submission/mahara"]
+	path = mod/assign/submission/mahara
+	url = git@github.com:ULCC-QMUL/moodle-assignsubmission_mahara.git
