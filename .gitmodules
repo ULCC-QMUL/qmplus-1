@@ -65,9 +65,6 @@
 	path = blocks/qmul_myprofile
 	url = git@github.com:ULCC-QMUL/moodle-block_qmul_myprofile.git
 	branch = July2017
-[submodule "blocks/quickmail"]
-	path = blocks/quickmail
-	url = git@github.com:QMUL/moodle-block_quickmail.git
 [submodule "blocks/sharing_cart"]
 	path = blocks/sharing_cart
 	url = git@github.com:QMUL/moodle-block_sharing_cart.git
