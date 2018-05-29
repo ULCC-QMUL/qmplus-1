@@ -46,9 +46,6 @@
 [submodule "blocks/qmplus_course_overview"]
 	path = blocks/qmplus_course_overview
 	url = git@github.com:ULCC-QMUL/moodle-block_qmplus_course_overview.git
-[submodule "blocks/massaction"]
-	path = blocks/massaction
-	url = git@github.com:QMUL/moodle-block_massaction.git
 [submodule "blocks/module_info"]
 	path = blocks/module_info
 	url = git@github.com:ULCC-QMUL/moodle-block_module_info.git
