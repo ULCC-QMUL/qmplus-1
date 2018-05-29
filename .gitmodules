@@ -401,9 +401,6 @@
 [submodule "lib/editor/atto/plugins/computing"]
 	path = lib/editor/atto/plugins/computing
 	url = git@github.com:ULCC-QMUL/moodle-editor_atto_computing.git
-[submodule "lib/editor/atto/plugins/htmlplus"]
-	path = lib/editor/atto/plugins/htmlplus
-	url = git@github.com:QMUL/moodle-editor_atto_htmlplus.git
 [submodule "lib/editor/atto/plugins/mathslate"]
 	path = lib/editor/atto/plugins/mathslate
 	url = git@github.com:ULCC-QMUL/moodle-editor_atto_mathslate.git
