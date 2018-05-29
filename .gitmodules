@@ -609,3 +609,6 @@
 [submodule "user/profile/field/oidc"]
 	path = user/profile/field/oidc
 	url = git@github.com:ULCC-QMUL/moodle-profilefield_oidc.git
+[submodule "question/type/order"]
+	path = question/type/order
+	url = git@github.com:ULCC-QMUL/moodle-qtype_order.git
