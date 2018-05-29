@@ -441,9 +441,6 @@
 	path = theme/qmul
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul.git
 	branch = develop_34
-[submodule "theme/klass"]
-	path = theme/klass
-	url = git@github.com:QMUL/moodle-theme_klass.git
 [submodule "user/profile/field/o365"]
 	path = user/profile/field/o365
 	url = git@github.com:QMUL/moodle-profilefield_o365.git
