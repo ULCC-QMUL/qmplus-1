@@ -109,9 +109,6 @@
 [submodule "course/format/flexsections"]
 	path = course/format/flexsections
 	url = git@github.com:marinaglancy/moodle-format_flexsections.git
-[submodule "course/format/grid"]
-	path = course/format/grid
-	url = git@github.com:QMUL/moodle-format_grid.git
 [submodule "course/format/qmulgrid"]
 	path = course/format/qmulgrid
 	url = git@github.com:ULCC-QMUL/moodle-format_qmulgrid.git
