@@ -609,3 +609,6 @@
 [submodule "enrol/auto"]
 	path = enrol/auto
 	url = git@github.com:ULCC-QMUL/moodle-enrol_auto.git
+[submodule "enrol/databaseextended"]
+	path = enrol/databaseextended
+	url = git@github.com:ULCC-QMUL/moodle-enrol_databaseextended.git
