@@ -609,3 +609,6 @@
 [submodule "blocks/side_bar"]
 	path = blocks/side_bar
 	url = git@github.com:ULCC-QMUL/moodle-block_side_bar.git
+[submodule "blocks/ulcc_diagnostics"]
+	path = blocks/ulcc_diagnostics
+	url = git@github.com:ULCC-QMUL/moodle-block_ulcc_diagnostics.git
