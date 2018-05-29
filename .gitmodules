@@ -84,9 +84,6 @@
 [submodule "blocks/heatmap"]
 	path = blocks/heatmap
 	url = git@github.com:deraadt/moodle-block_heatmap.git
-[submodule "blocks/ilp"]
-	path = blocks/ilp
-	url = git@github.com:QMUL/moodle-block_ilp.git
 [submodule "blocks/microsoft"]
 	path = blocks/microsoft
 	url = git@github.com:Microsoft/moodle-block_microsoft.git
