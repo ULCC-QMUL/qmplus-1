@@ -121,9 +121,6 @@
 	path = course/format/qmulweeks
 	url = git@github.com:ULCC-QMUL/moodle-course_format_qmulweeks.git
 	branch = develop_34
-[submodule "enrol/auto"]
-	path = enrol/auto
-	url = git@github.com:QMUL/moodle-enrol_auto.git
 [submodule "enrol/cohortcateg"]
 	path = enrol/cohortcateg
 	url = git@github.com:ULCC-QMUL/moodle-enrol_cohortcateg.git
