@@ -68,9 +68,6 @@
 [submodule "blocks/turningtech"]
 	path = blocks/turningtech
 	url = git@github.com:ULCC-QMUL/moodle-block_turningtech.git
-[submodule "blocks/ulcc_diagnostics"]
-	path = blocks/ulcc_diagnostics
-	url = git@github.com:QMUL/moodle-block_ulcc_diagnostics.git
 [submodule "blocks/widgets"]
 	path = blocks/widgets
 	url = git@github.com:ULCC-QMUL/moodle-block_widgets.git
