@@ -609,3 +609,6 @@
 [submodule "question/behaviour/interactivehints"]
 	path = question/behaviour/interactivehints
 	url = git@github.com:ULCC-QMUL/moodle-qbehaviour_interactivehints.git
+[submodule "question/type/poasquestion"]
+	path = question/type/poasquestion
+	url = git@github.com:ULCC-QMUL/moodle-qtype_poasquestion.git
