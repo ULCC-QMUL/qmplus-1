@@ -329,9 +329,6 @@
 [submodule "mod/quiz/accessrule/honestycheck"]
 	path = mod/quiz/accessrule/honestycheck
 	url = git@github.com:moodleou/moodle-quizaccess_honestycheck.git
-[submodule "question/behaviour/adaptivehints"]
-	path = question/behaviour/adaptivehints
-	url = git@github.com:QMUL/moodle-qbehaviour_adaptivehints.git
 [submodule "question/behaviour/adaptivehintsnopenalties"]
 	path = question/behaviour/adaptivehintsnopenalties
 	url = git@github.com:QMUL/moodle-qbehaviour_adaptivehintsnopenalties.git
