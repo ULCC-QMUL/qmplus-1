@@ -609,3 +609,6 @@
 [submodule "mod/adaptivequiz"]
 	path = mod/adaptivequiz
 	url = git@github.com:ULCC-QMUL/moodle-mod_adaptivequiz.git
+[submodule "mod/adobeconnect"]
+	path = mod/adobeconnect
+	url = git@github.com:ULCC-QMUL/moodle-mod_adobeconnect.git
