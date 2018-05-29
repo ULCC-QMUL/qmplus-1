@@ -425,9 +425,6 @@
 [submodule "report/componentgrades"]
 	path = report/componentgrades
 	url = git@github.com:pauln/moodle-report_componentgrades.git
-[submodule "report/overviewstats"]
-	path = report/overviewstats
-	url = git@github.com:QMUL/moodle-report_overviewstatistics.git
 [submodule "repository/office365"]
 	path = repository/office365
 	url = git@github.com:Microsoft/moodle-repository_office365.git
