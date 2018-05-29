@@ -609,3 +609,6 @@
 [submodule "lib/editor/atto/plugins/chemistry"]
 	path = lib/editor/atto/plugins/chemistry
 	url = git@github.com:ULCC-QMUL/moodle-editor_atto_chemistry.git
+[submodule "lib/editor/atto/plugins/htmlplus"]
+	path = lib/editor/atto/plugins/htmlplus
+	url = git@github.com:ULCC-QMUL/moodle-editor_atto_htmlplus.git
