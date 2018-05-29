@@ -609,3 +609,6 @@
 [submodule "enrol/databaseextended"]
 	path = enrol/databaseextended
 	url = git@github.com:ULCC-QMUL/moodle-enrol_databaseextended.git
+[submodule "filter/oembed"]
+	path = filter/oembed
+	url = git@github.com:ULCC-QMUL/moode-filter_oembed.git
