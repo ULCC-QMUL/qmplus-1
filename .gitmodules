@@ -609,3 +609,6 @@
 [submodule "mod/assign/submission/mahara"]
 	path = mod/assign/submission/mahara
 	url = git@github.com:ULCC-QMUL/moodle-assignsubmission_mahara.git
+[submodule "question/behaviour/adaptivehints"]
+	path = question/behaviour/adaptivehints
+	url = git@github.com:ULCC-QMUL/moodle-qbehaviour_adaptivehints.git
