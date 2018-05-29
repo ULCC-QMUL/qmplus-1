@@ -7,9 +7,6 @@
 [submodule "auth/oidc"]
 	path = auth/oidc
 	url = git@github.com:Microsoft/moodle-auth_oidc.git
-[submodule "auth/ulcc_sharedsecret_sso"]
-	path = auth/ulcc_sharedsecret_sso
-	url = git@github.com:QMUL/moodle-auth_ulcc_sharedsecret_sso.git
 [submodule "blocks/landingpage"]
 	path = blocks/landingpage
 	url = git@github.com:ULCC-QMUL/moodle-block_landingpage.git
