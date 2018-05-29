@@ -137,9 +137,6 @@
 [submodule "filter/kaltura"]
 	path = filter/kaltura
 	url = git@github.com:ULCC-QMUL/moodle-filter_kaltura.git
-[submodule "filter/replace"]
-	path = filter/replace
-	url = git@github.com:QMUL/moodle-filter_replace.git
 [submodule "grade/export/checklist"]
 	path = grade/export/checklist
 	url = git@github.com:davosmith/moodle-grade_checklist.git
