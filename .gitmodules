@@ -609,3 +609,6 @@
 [submodule "auth/ulcc_sharedsecret_sso"]
 	path = auth/ulcc_sharedsecret_sso
 	url = git@github.com:ULCC-QMUL/moodle-auth_ulcc_sharedsecret_sso.git
+[submodule "blocks/massaction"]
+	path = blocks/massaction
+	url = git@github.com:ULCC-QMUL/moodle-block_massaction.git
