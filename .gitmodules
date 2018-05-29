@@ -314,9 +314,6 @@
 [submodule "mod/turnitintooltwo"]
 	path = mod/turnitintooltwo
 	url = git@github.com:turnitin/moodle-mod_turnitintooltwo.git
-[submodule "mod/lightboxgallery"]
-	path = mod/lightboxgallery
-	url = git@github.com:QMUL/moodle-mod_lightboxgallery.git
 [submodule "mod/assign/feedback/onenote"]
 	path = mod/assign/feedback/onenote
 	url = git@github.com:Microsoft/moodle-assignfeedback_onenote.git
