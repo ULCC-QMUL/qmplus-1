@@ -609,3 +609,6 @@
 [submodule "repository/evernote"]
 	path = repository/evernote
 	url = git@github.com:ULCC-QMUL/moodle-repository_evernote.git
+[submodule "theme/klass"]
+	path = theme/klass
+	url = git@github.com:ULCC-QMUL/moodle-theme_klass.git
