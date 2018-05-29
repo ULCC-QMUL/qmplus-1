@@ -65,9 +65,6 @@
 	path = blocks/qmul_myprofile
 	url = git@github.com:ULCC-QMUL/moodle-block_qmul_myprofile.git
 	branch = July2017
-[submodule "blocks/side_bar"]
-	path = blocks/side_bar
-	url = git@github.com:QMUL/moodle-block_side_bar.git
 [submodule "blocks/turningtech"]
 	path = blocks/turningtech
 	url = git@github.com:ULCC-QMUL/moodle-block_turningtech.git
