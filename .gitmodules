@@ -609,3 +609,6 @@
 [submodule "question/behaviour/adaptivehints"]
 	path = question/behaviour/adaptivehints
 	url = git@github.com:ULCC-QMUL/moodle-qbehaviour_adaptivehints.git
+[submodule "question/behaviour/adaptivehintsnopenalties"]
+	path = question/behaviour/adaptivehintsnopenalties
+	url = git@github.com:ULCC-QMUL/moodle-qbehaviour_adaptivehintsnopenalties.git
