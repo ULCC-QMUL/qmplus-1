@@ -609,3 +609,6 @@
 [submodule "user/profile/field/o365"]
 	path = user/profile/field/o365
 	url = git@github.com:ULCC-QMUL/moodle-profilefield_o365.git
+[submodule "user/profile/field/oidc"]
+	path = user/profile/field/oidc
+	url = git@github.com:ULCC-QMUL/moodle-profilefield_oidc.git
