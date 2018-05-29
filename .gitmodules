@@ -326,9 +326,6 @@
 [submodule "mod/assign/submission/onenote"]
 	path = mod/assign/submission/onenote
 	url = git@github.com:Microsoft/moodle-assignsubmission_onenote.git
-[submodule "mod/assign/submission/mahara"]
-	path = mod/assign/submission/mahara
-	url = git@github.com:QMUL/moodle-assignsubmission_mahara.git
 [submodule "mod/quiz/accessrule/honestycheck"]
 	path = mod/quiz/accessrule/honestycheck
 	url = git@github.com:moodleou/moodle-quizaccess_honestycheck.git
