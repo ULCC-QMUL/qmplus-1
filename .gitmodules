@@ -609,3 +609,6 @@
 [submodule "mod/hvp"]
 	path = mod/hvp
 	url = git@github.com:h5p/h5p-moodle-plugin.git
+[submodule "mod/lightboxgallery"]
+	path = mod/lightboxgallery
+	url = git@github.com:ULCC-QMUL/moodle-mod_lightboxgallery.git
