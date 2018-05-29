@@ -96,9 +96,6 @@
 [submodule "blocks/turnitin"]
 	path = blocks/turnitin
 	url = git@github.com:turnitin/moodle-block_turnitin.git
-[submodule "blocks/checklist"]
-	path = blocks/checklist
-	url = git@github.com:QMUL/moodle-block_checklist.git
 [submodule "blocks/course_contents"]
 	path = blocks/course_contents
 	url = git@github.com:QMUL/moodle-block_course_contents.git
