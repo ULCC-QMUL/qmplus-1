@@ -609,3 +609,6 @@
 [submodule "lib/editor/atto/plugins/htmlplus"]
 	path = lib/editor/atto/plugins/htmlplus
 	url = git@github.com:ULCC-QMUL/moodle-editor_atto_htmlplus.git
+[submodule "repository/evernote"]
+	path = repository/evernote
+	url = git@github.com:ULCC-QMUL/moodle-repository_evernote.git
