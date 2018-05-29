@@ -609,3 +609,6 @@
 [submodule "mod/adobeconnect"]
 	path = mod/adobeconnect
 	url = git@github.com:ULCC-QMUL/moodle-mod_adobeconnect.git
+[submodule "mod/hvp"]
+	path = mod/hvp
+	url = git@github.com:h5p/h5p-moodle-plugin.git
