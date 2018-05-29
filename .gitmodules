@@ -398,9 +398,6 @@
 [submodule "lib/editor/atto/plugins/easychem"]
 	path = lib/editor/atto/plugins/easychem
 	url = git@github.com:ULCC-QMUL/moodle-editor_atto_easychem.git
-[submodule "lib/editor/atto/plugins/chemistry"]
-	path = lib/editor/atto/plugins/chemistry
-	url = git@github.com:QMUL/moodle-editor_atto_chemistry.git
 [submodule "lib/editor/atto/plugins/computing"]
 	path = lib/editor/atto/plugins/computing
 	url = git@github.com:ULCC-QMUL/moodle-editor_atto_computing.git
