@@ -609,3 +609,6 @@
 [submodule "blocks/quickmail"]
 	path = blocks/quickmail
 	url = git@github.com:ULCC-QMUL/moodle-block_quickmail.git
+[submodule "blocks/sharing_cart"]
+	path = blocks/sharing_cart
+	url = git@github.com:ULCC-QMUL/moodle-block_sharing_cart.git
