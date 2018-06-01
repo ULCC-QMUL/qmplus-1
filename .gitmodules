@@ -641,3 +641,6 @@
 [submodule "blocks/course_overview"]
 	path = blocks/course_overview
 	url = git@github.com:thepurpleblob/moodle-block_course_overview.git
+[submodule "local/pluginmeta"]
+	path = local/pluginmeta
+	url = git@github.com:QMUL/moodle-local_pluginmeta.git
