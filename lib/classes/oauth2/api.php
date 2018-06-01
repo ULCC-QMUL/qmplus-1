@@ -87,9 +87,9 @@ class api {
         $issuer->create();
 
         $endpoints = [
-            'authorization_endpoint' => 'https://www.facebook.com/v2.8/dialog/oauth',
-            'token_endpoint' => 'https://graph.facebook.com/v2.8/oauth/access_token',
-            'userinfo_endpoint' => 'https://graph.facebook.com/v2.8/me?fields=id,first_name,last_name,link,picture,name,email'
+            'authorization_endpoint' => 'https://www.facebook.com/v2.12/dialog/oauth',
+            'token_endpoint' => 'https://graph.facebook.com/v2.12/oauth/access_token',
+            'userinfo_endpoint' => 'https://graph.facebook.com/v2.12/me?fields=id,first_name,last_name,link,picture,name,email'
         ];
 
         foreach ($endpoints as $name => $url) {
@@ -349,7 +349,7 @@ class api {
      * @param \core\oauth2\issuer $issuer The desired OAuth issuer
      */
     protected static function guess_image($issuer) {
-        if (empty($issuer->get('image'))) {
+        if (empty($issuer->get('image')) && !empty($issuer->get('baseurl'))) {
             $baseurl = parse_url($issuer->get('baseurl'));
             $imageurl = $baseurl['scheme'] . '://' . $baseurl['host'] . '/favicon.ico';
             $issuer->set('image', $imageurl);
