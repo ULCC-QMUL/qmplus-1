@@ -167,7 +167,7 @@
 	url = git@github.com:ULCC-QMUL/moodle-editor_tinymce_kalturamedia.git
 [submodule "lib/editor/tinymce/plugins/mathslate"]
 	path = lib/editor/tinymce/plugins/mathslate
-	url = git@github.com:dthies/moodle-editor_tinymce-mathslate.git
+	url = git@github.com:ULCC-QMUL/moodle-editor_tinymce_mathslate.git
 [submodule "local/landingpages"]
 	path = local/landingpages
 	url = git@github.com:ULCC-QMUL/moodle-local_landingpages.git
