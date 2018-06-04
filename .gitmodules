@@ -632,7 +632,6 @@
 [submodule "local/sandbox"]
 	path = local/sandbox
 	url = git@github.com:moodleuulm/moodle-local_sandbox.git
-	branch = v3.4-r4
 [submodule "blocks/sharing_cart"]
 	path = blocks/sharing_cart
 	url = git@github.com:ULCC-QMUL/moodle-block_sharing_cart.git
