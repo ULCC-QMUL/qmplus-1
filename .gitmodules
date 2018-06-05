@@ -438,9 +438,6 @@
 	path = theme/qmul
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul.git
 	branch = develop_34
-[submodule "blocks/modulesdashboard"]
-	path = blocks/modulesdashboard
-	url = git@github.com:ULCC-QMUL/moodle-block_modulesdashboard.git
 [submodule "theme/qmul_humanities"]
 	path = theme/qmul_humanities
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_humanities.git
@@ -459,9 +456,6 @@
 [submodule "theme/ulip"]
 	path = theme/ulip
 	url = git@github.com:/ULCC-QMUL/moodle-theme_ulip
-[submodule "blocks/kalturamediagallery"]
-	path = blocks/kalturamediagallery
-	url = git@github.com:/ULCC-QMUL/moodle-block_kalturamediagallery
 [submodule "admin/tool/policy"]
 	path = admin/tool/policy
 	url = git@github.com:/moodlehq/moodle-tool_policy
