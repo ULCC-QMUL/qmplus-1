@@ -3659,6 +3659,9 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
 .moodle-dialogue-base .moodle-dialogue-lightbox {
   background-color: #aaa;
 }
+.pagelayout-popup .moodle-dialogue-base .moodle-dialogue-lightbox {
+  background-color: transparent;
+}
 .moodle-dialogue-base .hidden,
 .moodle-dialogue-base .moodle-dialogue-hidden {
   display: none;
@@ -8124,7 +8127,7 @@ a.ygtvspacer:hover {
   color: #ff6961;
 }
 .messaging-area-container .status.online .online-text {
-  display: block;
+  display: inherit;
 }
 .messaging-area-container .status.online .offline-text {
   display: none;
@@ -16621,7 +16624,8 @@ form {
 }
 .mform .fcheckbox > span,
 .mform .fradio > span,
-.mform .fgroup > span {
+.mform .fgroup > span,
+.mform .fadvcheckbox > span {
   display: inline-block;
   margin-top: 5px;
 }
@@ -17313,7 +17317,6 @@ body.path-mod-feedback #region-main .mform.feedback_form .feedback-item-pagebrea
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
-.path-mod-forum .forumheaderlist .discussion .author,
 .path-mod-forum .forumheaderlist .discussion .replies,
 .path-mod-forum .forumheaderlist .discussion .lastpost {
   white-space: normal;
@@ -17325,14 +17328,9 @@ body.path-mod-feedback #region-main .mform.feedback_form .feedback-item-pagebrea
 .path-mod-forum .forumheaderlist .discussion .topic,
 .path-mod-forum .forumheaderlist .discussion .discussionsubscription,
 .path-mod-forum .forumheaderlist .discussion .topic.starter,
-.path-mod-forum .forumheaderlist .discussion .author,
 .path-mod-forum .forumheaderlist .discussion .replies,
 .path-mod-forum .forumheaderlist .discussion .lastpost {
   vertical-align: top;
-}
-.path-mod-forum .forumheaderlist .discussion .picture {
-  margin: 0 20px;
-  float: left;
 }
 .path-mod-forum .forumheaderlist .discussion .unread img {
   margin: 0;
@@ -17583,6 +17581,16 @@ div#dock {
 }
 #page-mod-lesson-view .branchbuttoncontainer .singlebutton input[type="submit"] {
   white-space: normal;
+}
+#page-mod-lesson-view .answeroption .fitemtitle {
+  width: 30%;
+  text-align: left;
+}
+#page-mod-lesson-view .answeroption .fitemtitle label {
+  padding-right: 15px;
+}
+#page-mod-lesson-view .fitem .felement {
+  margin-left: 30%;
 }
 .path-mod-lesson .reviewessay {
   width: 40%;
