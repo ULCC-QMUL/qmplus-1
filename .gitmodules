@@ -603,3 +603,6 @@
 [submodule "blocks/massaction"]
 	path = blocks/massaction
 	url = git@github.com:ULCC-QMUL/moodle-block_massaction.git
+[submodule "local/orphan2stealth"]
+	path = local/orphan2stealth
+	url = git@github.com:ULCC-QMUL/moodle-local_orphan2stealth.git
