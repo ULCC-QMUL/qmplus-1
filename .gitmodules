@@ -456,12 +456,6 @@
 [submodule "theme/ulip"]
 	path = theme/ulip
 	url = git@github.com:/ULCC-QMUL/moodle-theme_ulip
-[submodule "admin/tool/policy"]
-	path = admin/tool/policy
-	url = git@github.com:/moodlehq/moodle-tool_policy
-[submodule "admin/tool/dataprivacy"]
-	path = admin/tool/dataprivacy
-	url = git@github.com:/moodlehq/moodle-tool_dataprivacy
 [submodule "filter/imageopt"]
 	path = filter/imageopt
 	url = git@github.com:/gthomas2/moodle-filter_imageopt
