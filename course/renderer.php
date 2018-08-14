@@ -551,7 +551,8 @@ class core_course_renderer extends plugin_renderer_base {
                 $output .= html_writer::empty_tag('input', array(
                     'type' => 'hidden', 'name' => 'completionstate', 'value' => $newstate));
                 $output .= html_writer::tag('button',
-                    $this->output->pix_icon('i/completion-' . $completionicon, $imgalt), array('class' => 'btn btn-link'));
+                    $this->output->pix_icon('i/completion-' . $completionicon, $imgalt),
+                        array('class' => 'btn btn-link', 'title' => $imgalt));
                 $output .= html_writer::end_tag('div');
                 $output .= html_writer::end_tag('form');
             } else {
@@ -1988,13 +1989,7 @@ class core_course_renderer extends plugin_renderer_base {
         }
 
         $output = '';
-        if (!empty($CFG->navsortmycoursessort)) {
-            // sort courses the same as in navigation menu
-            $sortorder = 'visible DESC,'. $CFG->navsortmycoursessort.' ASC';
-        } else {
-            $sortorder = 'visible DESC,sortorder ASC';
-        }
-        $courses  = enrol_get_my_courses('summary, summaryformat', $sortorder);
+        $courses  = enrol_get_my_courses('summary, summaryformat');
         $rhosts   = array();
         $rcourses = array();
         if (!empty($CFG->mnet_dispatcher_mode) && $CFG->mnet_dispatcher_mode==='strict') {

@@ -620,9 +620,10 @@ $string['emaildigestsubjects'] = 'Subjects (daily email with subjects only)';
 $string['emaildisable'] = 'This email address is disabled';
 $string['emaildisableclick'] = 'Click here to disable all email from being sent to this address';
 $string['emaildisplay'] = 'Email display';
+$string['emaildisplay_help'] = 'Privileged users (such as teachers and managers) will always be able to see your email address.';
 $string['emaildisplaycourse'] = 'Allow only other course members to see my email address';
 $string['emaildisplayhidden'] = 'Email hidden';
-$string['emaildisplayno'] = 'Hide my email address from everyone';
+$string['emaildisplayno'] = 'Hide my email address from non-privileged users';
 $string['emaildisplayyes'] = 'Allow everyone to see my email address';
 $string['emailenable'] = 'This email address is enabled';
 $string['emailenableclick'] = 'Click here to re-enable all email being sent to this address';
@@ -806,6 +807,7 @@ $string['feedback'] = 'Feedback';
 $string['file'] = 'File';
 $string['fileexists'] = 'There is already a file called {$a}';
 $string['filemissing'] = '{$a} is missing';
+$string['filereaderror'] = 'Unable to read the file \'{$a}\'. Please check that it really is a file and not a folder.';
 $string['files'] = 'Files';
 $string['filesanduploads'] = 'Files and uploads';
 $string['filesfolders'] = 'Files/folders';
@@ -1015,9 +1017,9 @@ $string['idnumbergroup_help'] = 'The ID number of a group is only used when matc
 $string['idnumbergrouping'] = 'Grouping ID number';
 $string['idnumbergrouping_help'] = 'The ID number of a grouping is only used when matching the grouping against external systems and is not displayed anywhere on the site. If the grouping has an official code name it may be entered, otherwise the field can be left blank.';
 $string['idnumbermod'] = 'ID number';
-$string['idnumbermod_help'] = 'Setting an ID number provides a way of identifying the activity for grade calculation purposes. If the activity is not included in any grade calculation then the ID number field may be left blank.
+$string['idnumbermod_help'] = 'Setting an ID number provides a way of identifying the activity or resource for purposes such as grade calculation or custom reporting. Otherwise the field may be left blank.
 
-The ID number can also be set in the gradebook, though it can only be edited on the activity settings page.';
+For gradable activities, the ID number can also be set in the gradebook, though it can only be edited on the activity settings page.';
 $string['idnumbertaken'] = 'This ID number is already taken';
 $string['imagealt'] = 'Picture description';
 $string['import'] = 'Import';
@@ -1560,7 +1562,7 @@ $string['privacy:metadata:events_queue'] = 'The queue of user events waiting to 
 $string['privacy:metadata:events_queue:eventdata'] = 'The data stored in the event.';
 $string['privacy:metadata:events_queue:stackdump'] = 'Any stacktrace associated with this event.';
 $string['privacy:metadata:events_queue:timecreated'] = 'The time that this event was created.';
-$string['privacy:metadata:events_queue:userid'] = 'The userid associated with this event.';
+$string['privacy:metadata:events_queue:userid'] = 'The user ID associated with this event';
 $string['privacy:metadata:log'] = 'A collection of past events';
 $string['privacy:metadata:log:action'] = 'A description of the action';
 $string['privacy:metadata:log:cmid'] = 'cmid';
@@ -2197,10 +2199,6 @@ $string['yourteacher'] = 'your {$a}';
 $string['yourwordforx'] = 'Your word for \'{$a}\'';
 $string['zippingbackup'] = 'Zipping backup';
 $string['deprecatedeventname'] = '{$a} (no longer in use)';
-
-// Deprecated since Moodle 3.1.
-$string['filetoolarge'] = 'is too large to upload';
-$string['maxbytesforfile'] = 'The file {$a} is larger than the maximum size allowed.';
 
 // Deprecated since Moodle 3.2.
 $string['modchooserenable'] = 'Activity chooser on';
