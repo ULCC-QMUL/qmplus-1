@@ -606,3 +606,6 @@
 [submodule "local/orphan2stealth"]
 	path = local/orphan2stealth
 	url = git@github.com:ULCC-QMUL/moodle-local_orphan2stealth.git
+[submodule "question/type/algebra"]
+	path = question/type/algebra
+	url = https://github.com/jmvedrine/moodle-qtype_algebra
