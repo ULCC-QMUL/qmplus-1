@@ -606,3 +606,6 @@
 [submodule "local/orphan2stealth"]
 	path = local/orphan2stealth
 	url = git@github.com:ULCC-QMUL/moodle-local_orphan2stealth.git
+[submodule "mod/lti/service/gradebookservices"]
+	path = mod/lti/service/gradebookservices
+	url = git@github.com:/CengageEng/moodle-ltiservice_gradebookservices
