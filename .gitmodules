@@ -608,4 +608,4 @@
 	url = git@github.com:ULCC-QMUL/moodle-local_orphan2stealth.git
 [submodule "question/type/algebra"]
 	path = question/type/algebra
-	url = https://github.com/jmvedrine/moodle-qtype_algebra
+	url = git@github.com:jmvedrine/moodle-qtype_algebra.git 
