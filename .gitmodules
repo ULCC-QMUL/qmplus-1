@@ -606,3 +606,6 @@
 [submodule "question/type/algebra"]
 	path = question/type/algebra
 	url = git@github.com:jmvedrine/moodle-qtype_algebra.git 
+[submodule "mod/lti/service/gradebookservices"]
+	path = mod/lti/service/gradebookservices
+	url = git@github.com:/CengageEng/moodle-ltiservice_gradebookservices
