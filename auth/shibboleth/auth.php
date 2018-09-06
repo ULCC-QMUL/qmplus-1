@@ -213,6 +213,17 @@ class auth_plugin_shibboleth extends auth_plugin_base {
     function loginpage_hook() {
         global $SESSION, $CFG;
 
+	// Check parameter has not been passed to skip authentication
+        $authShib = optional_param('authShib', '', PARAM_RAW);
+
+        if ($authShib == 'NOSHIB') {
+            return;
+        }else{
+            // Redirect to the Shibboleth protected page
+            header ("location: $CFG->wwwroot/auth/shibboleth/index.php");
+        }
+
+
         // Prevent username from being shown on login page after logout
         $CFG->nolastloggedin = true;
 
