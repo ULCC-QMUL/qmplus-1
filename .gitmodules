@@ -609,3 +609,6 @@
 [submodule "mod/lti/service/gradebookservices"]
 	path = mod/lti/service/gradebookservices
 	url = git@github.com:/CengageEng/moodle-ltiservice_gradebookservices
+[submodule "blocks/qmul_blindmarking"]
+	path = blocks/qmul_blindmarking
+	url = git@github.com:ULCC-QMUL/moodle-block_qmul_blindmarking.git
