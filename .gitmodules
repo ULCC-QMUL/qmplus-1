@@ -612,3 +612,6 @@
 [submodule "blocks/qmul_blindmarking"]
 	path = blocks/qmul_blindmarking
 	url = git@github.com:ULCC-QMUL/moodle-block_qmul_blindmarking.git
+[submodule "course/format/qmultabtc"]
+	path = course/format/qmultabtc
+	url = git@github.com:ULCC-QMUL/moodle-course_format_qmultabtc.git
