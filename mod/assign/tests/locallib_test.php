@@ -190,6 +190,40 @@ class mod_assign_locallib_testcase extends advanced_testcase {
     }
 
     /**
+     * Test filter by requires grading.
+     *
+     * This is specifically checking an assignment with no grade to make sure we do not
+     * get an exception thrown when rendering the grading table for this type of assignment.
+     */
+    public function test_gradingtable_filter_by_requiresgrading_no_grade() {
+        global $PAGE;
+
+        $this->resetAfterTest();
+
+        $course = $this->getDataGenerator()->create_course();
+        $teacher = $this->getDataGenerator()->create_and_enrol($course, 'teacher');
+        $this->setUser($teacher);
+        $assign = $this->create_instance($course, [
+                'assignsubmission_onlinetext_enabled' => 1,
+                'assignfeedback_comments_enabled' => 0,
+                'grade' => GRADE_TYPE_NONE
+            ]);
+
+        $PAGE->set_url(new moodle_url('/mod/assign/view.php', array(
+            'id' => $assign->get_course_module()->id,
+            'action' => 'grading',
+        )));
+
+        // Render the table with the requires grading filter.
+        $gradingtable = new assign_grading_table($assign, 1, ASSIGN_FILTER_REQUIRE_GRADING, 0, true);
+        $output = $assign->get_renderer()->render($gradingtable);
+
+        // Test that the filter function does not throw errors for assignments with no grade.
+        $this->assertContains(get_string('nothingtodisplay'), $output);
+    }
+
+
+    /**
      * Test submissions with extension date.
      */
     public function test_gradingtable_extension_due_date() {
@@ -1031,10 +1065,6 @@ class mod_assign_locallib_testcase extends advanced_testcase {
         $this->add_submission($student, $assign);
         $this->submit_for_grading($student, $assign);
 
-        // TODO Find a way to kill this waitForSecond
-        // This is to make sure the grade happens after the submission because
-        // we have no control over the timemodified values.
-        $this->waitForSecond();
         $this->mark_submission($teacher, $assign, $student, 50.0);
 
         $data = new stdClass();
@@ -1302,7 +1332,6 @@ class mod_assign_locallib_testcase extends advanced_testcase {
 
         $this->add_submission($student, $assign);
         $this->submit_for_grading($student, $assign);
-        $this->waitForSecond();
         $this->mark_submission($teacher, $assign, $student, 50.0);
 
         // Although it has been graded, it is still marked as submitted.
@@ -1690,6 +1719,11 @@ class mod_assign_locallib_testcase extends advanced_testcase {
 
         $this->setUser($teacher);
         $this->assertEquals(true, $assign->can_grade());
+
+        // Test the viewgrades capability for other users.
+        $this->setUser();
+        $this->assertTrue($assign->can_grade($teacher->id));
+        $this->assertFalse($assign->can_grade($student->id));
 
         // Test the viewgrades capability - without mod/assign:grade.
         $this->setUser($student);
@@ -2748,7 +2782,7 @@ class mod_assign_locallib_testcase extends advanced_testcase {
 
         $cm = get_coursemodule_from_instance('assign', $assign->get_instance()->id);
         $context = context_module::instance($cm->id);
-        $assign = new testable_assign($context, $cm, $course);
+        $assign = new mod_assign_testable_assign($context, $cm, $course);
 
         // Check that other teachers can't view this submission.
         $this->setUser($otherteacher);
@@ -3853,6 +3887,7 @@ Anchor link 2:<a title=\"bananas\" href=\"../logo-240x60.gif\">Link text</a>
         $assign->get_user_grade($student->id, true);
 
         // Set the grade to something errant.
+        // We don't set the grader here, so we expect it to be -1 as a result.
         $DB->set_field(
             'assign_grades',
             'grade',
@@ -3870,6 +3905,7 @@ Anchor link 2:<a title=\"bananas\" href=\"../logo-240x60.gif\">Link text</a>
         // Check that the gradebook was updated with the assign grade. So we can guarentee test results later on.
         $expectedgrade = $grade == -1 ? null : $grade; // Assign sends null to the gradebook for -1 grades.
         $gradegrade = grade_grade::fetch(array('userid' => $student->id, 'itemid' => $assign->get_grade_item()->id));
+        $this->assertEquals(-1, $gradegrade->usermodified);
         $this->assertEquals($expectedgrade, $gradegrade->rawgrade);
 
         // Call fix_null_grades().
@@ -3880,6 +3916,9 @@ Anchor link 2:<a title=\"bananas\" href=\"../logo-240x60.gif\">Link text</a>
         $this->assertSame(true, $result);
 
         $gradegrade = grade_grade::fetch(array('userid' => $student->id, 'itemid' => $assign->get_grade_item()->id));
+
+        $this->assertEquals(-1, $gradegrade->usermodified);
+        $this->assertEquals($gradebookvalue, $gradegrade->finalgrade);
 
         // Check that the grade was updated in the gradebook by fix_null_grades.
         $this->assertEquals($gradebookvalue, $gradegrade->finalgrade);
