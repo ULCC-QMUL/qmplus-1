@@ -606,6 +606,3 @@
 [submodule "blocks/qmul_blindmarking"]
 	path = blocks/qmul_blindmarking
 	url = git@github.com:ULCC-QMUL/moodle-block_qmul_blindmarking.git
-[submodule "local/qsection"]
-	path = local/qsection
-	url = git@github.com:ULCC-QMUL/moodle-local_qsection.git
