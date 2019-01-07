@@ -30,7 +30,6 @@ $string['assignrole'] = 'Assign role';
 $string['assignroles'] = 'Assign roles';
 $string['browseusers'] = 'Browse users';
 $string['browsecohorts'] = 'Browse cohorts';
-$string['cohortsconfirm'] = 'Enrol cohorts (may enrol many users). Are you sure?';
 $string['confirmbulkdeleteenrolment'] = 'Are you sure you want to delete these users enrolments?';
 $string['defaultstart'] = 'Default enrolment start';
 $string['defaultperiod'] = 'Default enrolment duration';

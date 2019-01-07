@@ -96,9 +96,6 @@ define(['core/templates',
                     var stringIndex = $(html).find(SELECTORS.COHORTSELECT).length ? 0 : 1;
                     modal.setSaveButtonText(strings[stringIndex]);
 
-                    // SYNERGY LEARNING.
-                    modal.getFooter().find('[data-action="save"]').removeClass('btn-warning');
-
                     return;
                 })
                 .fail(Notification.exception);
@@ -135,21 +132,6 @@ define(['core/templates',
         e.preventDefault();
 
         var form = this.modal.getRoot().find('form');
-
-        // SYNERGY LEARNING.
-        var totcohorts = form.find('#id_cohortlist').find(":selected").length;
-        if (totcohorts > 0) {
-            if (this.needsConfirmCohorts != true) {
-                this.needsConfirmCohorts = true;
-                this.modal.setSaveButtonText(Str.get_string('cohortsconfirm', 'enrol_manual'));
-                this.modal.getFooter().find('[data-action="save"]').addClass('btn-warning');
-                return;
-            } else {
-                this.needsConfirmCohorts = false;
-            }
-        }
-        // SYNERGY LEARNING.
-
 
         // Before send the data through AJAX, we need to parse and remove some unwanted hidden fields.
         // This hidden fields are added automatically by mforms and when it reaches the AJAX we get an error.
