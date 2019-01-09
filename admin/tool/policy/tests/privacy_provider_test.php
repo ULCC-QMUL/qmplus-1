@@ -42,12 +42,6 @@ class tool_policy_privacy_provider_testcase extends \core_privacy\tests\provider
     /** @var stdClass The user object. */
     protected $user;
 
-    /** @var stdClass The manager user object. */
-    protected $manager;
-
-    /** @var context_system The system context instance. */
-    protected $syscontext;
-
     /**
      * Setup function. Will create a user.
      */
@@ -56,15 +50,31 @@ class tool_policy_privacy_provider_testcase extends \core_privacy\tests\provider
 
         $generator = $this->getDataGenerator();
         $this->user = $generator->create_user();
+    }
 
-        // Create manager user.
-        $this->manager = $generator->create_user();
-        $this->syscontext = context_system::instance();
-        $rolemanagerid = create_role('Policy manager', 'policymanager', 'Can manage policy documents');
-        assign_capability('tool/policy:managedocs', CAP_ALLOW, $rolemanagerid, $this->syscontext->id);
-        assign_capability('tool/policy:acceptbehalf', CAP_ALLOW, $rolemanagerid, $this->syscontext->id);
-        role_assign($rolemanagerid, $this->manager->id, $this->syscontext->id);
-        accesslib_clear_all_caches_for_unit_testing();
+    /**
+     * Test for provider::get_metadata().
+     */
+    public function test_get_metadata() {
+        $collection = new collection('tool_policy');
+        $newcollection = provider::get_metadata($collection);
+        $itemcollection = $newcollection->get_collection();
+        $this->assertCount(1, $itemcollection);
+
+        $table = reset($itemcollection);
+        $this->assertEquals('tool_policy_acceptances', $table->get_name());
+
+        $privacyfields = $table->get_privacy_fields();
+        $this->assertArrayHasKey('policyversionid', $privacyfields);
+        $this->assertArrayHasKey('userid', $privacyfields);
+        $this->assertArrayHasKey('status', $privacyfields);
+        $this->assertArrayHasKey('lang', $privacyfields);
+        $this->assertArrayHasKey('usermodified', $privacyfields);
+        $this->assertArrayHasKey('timecreated', $privacyfields);
+        $this->assertArrayHasKey('timemodified', $privacyfields);
+        $this->assertArrayHasKey('note', $privacyfields);
+
+        $this->assertEquals('privacy:metadata:acceptances', $table->get_summary());
     }
 
     /**
@@ -74,22 +84,16 @@ class tool_policy_privacy_provider_testcase extends \core_privacy\tests\provider
         global $CFG;
 
         // When there are no policies or agreements context list is empty.
-        $contextlist = \tool_policy\privacy\provider::get_contexts_for_userid($this->manager->id);
-        $this->assertEmpty($contextlist);
         $contextlist = \tool_policy\privacy\provider::get_contexts_for_userid($this->user->id);
         $this->assertEmpty($contextlist);
 
         // Create a policy.
-        $this->setUser($this->manager);
+        $this->setAdminUser();
         $CFG->sitepolicyhandler = 'tool_policy';
         $policy = $this->add_policy();
         api::make_current($policy->get('id'));
 
-        // After creating a policy, there should be manager context.
-        $contextlist = \tool_policy\privacy\provider::get_contexts_for_userid($this->manager->id);
-        $this->assertEquals(1, $contextlist->count());
-
-        // But when there are no agreements, user context list is empty.
+        // When there are no agreements context list is empty.
         $contextlist = \tool_policy\privacy\provider::get_contexts_for_userid($this->user->id);
         $this->assertEmpty($contextlist);
 
@@ -102,105 +106,13 @@ class tool_policy_privacy_provider_testcase extends \core_privacy\tests\provider
         $this->assertEquals(1, $contextlist->count());
     }
 
-    /**
-     * Test getting the user IDs within the context related to this plugin.
-     */
-    public function test_get_users_in_context() {
-        global $CFG;
-        $component = 'tool_policy';
+    public function test_export_own_agreements() {
+        global $CFG, $USER;
 
-        // System context should have nothing before a policy is added.
-        $userlist = new \core_privacy\local\request\userlist($this->syscontext, $component);
-        provider::get_users_in_context($userlist);
-        $this->assertEmpty($userlist);
-
-        // Create parent and child users.
-        $generator = $this->getDataGenerator();
-        $parentuser = $generator->create_user();
-        $childuser = $generator->create_user();
-
-        // Fetch relevant contexts.
-        $managercontext = \context_user::instance($this->manager->id);
-        $usercontext = $managercontext = \context_user::instance($this->user->id);
-        $parentcontext = $managercontext = \context_user::instance($parentuser->id);
-        $childcontext = $managercontext = \context_user::instance($childuser->id);
-
-        // Assign parent to accept on behalf of the child.
-        $roleparentid = create_role('Parent', 'parent', 'Can accept policies on behalf of their child');
-        assign_capability('tool/policy:acceptbehalf', CAP_ALLOW, $roleparentid, $this->syscontext->id);
-        role_assign($roleparentid, $parentuser->id, $childcontext->id);
-
-        // Create a policy.
-        $this->setUser($this->manager);
-        $CFG->sitepolicyhandler = 'tool_policy';
-        $policy = $this->add_policy();
-        api::make_current($policy->get('id'));
-
-        // Manager should exist in system context now they have created a policy.
-        $userlist = new \core_privacy\local\request\userlist($this->syscontext, $component);
-        provider::get_users_in_context($userlist);
-        $this->assertCount(1, $userlist);
-        $this->assertEquals([$this->manager->id], $userlist->get_userids());
-
-        // User contexts should be empty before policy acceptances.
-        $userlist = new \core_privacy\local\request\userlist($usercontext, $component);
-        provider::get_users_in_context($userlist);
-        $this->assertEmpty($userlist);
-
-        $userlist = new \core_privacy\local\request\userlist($parentcontext, $component);
-        provider::get_users_in_context($userlist);
-        $this->assertEmpty($userlist);
-
-        $userlist = new \core_privacy\local\request\userlist($childcontext, $component);
-        provider::get_users_in_context($userlist);
-        $this->assertEmpty($userlist);
-
-        // User accepts policy, parent accepts on behalf of child only.
-        $this->setUser($this->user);
-        api::accept_policies([$policy->get('id')]);
-
-        $this->setUser($parentuser);
-        api::accept_policies([$policy->get('id')], $childuser->id);
-
-        // Ensure user is fetched within its user context.
-        $userlist = new \core_privacy\local\request\userlist($usercontext, $component);
-        provider::get_users_in_context($userlist);
-        $this->assertCount(1, $userlist);
-        $this->assertEquals([$this->user->id], $userlist->get_userids());
-
-        // Ensure parent and child are both found within child's user context.
-        $userlist = new \core_privacy\local\request\userlist($childcontext, $component);
-        provider::get_users_in_context($userlist);
-        $this->assertCount(2, $userlist);
-        $expected = [$parentuser->id, $childuser->id];
-        $actual = $userlist->get_userids();
-        sort($expected);
-        sort($actual);
-        $this->assertEquals($expected, $actual);
-
-        // Parent has not accepted for itself, so should not be found within its user context.
-        $userlist = new \core_privacy\local\request\userlist($parentcontext, $component);
-        provider::get_users_in_context($userlist);
-        $this->assertCount(0, $userlist);
-    }
-
-    public function test_export_agreements() {
-        global $CFG;
-
-        $otheruser = $this->getDataGenerator()->create_user();
-        $otherusercontext = \context_user::instance($otheruser->id);
-
-        // Create policies and agree to them as manager.
-        $this->setUser($this->manager);
-        $managercontext = \context_user::instance($this->manager->id);
-        $systemcontext = \context_system::instance();
-        $agreementsubcontext = [
-            get_string('privacyandpolicies', 'admin'),
-            get_string('useracceptances', 'tool_policy')
-        ];
-        $versionsubcontext = [
-            get_string('policydocuments', 'tool_policy')
-        ];
+        // Create policies and agree to them as admin.
+        $this->setAdminUser();
+        $admin = fullclone($USER);
+        $admincontext = context_user::instance($admin->id);
         $CFG->sitepolicyhandler = 'tool_policy';
         $policy1 = $this->add_policy();
         api::make_current($policy1->get('id'));
@@ -210,166 +122,99 @@ class tool_policy_privacy_provider_testcase extends \core_privacy\tests\provider
 
         // Agree to the policies for oneself.
         $this->setUser($this->user);
-        $usercontext = \context_user::instance($this->user->id);
+        $usercontext = context_user::instance($this->user->id);
         api::accept_policies([$policy1->get('id'), $policy2->get('id')]);
 
         // Request export for this user.
         $contextlist = provider::get_contexts_for_userid($this->user->id);
-        $this->assertCount(1, $contextlist);
         $this->assertEquals([$usercontext->id], $contextlist->get_contextids());
 
         $approvedcontextlist = new approved_contextlist($this->user, 'tool_policy', [$usercontext->id]);
         provider::export_user_data($approvedcontextlist);
 
-        // User can not see manager's agreements but can see his own.
-        $writer = writer::with_context($managercontext);
-        $this->assertFalse($writer->has_any_data());
+        // User can not see admin's agreements but can see his own.
+        $writer = writer::with_context($admincontext);
+        $dataadmin = $writer->get_related_data([get_string('userpoliciesagreements', 'tool_policy'), $admin->id]);
+        $this->assertEmpty($dataadmin);
 
         $writer = writer::with_context($usercontext);
-        $this->assertTrue($writer->has_any_data());
-
-        // Test policy 1.
-        $subcontext = array_merge($agreementsubcontext, [get_string('policynamedversion', 'tool_policy', $policy1->to_record())]);
-        $datauser = $writer->get_data($subcontext);
-        $this->assertEquals($policy1->get('name'), $datauser->name);
-        $this->assertEquals($this->user->id, $datauser->agreedby);
-        $this->assertEquals(strip_tags($policy1->get('summary')), strip_tags($datauser->summary));
-        $this->assertEquals(strip_tags($policy1->get('content')), strip_tags($datauser->content));
-
-        // Test policy 2.
-        $subcontext = array_merge($agreementsubcontext, [get_string('policynamedversion', 'tool_policy', $policy2->to_record())]);
-        $datauser = $writer->get_data($subcontext);
-        $this->assertEquals($policy2->get('name'), $datauser->name);
-        $this->assertEquals($this->user->id, $datauser->agreedby);
-        $this->assertEquals(strip_tags($policy2->get('summary')), strip_tags($datauser->summary));
-        $this->assertEquals(strip_tags($policy2->get('content')), strip_tags($datauser->content));
+        $datauser = $writer->get_related_data([get_string('userpoliciesagreements', 'tool_policy'), $this->user->id]);
+        $this->assertEquals(2, count($datauser));
+        $this->assertEquals($policy1->get('name'), $datauser['policyagreement-'.$policy1->get('id')]->name);
+        $this->assertEquals($this->user->id, $datauser['policyagreement-'.$policy1->get('id')]->usermodified);
+        $this->assertEquals($policy2->get('name'), $datauser['policyagreement-'.$policy2->get('id')]->name);
+        $this->assertEquals($this->user->id, $datauser['policyagreement-'.$policy2->get('id')]->usermodified);
     }
 
-    public function test_export_agreements_for_other() {
-        global $CFG;
+    public function test_export_agreements_on_behalf() {
+        global $CFG, $USER;
 
-        $managercontext = \context_user::instance($this->manager->id);
-        $systemcontext = \context_system::instance();
-        $usercontext = \context_user::instance($this->user->id);
-
-        // Create policies and agree to them as manager.
-        $this->setUser($this->manager);
-        $agreementsubcontext = [
-            get_string('privacyandpolicies', 'admin'),
-            get_string('useracceptances', 'tool_policy')
-        ];
-        $versionsubcontext = [
-            get_string('policydocuments', 'tool_policy')
-        ];
+        // Create policies.
+        $this->setAdminUser();
+        $admin = fullclone($USER);
         $CFG->sitepolicyhandler = 'tool_policy';
         $policy1 = $this->add_policy();
         api::make_current($policy1->get('id'));
         $policy2 = $this->add_policy();
         api::make_current($policy2->get('id'));
+
+        // Agree to the policies for oneself and for another user.
+        $usercontext = context_user::instance($this->user->id);
+        $admincontext = context_user::instance($USER->id);
         api::accept_policies([$policy1->get('id'), $policy2->get('id')]);
+        api::accept_policies([$policy1->get('id'), $policy2->get('id')], $this->user->id, 'Mynote');
 
-        // Agree to the other user's policies.
-        api::accept_policies([$policy1->get('id'), $policy2->get('id')], $this->user->id, 'My note');
+        // Request export for this user.
+        $contextlist = provider::get_contexts_for_userid($this->user->id);
+        $this->assertEquals([$usercontext->id], $contextlist->get_contextids());
 
-        // Request export for the manager.
-        $contextlist = provider::get_contexts_for_userid($this->manager->id);
-        $this->assertCount(3, $contextlist);
-        $this->assertEquals(
-            [$managercontext->id, $usercontext->id, $systemcontext->id],
-            $contextlist->get_contextids(),
-            '',
-            0.0,
-            1,
-            true
-        );
+        $writer = writer::with_context($usercontext);
+        $this->assertFalse($writer->has_any_data());
 
         $approvedcontextlist = new approved_contextlist($this->user, 'tool_policy', [$usercontext->id]);
         provider::export_user_data($approvedcontextlist);
 
-        // The user context has data.
+        // User can not see admin's agreements but can see his own.
+        $writer = writer::with_context($admincontext);
+        $dataadmin = $writer->get_related_data([get_string('userpoliciesagreements', 'tool_policy'), $admin->id]);
+        $this->assertEmpty($dataadmin);
+
         $writer = writer::with_context($usercontext);
-        $this->assertTrue($writer->has_any_data());
+        $datauser = $writer->get_related_data([get_string('userpoliciesagreements', 'tool_policy'), $this->user->id]);
+        $this->assertEquals(2, count($datauser));
+        $this->assertEquals($policy1->get('name'), $datauser['policyagreement-'.$policy1->get('id')]->name);
+        $this->assertEquals($admin->id, $datauser['policyagreement-'.$policy1->get('id')]->usermodified);
+        $this->assertEquals('Mynote', $datauser['policyagreement-'.$policy1->get('id')]->note);
+        $this->assertEquals($policy2->get('name'), $datauser['policyagreement-'.$policy2->get('id')]->name);
+        $this->assertEquals($admin->id, $datauser['policyagreement-'.$policy2->get('id')]->usermodified);
+        $this->assertEquals('Mynote', $datauser['policyagreement-'.$policy2->get('id')]->note);
 
-        // Test policy 1.
-        $writer = writer::with_context($usercontext);
-        $subcontext = array_merge($agreementsubcontext, [get_string('policynamedversion', 'tool_policy', $policy1->to_record())]);
-        $datauser = $writer->get_data($subcontext);
-        $this->assertEquals($policy1->get('name'), $datauser->name);
-        $this->assertEquals($this->manager->id, $datauser->agreedby);
-        $this->assertEquals(strip_tags($policy1->get('summary')), strip_tags($datauser->summary));
-        $this->assertEquals(strip_tags($policy1->get('content')), strip_tags($datauser->content));
+        // Request export for the admin.
+        writer::reset();
+        $contextlist = provider::get_contexts_for_userid($USER->id);
+        $this->assertEquals([$admincontext->id, $usercontext->id], $contextlist->get_contextids(), '', 0.0, 10, true);
 
-        // Test policy 2.
-        $subcontext = array_merge($agreementsubcontext, [get_string('policynamedversion', 'tool_policy', $policy2->to_record())]);
-        $datauser = $writer->get_data($subcontext);
-        $this->assertEquals($policy2->get('name'), $datauser->name);
-        $this->assertEquals($this->manager->id, $datauser->agreedby);
-        $this->assertEquals(strip_tags($policy2->get('summary')), strip_tags($datauser->summary));
-        $this->assertEquals(strip_tags($policy2->get('content')), strip_tags($datauser->content));
-    }
-
-    public function test_export_created_policies() {
-        global $CFG;
-
-        // Create policies and agree to them as manager.
-        $this->setUser($this->manager);
-        $managercontext = \context_user::instance($this->manager->id);
-        $systemcontext = \context_system::instance();
-        $agreementsubcontext = [
-            get_string('privacyandpolicies', 'admin'),
-            get_string('useracceptances', 'tool_policy')
-        ];
-        $versionsubcontext = [
-            get_string('policydocuments', 'tool_policy')
-        ];
-        $CFG->sitepolicyhandler = 'tool_policy';
-        $policy1 = $this->add_policy();
-        api::make_current($policy1->get('id'));
-        $policy2 = $this->add_policy();
-        api::make_current($policy2->get('id'));
-        api::accept_policies([$policy1->get('id'), $policy2->get('id')]);
-
-        // Agree to the policies for oneself.
-        $contextlist = provider::get_contexts_for_userid($this->manager->id);
-        $this->assertCount(2, $contextlist);
-        $this->assertEquals([$managercontext->id, $systemcontext->id], $contextlist->get_contextids(), '', 0.0, 1, true);
-
-        $approvedcontextlist = new approved_contextlist($this->manager, 'tool_policy', $contextlist->get_contextids());
+        $approvedcontextlist = new approved_contextlist($USER, 'tool_policy', $contextlist->get_contextids());
         provider::export_user_data($approvedcontextlist);
 
-        // User has agreed to policies.
-        $writer = writer::with_context($managercontext);
-        $this->assertTrue($writer->has_any_data());
+        // Admin can see all four agreements.
+        $writer = writer::with_context($admincontext);
+        $dataadmin = $writer->get_related_data([get_string('userpoliciesagreements', 'tool_policy'), $admin->id]);
+        $this->assertEquals(2, count($dataadmin));
+        $this->assertEquals($policy1->get('name'), $dataadmin['policyagreement-'.$policy1->get('id')]->name);
+        $this->assertEquals($admin->id, $dataadmin['policyagreement-'.$policy1->get('id')]->usermodified);
+        $this->assertEquals($policy2->get('name'), $dataadmin['policyagreement-'.$policy2->get('id')]->name);
+        $this->assertEquals($admin->id, $dataadmin['policyagreement-'.$policy2->get('id')]->usermodified);
 
-        // Test policy 1.
-        $subcontext = array_merge($agreementsubcontext, [get_string('policynamedversion', 'tool_policy', $policy1->to_record())]);
-        $datauser = $writer->get_data($subcontext);
-        $this->assertEquals($policy1->get('name'), $datauser->name);
-        $this->assertEquals($this->manager->id, $datauser->agreedby);
-        $this->assertEquals(strip_tags($policy1->get('summary')), strip_tags($datauser->summary));
-        $this->assertEquals(strip_tags($policy1->get('content')), strip_tags($datauser->content));
-
-        // Test policy 2.
-        $subcontext = array_merge($agreementsubcontext, [get_string('policynamedversion', 'tool_policy', $policy2->to_record())]);
-        $datauser = $writer->get_data($subcontext);
-        $this->assertEquals($policy2->get('name'), $datauser->name);
-        $this->assertEquals($this->manager->id, $datauser->agreedby);
-        $this->assertEquals(strip_tags($policy2->get('summary')), strip_tags($datauser->summary));
-        $this->assertEquals(strip_tags($policy2->get('content')), strip_tags($datauser->content));
-
-        // User can see policy documents.
-        $writer = writer::with_context($systemcontext);
-        $this->assertTrue($writer->has_any_data());
-
-        $subcontext = array_merge($versionsubcontext, [get_string('policynamedversion', 'tool_policy', $policy1->to_record())]);
-        $dataversion = $writer->get_data($subcontext);
-        $this->assertEquals($policy1->get('name'), $dataversion->name);
-        $this->assertEquals(get_string('yes'), $dataversion->createdbyme);
-
-        $subcontext = array_merge($versionsubcontext, [get_string('policynamedversion', 'tool_policy', $policy2->to_record())]);
-        $dataversion = $writer->get_data($subcontext);
-        $this->assertEquals($policy2->get('name'), $dataversion->name);
-        $this->assertEquals(get_string('yes'), $dataversion->createdbyme);
+        $writer = writer::with_context($usercontext);
+        $datauser = $writer->get_related_data([get_string('userpoliciesagreements', 'tool_policy'), $this->user->id]);
+        $this->assertEquals(2, count($datauser));
+        $this->assertEquals($policy1->get('name'), $datauser['policyagreement-'.$policy1->get('id')]->name);
+        $this->assertEquals($admin->id, $datauser['policyagreement-'.$policy1->get('id')]->usermodified);
+        $this->assertEquals('Mynote', $datauser['policyagreement-'.$policy1->get('id')]->note);
+        $this->assertEquals($policy2->get('name'), $datauser['policyagreement-'.$policy2->get('id')]->name);
+        $this->assertEquals($admin->id, $datauser['policyagreement-'.$policy2->get('id')]->usermodified);
+        $this->assertEquals('Mynote', $datauser['policyagreement-'.$policy2->get('id')]->note);
     }
 
     /**

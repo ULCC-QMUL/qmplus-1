@@ -234,7 +234,6 @@ define(['jquery', 'core/str', 'core/ajax', 'core/notification', 'core/templates'
                     },
                     fail: Notification.exception
                 }]);
-                return;
             }).catch(Notification.exception);
 
         };

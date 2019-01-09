@@ -54,7 +54,7 @@ class initiate_data_request_task extends adhoc_task {
     public function execute() {
         global $CFG;
 
-        require_once($CFG->dirroot . "/{$CFG->admin}/tool/dataprivacy/lib.php");
+        require_once($CFG->dirroot . '/admin/tool/dataprivacy/lib.php');
 
         if (!isset($this->get_custom_data()->requestid)) {
             throw new coding_exception('The custom data \'requestid\' is required.');
@@ -76,8 +76,6 @@ class initiate_data_request_task extends adhoc_task {
 
         // Add the list of relevant contexts to the request, and mark all as pending approval.
         $privacymanager = new \core_privacy\manager();
-        $privacymanager->set_observer(new \tool_dataprivacy\manager_observer());
-
         $contextlistcollection = $privacymanager->get_contexts_for_userid($datarequest->get('userid'));
         api::add_request_contexts_with_status($contextlistcollection, $requestid, contextlist_context::STATUS_PENDING);
 
@@ -88,19 +86,13 @@ class initiate_data_request_task extends adhoc_task {
         // Get the list of the site Data Protection Officers.
         $dpos = api::get_site_dpos();
 
-        // We should prevent DPO(s)/Admin(s) being flooded with notifications for each request when bulk delete
-        // data requests are being created.
-        // NOTE: This should be improved, we should not totally disable the notifications for automatically
-        // created requests. Possibly, we should create one notification for these such cases.
-        if ($datarequest->get('creationmethod') != data_request::DATAREQUEST_CREATION_AUTO) {
-            // Email the data request to the Data Protection Officer(s)/Admin(s).
-            foreach ($dpos as $dpo) {
-                $dponame = fullname($dpo);
-                if (api::notify_dpo($dpo, $datarequest)) {
-                    mtrace('Message sent to DPO: ' . $dponame);
-                } else {
-                    mtrace('A problem was encountered while sending the message to the DPO: ' . $dponame);
-                }
+        // Email the data request to the Data Protection Officer(s)/Admin(s).
+        foreach ($dpos as $dpo) {
+            $dponame = fullname($dpo);
+            if (api::notify_dpo($dpo, $datarequest)) {
+                mtrace('Message sent to DPO: ' . $dponame);
+            } else {
+                mtrace('A problem was encountered while sending the message to the DPO: ' . $dponame);
             }
         }
     }

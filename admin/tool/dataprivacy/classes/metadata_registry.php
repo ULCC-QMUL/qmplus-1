@@ -40,8 +40,6 @@ class metadata_registry {
      */
     public function get_registry_metadata() {
         $manager = new \core_privacy\manager();
-        $manager->set_observer(new \tool_dataprivacy\manager_observer());
-
         $pluginman = \core_plugin_manager::instance();
         $contributedplugins = $this->get_contrib_list();
         $metadata = $manager->get_metadata_for_components();
@@ -58,10 +56,6 @@ class metadata_registry {
                     if (isset($metadata[$component])) {
                         $collection = $metadata[$component]->get_collection();
                         $internaldata = $this->format_metadata($collection, $component, $internaldata);
-                    } else if ($manager->is_empty_subsystem($component)) {
-                        // This is an unused subsystem.
-                        // Use the generic string.
-                        $internaldata['nullprovider'] = get_string('privacy:subsystem:empty', 'core_privacy');
                     } else {
                         // Call get_reason for null provider.
                         $internaldata['nullprovider'] = get_string($manager->get_null_provider_reason($component), $component);
@@ -70,37 +64,11 @@ class metadata_registry {
                     $internaldata['compliant'] = false;
                 }
                 // Check to see if we are an external plugin.
-                // Plugin names can contain _ characters, limit to 2 to just remove initial plugintype.
-                $componentshortname = explode('_', $component, 2);
+                $componentshortname = explode('_', $component);
                 $shortname = array_pop($componentshortname);
                 if (isset($contributedplugins[$plugintype][$shortname])) {
                     $internaldata['external'] = true;
                 }
-
-                // Additional interface checks.
-                if (!$manager->is_empty_subsystem($component)) {
-                    $classname = $manager->get_provider_classname_for_component($component);
-                    if (class_exists($classname)) {
-                        $componentclass = new $classname();
-                        // Check if the interface is deprecated.
-                        if ($componentclass instanceof \core_privacy\local\deprecated) {
-                            $internaldata['deprecated'] = true;
-                        }
-
-                        // Check that the core_userlist_provider is implemented for all user data providers.
-                        if ($componentclass instanceof \core_privacy\local\request\core_user_data_provider
-                                && !$componentclass instanceof \core_privacy\local\request\core_userlist_provider) {
-                            $internaldata['userlistnoncompliance'] = true;
-                        }
-
-                        // Check that any type of userlist_provider is implemented for all shared data providers.
-                        if ($componentclass instanceof \core_privacy\local\request\shared_data_provider
-                                && !$componentclass instanceof \core_privacy\local\request\userlist_provider) {
-                            $internaldata['userlistnoncompliance'] = true;
-                        }
-                    }
-                }
-
                 return $internaldata;
             }, $leaves['plugins']);
             $fullyrichtree[$branch]['plugin_type_raw'] = $plugintype;
@@ -154,15 +122,11 @@ class metadata_registry {
      * @return array An array of plugin types which contain plugin data.
      */
     protected function get_full_component_list() {
-        global $CFG;
-
         $list = \core_component::get_component_list();
-        $list['core']['core'] = "{$CFG->dirroot}/lib";
         $formattedlist = [];
         foreach ($list as $plugintype => $plugin) {
             $formattedlist[] = ['plugin_type' => $plugintype, 'plugins' => array_keys($plugin)];
         }
-
         return $formattedlist;
     }
 

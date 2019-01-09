@@ -83,7 +83,7 @@ function tool_policy_before_standard_html_head() {
     if (!empty($CFG->sitepolicyhandler)
             && $CFG->sitepolicyhandler == 'tool_policy'
             && empty($USER->policyagreed)
-            && (isguestuser() || !isloggedin())) {
+            && isguestuser()) {
         $output = $PAGE->get_renderer('tool_policy');
         $page = new \tool_policy\output\guestconsent();
 
@@ -94,32 +94,10 @@ function tool_policy_before_standard_html_head() {
 }
 
 /**
- * Callback to add footer elements.
- *
- * @return string HTML footer content
- */
-function tool_policy_standard_footer_html() {
-    global $CFG, $PAGE;
-
-    $output = '';
-    if (!empty($CFG->sitepolicyhandler)
-            && $CFG->sitepolicyhandler == 'tool_policy') {
-        $policies = api::get_current_versions_ids();
-        if (!empty($policies)) {
-            $url = new moodle_url('/admin/tool/policy/viewall.php', ['returnurl' => $PAGE->url]);
-            $output .= html_writer::link($url, get_string('userpolicysettings', 'tool_policy'));
-            $output = html_writer::div($output, 'policiesfooter');
-        }
-    }
-
-    return $output;
-}
-
-/**
  * Hooks redirection to policy acceptance pages before sign up.
  */
 function tool_policy_pre_signup_requests() {
-    global $CFG;
+    global $CFG, $SESSION;
 
     // Do nothing if we are not set as the site policies handler.
     if (empty($CFG->sitepolicyhandler) || $CFG->sitepolicyhandler !== 'tool_policy') {
@@ -130,7 +108,7 @@ function tool_policy_pre_signup_requests() {
     $userpolicyagreed = cache::make('core', 'presignup')->get('tool_policy_userpolicyagreed');
     if (!empty($policies) && !$userpolicyagreed) {
         // Redirect to "Policy" pages for consenting before creating the user.
-        cache::make('core', 'presignup')->set('tool_policy_issignup', 1);
+        $SESSION->wantsurl = (new \moodle_url('/login/signup.php'))->out();
         redirect(new \moodle_url('/admin/tool/policy/index.php'));
     }
 }

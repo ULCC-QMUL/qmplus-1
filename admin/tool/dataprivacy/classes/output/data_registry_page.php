@@ -101,10 +101,6 @@ class data_registry_page implements renderable, templatable {
         $data->actions = $actionmenu->export_for_template($output);
 
         if (!data_registry::defaults_set()) {
-            $data->info = (object)[
-                    'message' => get_string('dataregistryinfo', 'tool_dataprivacy'),
-                    'announce' => 1
-            ];
             $data->nosystemdefaults = (object)[
                 'message' => get_string('nosystemdefaults', 'tool_dataprivacy'),
                 'announce' => 1
@@ -135,7 +131,7 @@ class data_registry_page implements renderable, templatable {
                     'text' => get_string('user'),
                     'contextlevel' => CONTEXT_USER,
                 ], [
-                    'text' => get_string('categories'),
+                    'text' => get_string('categories', 'tool_dataprivacy'),
                     'branches' => $categorybranches,
                     'expandelement' => 'category',
                 ], [
@@ -316,23 +312,29 @@ class data_registry_page implements renderable, templatable {
 
         $branches = [];
 
-        $children = $coursecontext->get_child_contexts();
-        foreach ($children as $childcontext) {
+        $blockinstances = \core_block_external::get_course_blocks($coursecontext->instanceid);
+        if (empty($blockinstances['blocks'])) {
+            return $branches;
+        }
 
-            if ($childcontext->contextlevel !== CONTEXT_BLOCK) {
-                continue;
+        foreach ($blockinstances['blocks'] as $bi) {
+            if (function_exists('block_instance_by_id')) {
+                $blockinstance = block_instance_by_id($bi['instanceid']);
+            } else {
+                // TODO To be removed when MDL-61621 gets integrated.
+                $blockinstance = $DB->get_record('block_instances', ['id' => $bi['instanceid']]);
+                $blockinstance = block_instance($blockinstance->blockname, $blockinstance);
             }
-
-            $blockinstance = block_instance_by_id($childcontext->instanceid);
-            $displayname = shorten_text(format_string($blockinstance->get_title(), true, ['context' => $childcontext]));
+            $blockcontext = \context_block::instance($bi['instanceid']);
+            $displayname = shorten_text(format_string($blockinstance->get_title(), true, ['context' => $blockcontext->id]));
             $branches[] = self::complete([
                 'text' => $displayname,
-                'contextid' => $childcontext->id,
+                'contextid' => $blockcontext->id,
             ]);
-
         }
 
         return $branches;
+
     }
 
     /**
@@ -426,7 +428,7 @@ class data_registry_page implements renderable, templatable {
     /**
      * From a list of purpose persistents to a list of id => name purposes.
      *
-     * @param \tool_dataprivacy\purpose[] $purposes
+     * @param \tool_dataprivacy\purpose $purposes
      * @param bool $includenotset
      * @param bool $includeinherit
      * @return string[]
@@ -443,7 +445,7 @@ class data_registry_page implements renderable, templatable {
     /**
      * From a list of category persistents to a list of id => name categories.
      *
-     * @param \tool_dataprivacy\category[] $categories
+     * @param \tool_dataprivacy\category $categories
      * @param bool $includenotset
      * @param bool $includeinherit
      * @return string[]

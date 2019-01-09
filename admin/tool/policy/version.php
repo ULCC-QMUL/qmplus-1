@@ -24,6 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2017111350;
-$plugin->requires = 2017111302;        // Moodle 3.4.2 (Build: 20180319) and upwards.
 $plugin->component = 'tool_policy';
+$plugin->release = '34.3.0';
+$plugin->version = 2017111306;
+$plugin->requires = 2017111302;
+$plugin->maturity = MATURITY_BETA;

@@ -67,40 +67,17 @@ class my_data_requests_page implements renderable, templatable {
      * @throws moodle_exception
      */
     public function export_for_template(renderer_base $output) {
-        global $USER;
-
         $data = new stdClass();
         $data->newdatarequesturl = new moodle_url('/admin/tool/dataprivacy/createdatarequest.php');
-
-        if (!is_https()) {
-            $httpwarningmessage = get_string('httpwarning', 'tool_dataprivacy');
-            $data->httpsite = array('message' => $httpwarningmessage, 'announce' => 1);
-        }
 
         $requests = [];
         foreach ($this->requests as $request) {
             $requestid = $request->get('id');
             $status = $request->get('status');
             $userid = $request->get('userid');
-            $type = $request->get('type');
-
-            $usercontext = context_user::instance($userid, IGNORE_MISSING);
-            if (!$usercontext) {
-                // Use the context system.
-                $outputcontext = \context_system::instance();
-            } else {
-                $outputcontext = $usercontext;
-            }
-
-            $requestexporter = new data_request_exporter($request, ['context' => $outputcontext]);
+            $usercontext = context_user::instance($userid);
+            $requestexporter = new data_request_exporter($request, ['context' => $usercontext]);
             $item = $requestexporter->export($output);
-
-            $self = $request->get('userid') == $USER->id;
-            if (!$self) {
-                // Append user name if it differs from $USER.
-                $a = (object)['typename' => $item->typename, 'user' => $item->foruser->fullname];
-                $item->typename = get_string('requesttypeuser', 'tool_dataprivacy', $a);
-            }
 
             $candownload = false;
             $cancancel = true;
@@ -109,28 +86,7 @@ class my_data_requests_page implements renderable, templatable {
                     $item->statuslabelclass = 'label-success';
                     $item->statuslabel = get_string('statuscomplete', 'tool_dataprivacy');
                     $cancancel = false;
-                    break;
-                case api::DATAREQUEST_STATUS_DOWNLOAD_READY:
-                    $item->statuslabelclass = 'label-success';
-                    $item->statuslabel = get_string('statusready', 'tool_dataprivacy');
-                    $cancancel = false;
                     $candownload = true;
-
-                    if ($usercontext) {
-                        $candownload = api::can_download_data_request_for_user(
-                                $request->get('userid'), $request->get('requestedby'));
-                    }
-                    break;
-                case api::DATAREQUEST_STATUS_DELETED:
-                    $item->statuslabelclass = 'label-success';
-                    $item->statuslabel = get_string('statusdeleted', 'tool_dataprivacy');
-                    $cancancel = false;
-                    break;
-                case api::DATAREQUEST_STATUS_EXPIRED:
-                    $item->statuslabelclass = 'label-default';
-                    $item->statuslabel = get_string('statusexpired', 'tool_dataprivacy');
-                    $item->statuslabeltitle = get_string('downloadexpireduser', 'tool_dataprivacy');
-                    $cancancel = false;
                     break;
                 case api::DATAREQUEST_STATUS_CANCELLED:
                 case api::DATAREQUEST_STATUS_REJECTED:
@@ -146,8 +102,11 @@ class my_data_requests_page implements renderable, templatable {
                 $canceltext = get_string('cancelrequest', 'tool_dataprivacy');
                 $actions[] = new action_menu_link_secondary($cancelurl, null, $canceltext, $canceldata);
             }
-            if ($candownload && $usercontext) {
-                $actions[] = api::get_download_link($usercontext, $requestid);
+            if ($candownload) {
+                $downloadurl = moodle_url::make_pluginfile_url($usercontext->id, 'tool_dataprivacy', 'export', $requestid, '/',
+                        'export.zip', true);
+                $downloadtext = get_string('download', 'tool_dataprivacy');
+                $actions[] = new action_menu_link_secondary($downloadurl, null, $downloadtext);
             }
             if (!empty($actions)) {
                 $actionsmenu = new action_menu($actions);

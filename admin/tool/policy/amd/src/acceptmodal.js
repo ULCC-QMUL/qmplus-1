@@ -71,31 +71,8 @@ define(['jquery', 'core/str', 'core/modal_factory', 'core/modal_events', 'core/n
             },
             {
                 key: 'ok'
-            },
-            {
-                key: 'revokedetails',
-                component: 'tool_policy'
-            },
-            {
-                key: 'irevokethepolicy',
-                component: 'tool_policy'
             }
         ];
-
-        /**
-         * @var {object} currentTrigger The triggered HTML jQuery object
-         * @private
-         */
-        AcceptOnBehalf.prototype.currentTrigger = null;
-
-        /**
-         * @var {object} triggers The trigger selectors
-         * @private
-         */
-        AcceptOnBehalf.prototype.triggers = {
-            SINGLE: 'a[data-action=acceptmodal]',
-            BULK: 'input[data-action=acceptmodal]'
-        };
 
         /**
          * Initialise the class.
@@ -104,22 +81,21 @@ define(['jquery', 'core/str', 'core/modal_factory', 'core/modal_events', 'core/n
          */
         AcceptOnBehalf.prototype.init = function() {
             // Initialise for links accepting policies for individual users.
-            $(this.triggers.SINGLE).on('click', function(e) {
+            var triggers = $('a[data-action=acceptmodal]');
+            triggers.on('click', function(e) {
                 e.preventDefault();
-                this.currentTrigger = $(e.currentTarget);
                 var href = $(e.currentTarget).attr('href'),
                     formData = href.slice(href.indexOf('?') + 1);
                 this.showFormModal(formData);
             }.bind(this));
 
             // Initialise for multiple users acceptance form.
-            $(this.triggers.BULK).on('click', function(e) {
+            triggers = $('form[data-action=acceptmodal]');
+            triggers.on('submit', function(e) {
                 e.preventDefault();
-                this.currentTrigger = $(e.currentTarget);
-                var form = $(e.currentTarget).closest('form');
-                if (form.find('input[type=checkbox][name="userids[]"]:checked').length) {
-                    var formData = form.serialize();
-                    this.showFormModal(formData);
+                if ($(e.currentTarget).find('input[type=checkbox][name="userids[]"]:checked').length) {
+                    var formData = $(e.currentTarget).serialize();
+                    this.showFormModal(formData, triggers);
                 } else {
                     Str.get_strings(this.stringKeys).done(function(strings) {
                         Notification.alert('', strings[2], strings[3]);
@@ -132,35 +108,19 @@ define(['jquery', 'core/str', 'core/modal_factory', 'core/modal_events', 'core/n
          * Show modal with a form
          *
          * @param {String} formData
+         * @param {object} triggerElement The trigger HTML jQuery object
          */
-        AcceptOnBehalf.prototype.showFormModal = function(formData) {
-            var action;
-            var params = formData.split('&');
-            for (var i = 0; i < params.length; i++) {
-                var pair = params[i].split('=');
-                if (pair[0] == 'action') {
-                    action = pair[1];
-                }
-            }
+        AcceptOnBehalf.prototype.showFormModal = function(formData, triggerElement) {
             // Fetch the title string.
             Str.get_strings(this.stringKeys).done(function(strings) {
-                var title;
-                var saveText;
-                if (action == 'revoke') {
-                    title = strings[4];
-                    saveText = strings[5];
-                } else {
-                    title = strings[0];
-                    saveText = strings[1];
-                }
                 // Create the modal.
                 ModalFactory.create({
                     type: ModalFactory.types.SAVE_CANCEL,
-                    title: title,
+                    title: strings[0],
                     body: ''
-                }).done(function(modal) {
+                }, triggerElement).done(function(modal) {
                     this.modal = modal;
-                    this.setupFormModal(formData, saveText);
+                    this.setupFormModal(formData, strings[1]);
                 }.bind(this));
             }.bind(this))
                 .fail(Notification.exception);
@@ -265,7 +225,6 @@ define(['jquery', 'core/str', 'core/modal_factory', 'core/modal_events', 'core/n
                 M.core_formchangechecker.reset_form_dirty_state();
             });
             this.modal.destroy();
-            this.currentTrigger.focus();
         };
 
         return /** @alias module:tool_policy/acceptmodal */ {

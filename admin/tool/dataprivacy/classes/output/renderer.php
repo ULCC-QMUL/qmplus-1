@@ -62,8 +62,7 @@ class renderer extends plugin_renderer_base {
     public function render_contact_dpo_link($replytoemail) {
         $params = [
             'data-action' => 'contactdpo',
-            'data-replytoemail' => $replytoemail,
-            'class' => 'contactdpo'
+            'data-replytoemail' => $replytoemail
         ];
         return html_writer::link('#', get_string('contactdataprotectionofficer', 'tool_dataprivacy'), $params);
     }
@@ -138,16 +137,5 @@ class renderer extends plugin_renderer_base {
     public function render_data_deletion_page(data_deletion_page $page) {
         $data = $page->export_for_template($this);
         return parent::render_from_template('tool_dataprivacy/data_deletion', $data);
-    }
-
-    /**
-     * Render the user data retention summary page.
-     *
-     * @param  summary_page $page
-     * @return string html for the page.
-     */
-    public function render_summary_page(summary_page $page) {
-        $data = $page->export_for_template($this);
-        return parent::render_from_template('tool_dataprivacy/summary', $data);
     }
 }

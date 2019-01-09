@@ -69,9 +69,6 @@ class page_agreedocs implements renderable, templatable {
     /** @var array Info or error messages to show. */
     protected $messages = [];
 
-    /** @var bool This is an existing user (rather than non-loggedin/guest). */
-    protected $isexistinguser;
-
     /**
      * Prepare the page for rendering.
      *
@@ -90,7 +87,6 @@ class page_agreedocs implements renderable, templatable {
 
         $this->action = $action;
 
-        $this->isexistinguser = isloggedin() && !isguestuser();
         $behalfid = $behalfid ?: $USER->id;
         if ($realuser->id != $behalfid) {
             $this->behalfuser = core_user::get_user($behalfid, '*', MUST_EXIST);
@@ -116,7 +112,7 @@ class page_agreedocs implements renderable, templatable {
     protected function accept_and_revoke_policies() {
         global $USER;
 
-        if ($this->isexistinguser) {
+        if (!empty($USER->id)) {
             // Existing user.
             if (!empty($this->action) && confirm_sesskey()) {
                 // The form has been sent. Update policies acceptances according to $this->agreedocs.
@@ -186,13 +182,15 @@ class page_agreedocs implements renderable, templatable {
      * Before display the consent page, the user has to view all the still-non-accepted policy docs.
      * This function checks if the non-accepted policy docs have been shown and redirect to them.
      *
-     * @param int $userid User identifier who wants to access to the consent page.
-     * @param moodle_url $returnurl URL to return after shown the policy docs.
+     * @param array $userid User identifier who wants to access to the consent page.
+     * @param url $returnurl URL to return after shown the policy docs.
      */
     protected function redirect_to_policies($userid, $returnurl = null) {
+        global $USER;
+
+        $acceptances = api::get_user_acceptances($userid);
         $allpolicies = $this->policies;
-        if ($this->isexistinguser) {
-            $acceptances = api::get_user_acceptances($userid);
+        if (!empty($userid)) {
             foreach ($allpolicies as $policy) {
                 if (api::is_user_version_accepted($userid, $policy->id, $acceptances)) {
                     // If this version is accepted by the user, remove from the pending policies list.
@@ -236,30 +234,16 @@ class page_agreedocs implements renderable, templatable {
     }
 
     /**
-     * Redirect to signup page if defined or to $CFG->wwwroot if not.
+     * Redirect to $SESSION->wantsurl if defined or to $CFG->wwwroot if not.
      */
     protected function redirect_to_previous_url() {
-        global $SESSION;
+        global $SESSION, $CFG;
 
-        if ($this->isexistinguser) {
-            // Existing user.
-            if (!empty($SESSION->wantsurl)) {
-                $returnurl = $SESSION->wantsurl;
-                unset($SESSION->wantsurl);
-            } else {
-                $returnurl = new moodle_url('/admin/tool/policy/user.php');
-            }
+        if (!empty($SESSION->wantsurl)) {
+            $returnurl = $SESSION->wantsurl;
+            unset($SESSION->wantsurl);
         } else {
-            // Non-authenticated user.
-            $issignup = \cache::make('core', 'presignup')->get('tool_policy_issignup');
-            if ($issignup) {
-                // User came here from signup page - redirect back there.
-                $returnurl = new moodle_url('/login/signup.php');
-                \cache::make('core', 'presignup')->set('tool_policy_issignup', false);
-            } else {
-                // Guests should not be on this page unless it's part of signup - redirect home.
-                $returnurl = new moodle_url('/');
-            }
+            $returnurl = $CFG->wwwroot.'/';
         }
 
         redirect($returnurl);
@@ -271,35 +255,35 @@ class page_agreedocs implements renderable, templatable {
      * @param int $userid
      */
     protected function prepare_global_page_access($userid) {
-        global $PAGE, $SITE, $USER;
+        global $PAGE, $SESSION, $SITE, $USER;
 
         // Guest users or not logged users (but the users during the signup process) are not allowed to access to this page.
-        $newsignupuser = \cache::make('core', 'presignup')->get('tool_policy_issignup');
-        if (!$this->isexistinguser && !$newsignupuser) {
+        $newsignupuser = !empty($SESSION->wantsurl) && strpos($SESSION->wantsurl, 'login/signup.php') !== false;
+        if (isguestuser() || (empty($USER->id) && !$newsignupuser)) {
             $this->redirect_to_previous_url();
         }
 
         // Check for correct user capabilities.
-        if ($this->isexistinguser) {
+        if (!empty($USER->id)) {
             // For existing users, it's needed to check if they have the capability for accepting policies.
             api::can_accept_policies($this->behalfid, true);
         } else {
             // For new users, the behalfid parameter is ignored.
-            if ($this->behalfid) {
+            if ($this->behalfid != $USER->id) {
                 redirect(new moodle_url('/admin/tool/policy/index.php'));
             }
         }
 
         // If the current user has the $USER->policyagreed = 1 or $userpolicyagreed = 1
-        // redirect to the return page.
-        $hasagreedsignupuser = !$this->isexistinguser && $this->signupuserpolicyagreed;
+        // and $SESSION->wantsurl is defined, redirect to the return page.
+        $hasagreedsignupuser = empty($USER->id) && $this->signupuserpolicyagreed;
         $hasagreedloggeduser = $USER->id == $userid && !empty($USER->policyagreed);
-        if (!is_siteadmin() && ($hasagreedsignupuser || $hasagreedloggeduser)) {
+        if (!is_siteadmin() && ($hasagreedsignupuser || ($hasagreedloggeduser && !empty($SESSION->wantsurl)))) {
             $this->redirect_to_previous_url();
         }
 
         $myparams = [];
-        if ($this->isexistinguser && !empty($this->behalfid) && $this->behalfid != $USER->id) {
+        if (!empty($USER->id) && !empty($this->behalfid) && $this->behalfid != $USER->id) {
             $myparams['userid'] = $this->behalfid;
         }
         $myurl = new moodle_url('/admin/tool/policy/index.php', $myparams);
@@ -309,6 +293,7 @@ class page_agreedocs implements renderable, templatable {
 
         // Page setup.
         $PAGE->set_context(context_system::instance());
+        $PAGE->set_pagelayout('standard');
         $PAGE->set_url($myurl);
         $PAGE->set_heading($SITE->fullname);
         $PAGE->set_title(get_string('policiesagreements', 'tool_policy'));
@@ -324,6 +309,7 @@ class page_agreedocs implements renderable, templatable {
         global $USER;
 
         // Get all the policy version acceptances for this user.
+        $acceptances = api::get_user_acceptances($userid);
         $lang = current_language();
         foreach ($this->policies as $policy) {
             // Get a link to display the full policy document.
@@ -335,10 +321,9 @@ class page_agreedocs implements renderable, templatable {
             $policymodal = html_writer::link($policy->url, $policy->name, $policyattributes);
 
             // Check if this policy version has been agreed or not.
-            if ($this->isexistinguser) {
+            if (!empty($userid)) {
                 // Existing user.
                 $versionagreed = false;
-                $acceptances = api::get_user_acceptances($userid);
                 $policy->versionacceptance = api::get_user_version_acceptance($userid, $policy->id, $acceptances);
                 if (!empty($policy->versionacceptance)) {
                     // The policy version has ever been agreed. Check if status = 1 to know if still is accepted.
@@ -368,13 +353,13 @@ class page_agreedocs implements renderable, templatable {
      * Export the page data for the mustache template.
      *
      * @param renderer_base $output renderer to be used to render the page elements.
-     * @return \stdClass
+     * @return stdClass
      */
     public function export_for_template(renderer_base $output) {
         global $USER;
 
         $myparams = [];
-        if ($this->isexistinguser && !empty($this->behalfid) && $this->behalfid != $USER->id) {
+        if (!empty($USER->id) && !empty($this->behalfid) && $this->behalfid != $USER->id) {
             $myparams['userid'] = $this->behalfid;
         }
         $data = (object) [

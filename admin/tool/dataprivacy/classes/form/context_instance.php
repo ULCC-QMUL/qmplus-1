@@ -27,7 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 use tool_dataprivacy\api;
 use tool_dataprivacy\data_registry;
-use tool_dataprivacy\purpose;
 
 /**
  * Context instance data form.
@@ -56,7 +55,6 @@ class context_instance extends \core\form\persistent {
             $subjectscope = get_string('noassignedroles', 'tool_dataprivacy');
         }
         $this->_form->addElement('static', 'subjectscope', get_string('subjectscope', 'tool_dataprivacy'), $subjectscope);
-        $this->_form->addHelpButton('subjectscope', 'subjectscope', 'tool_dataprivacy');
 
         $this->add_purpose_category($this->_customdata['context']->contextlevel);
 
@@ -81,7 +79,6 @@ class context_instance extends \core\form\persistent {
         $addcategory = $mform->createElement('button', 'addcategory', $addcategorytext, ['data-add-element' => 'category']);
         $mform->addElement('group', 'categorygroup', get_string('category', 'tool_dataprivacy'),
             [$categoryselect, $addcategory], null, false);
-        $mform->addHelpButton('categorygroup', 'category', 'tool_dataprivacy');
         $mform->setType('categoryid', PARAM_INT);
         $mform->setDefault('categoryid', 0);
 
@@ -90,14 +87,12 @@ class context_instance extends \core\form\persistent {
         $addpurpose = $mform->createElement('button', 'addpurpose', $addpurposetext, ['data-add-element' => 'purpose']);
         $mform->addElement('group', 'purposegroup', get_string('purpose', 'tool_dataprivacy'),
             [$purposeselect, $addpurpose], null, false);
-        $mform->addHelpButton('purposegroup', 'purpose', 'tool_dataprivacy');
         $mform->setType('purposeid', PARAM_INT);
         $mform->setDefault('purposeid', 0);
 
         if (!empty($this->_customdata['currentretentionperiod'])) {
             $mform->addElement('static', 'retention_current', get_string('retentionperiod', 'tool_dataprivacy'),
                 $this->_customdata['currentretentionperiod']);
-            $mform->addHelpButton('retention_current', 'retentionperiod', 'tool_dataprivacy');
         }
     }
 
@@ -145,12 +140,12 @@ class context_instance extends \core\form\persistent {
             $persistent->set('contextid', $context->id);
         }
 
-        $purposes = [];
-        foreach (api::get_purposes() as $purpose) {
-            $purposes[$purpose->get('id')] = $purpose;
-        }
-        $purposeoptions = \tool_dataprivacy\output\data_registry_page::purpose_options($purposes);
-        $categoryoptions = \tool_dataprivacy\output\data_registry_page::category_options(api::get_categories());
+        $purposeoptions = \tool_dataprivacy\output\data_registry_page::purpose_options(
+            api::get_purposes()
+        );
+        $categoryoptions = \tool_dataprivacy\output\data_registry_page::category_options(
+            api::get_categories()
+        );
 
         $customdata = [
             'context' => $context,
@@ -168,14 +163,9 @@ class context_instance extends \core\form\persistent {
                 $context);
 
             $customdata['purposeretentionperiods'] = [];
-            foreach (array_keys($purposeoptions) as $optionvalue) {
-
-                if (isset($purposes[$optionvalue])) {
-                    $purpose = $purposes[$optionvalue];
-                } else {
-                    // Get the effective purpose if $optionvalue would be the selected value.
-                    $purpose = api::get_effective_context_purpose($context, $optionvalue);
-                }
+            foreach ($purposeoptions as $optionvalue => $unused) {
+                // Get the effective purpose if $optionvalue would be the selected value.
+                $purpose = api::get_effective_context_purpose($context, $optionvalue);
 
                 $retentionperiod = self::get_retention_display_text(
                     $purpose,
@@ -192,12 +182,12 @@ class context_instance extends \core\form\persistent {
     /**
      * Returns the purpose display text.
      *
-     * @param purpose $effectivepurpose
+     * @param \tool_dataprivacy\purpose $effectivepurpose
      * @param int $retentioncontextlevel
      * @param \context $context The context, just for displaying (filters) purposes.
      * @return string
      */
-    protected static function get_retention_display_text(purpose $effectivepurpose, $retentioncontextlevel, \context $context) {
+    protected static function get_retention_display_text(\tool_dataprivacy\purpose $effectivepurpose, $retentioncontextlevel, \context $context) {
         global $PAGE;
 
         $renderer = $PAGE->get_renderer('tool_dataprivacy');
