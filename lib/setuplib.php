@@ -98,6 +98,8 @@ class moodle_exception extends Exception {
      * @param string $debuginfo optional debugging information
      */
     function __construct($errorcode, $module='', $link='', $a=NULL, $debuginfo=null) {
+        global $CFG;
+
         if (empty($module) || $module == 'moodle' || $module == 'core') {
             $module = 'error';
         }
@@ -116,11 +118,21 @@ class moodle_exception extends Exception {
             $haserrorstring = false;
         }
 
-        if (defined('PHPUNIT_TEST') and PHPUNIT_TEST and $debuginfo) {
-            $message = "$message ($debuginfo)";
+        $isinphpunittest = (defined('PHPUNIT_TEST') && PHPUNIT_TEST);
+        $hasdebugdeveloper = (
+            isset($CFG->debugdisplay) &&
+            isset($CFG->debug) &&
+            $CFG->debugdisplay &&
+            $CFG->debug === DEBUG_DEVELOPER
+        );
+
+        if ($debuginfo) {
+            if ($isinphpunittest || $hasdebugdeveloper) {
+                $message = "$message ($debuginfo)";
+            }
         }
 
-        if (!$haserrorstring and defined('PHPUNIT_TEST') and PHPUNIT_TEST) {
+        if (!$haserrorstring and $isinphpunittest) {
             // Append the contents of $a to $debuginfo so helpful information isn't lost.
             // This emulates what {@link get_exception_info()} does. Unfortunately that
             // function is not used by phpunit.
@@ -1395,7 +1407,7 @@ function disable_output_buffering() {
  */
 function is_major_upgrade_required() {
     global $CFG;
-    $lastmajordbchanges = 2017092900.00;
+    $lastmajordbchanges = 2018111301.00;
 
     $required = empty($CFG->version);
     $required = $required || (float)$CFG->version < $lastmajordbchanges;
@@ -1659,6 +1671,42 @@ function get_request_storage_directory($exceptiononerror = true) {
 function make_request_directory($exceptiononerror = true) {
     $basedir = get_request_storage_directory($exceptiononerror);
     return make_unique_writable_directory($basedir, $exceptiononerror);
+}
+
+/**
+ * Get the full path of a directory under $CFG->backuptempdir.
+ *
+ * @param string $directory  the relative path of the directory under $CFG->backuptempdir
+ * @return string|false Returns full path to directory given a valid string; otherwise, false.
+ */
+function get_backup_temp_directory($directory) {
+    global $CFG;
+    if (($directory === null) || ($directory === false)) {
+        return false;
+    }
+    return "$CFG->backuptempdir/$directory";
+}
+
+/**
+ * Create a directory under $CFG->backuptempdir and make sure it is writable.
+ *
+ * Do not use for storing generic temp files - see make_temp_directory() instead for this purpose.
+ *
+ * Backup temporary files must be on a shared storage.
+ *
+ * @param string $directory  the relative path of the directory to be created under $CFG->backuptempdir
+ * @param bool $exceptiononerror throw exception if error encountered
+ * @return string|false Returns full path to directory if successful, false if not; may throw exception
+ */
+function make_backup_temp_directory($directory, $exceptiononerror = true) {
+    global $CFG;
+    if ($CFG->backuptempdir !== "$CFG->tempdir/backup") {
+        check_dir_exists($CFG->backuptempdir, true, true);
+        protect_directory($CFG->backuptempdir);
+    } else {
+        protect_directory($CFG->tempdir);
+    }
+    return make_writable_directory("$CFG->backuptempdir/$directory", $exceptiononerror);
 }
 
 /**

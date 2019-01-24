@@ -1126,18 +1126,20 @@ abstract class webservice_server implements webservice_server_interface {
         // Must be the same XXX key name as the external_settings::set_XXX function.
         // Must be the same XXX ws parameter name as 'moodlewssettingXXX'.
         $externalsettings = array(
-            'raw' => false,
-            'fileurl' => true,
-            'filter' =>  false);
+            'raw' => array('default' => false, 'type' => PARAM_BOOL),
+            'fileurl' => array('default' => true, 'type' => PARAM_BOOL),
+            'filter' => array('default' => false, 'type' => PARAM_BOOL),
+            'lang' => array('default' => '', 'type' => PARAM_LANG),
+        );
 
         // Load the external settings with the web service settings.
         $settings = external_settings::get_instance();
-        foreach ($externalsettings as $name => $default) {
+        foreach ($externalsettings as $name => $settingdata) {
 
             $wsparamname = 'moodlewssetting' . $name;
 
             // Retrieve and remove the setting parameter from the request.
-            $value = optional_param($wsparamname, $default, PARAM_BOOL);
+            $value = optional_param($wsparamname, $settingdata['default'], $settingdata['type']);
             unset($_GET[$wsparamname]);
             unset($_POST[$wsparamname]);
 
@@ -1203,6 +1205,8 @@ abstract class webservice_base_server extends webservice_server {
      * @uses die
      */
     public function run() {
+        global $CFG, $SESSION;
+
         // we will probably need a lot of memory in some functions
         raise_memory_limit(MEMORY_EXTRA);
 
@@ -1235,6 +1239,23 @@ abstract class webservice_base_server extends webservice_server {
         $event = \core\event\webservice_function_called::create($params);
         $event->set_legacy_logdata(array(SITEID, 'webservice', $this->functionname, '' , getremoteaddr() , 0, $this->userid));
         $event->trigger();
+
+        // Do additional setup stuff.
+        $settings = external_settings::get_instance();
+        $sessionlang = $settings->get_lang();
+        if (!empty($sessionlang)) {
+            $SESSION->lang = $sessionlang;
+        }
+
+        setup_lang_from_browser();
+
+        if (empty($CFG->lang)) {
+            if (empty($SESSION->lang)) {
+                $CFG->lang = 'en';
+            } else {
+                $CFG->lang = $SESSION->lang;
+            }
+        }
 
         // finally, execute the function - any errors are catched by the default exception handler
         $this->execute();
@@ -1371,9 +1392,27 @@ abstract class webservice_base_server extends webservice_server {
     protected function execute() {
         // validate params, this also sorts the params properly, we need the correct order in the next part
         $params = call_user_func(array($this->function->classname, 'validate_parameters'), $this->function->parameters_desc, $this->parameters);
+        $params = array_values($params);
+
+        // Allow any Moodle plugin a chance to override this call. This is a convenient spot to
+        // make arbitrary behaviour customisations, for example to affect the mobile app behaviour.
+        // The overriding plugin could call the 'real' function first and then modify the results,
+        // or it could do a completely separate thing.
+        $callbacks = get_plugins_with_function('override_webservice_execution');
+        foreach ($callbacks as $plugintype => $plugins) {
+            foreach ($plugins as $plugin => $callback) {
+                $result = $callback($this->function, $params);
+                if ($result !== false) {
+                    // If the callback returns anything other than false, we assume it replaces the
+                    // real function.
+                    $this->returns = $result;
+                    return;
+                }
+            }
+        }
 
         // execute - yay!
-        $this->returns = call_user_func_array(array($this->function->classname, $this->function->methodname), array_values($params));
+        $this->returns = call_user_func_array(array($this->function->classname, $this->function->methodname), $params);
     }
 
     /**

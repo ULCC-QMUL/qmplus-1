@@ -85,6 +85,7 @@ class core_component {
         'IMSGlobal\LTI' => 'lib/ltiprovider/src',
         'Phpml' => 'lib/mlbackend/php/phpml/src/Phpml',
         'PHPMailer\\PHPMailer' => 'lib/phpmailer/src',
+        'RedeyeVentures\\GeoPattern' => 'lib/geopattern-php/GeoPattern',
     );
 
     /**
@@ -441,6 +442,7 @@ $cache = '.var_export($cache, true).';
             'edufields'   => null,
             'enrol'       => $CFG->dirroot.'/enrol',
             'error'       => null,
+            'favourites'  => $CFG->dirroot . '/favourites',
             'filepicker'  => null,
             'fileconverter' => $CFG->dirroot.'/files/converter',
             'files'       => $CFG->dirroot.'/files',
@@ -1275,5 +1277,32 @@ $cache = '.var_export($cache, true).';
             $components['core']['core_' . $subsystemname] = $subsystempath;
         }
         return $components;
+    }
+
+    /**
+     * Returns a list of frankenstyle component names.
+     *
+     * E.g.
+     *  [
+     *      'core_course',
+     *      'core_message',
+     *      'mod_assign',
+     *      ...
+     *  ]
+     * @return array the list of frankenstyle component names.
+     */
+    public static function get_component_names() : array {
+        $componentnames = [];
+        // Get all plugins.
+        foreach (self::get_plugin_types() as $plugintype => $typedir) {
+            foreach (self::get_plugin_list($plugintype) as $pluginname => $plugindir) {
+                $componentnames[] = $plugintype . '_' . $pluginname;
+            }
+        }
+        // Get all subsystems.
+        foreach (self::get_core_subsystems() as $subsystemname => $subsystempath) {
+            $componentnames[] = 'core_' . $subsystemname;
+        }
+        return $componentnames;
     }
 }

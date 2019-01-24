@@ -52,14 +52,6 @@ function folder_supports($feature) {
 }
 
 /**
- * Returns all other caps used in module
- * @return array
- */
-function folder_get_extra_capabilities() {
-    return array('moodle/site:accessallgroups');
-}
-
-/**
  * This function is used by the reset_course_userdata function in moodlelib.
  * @param $data the data submitted from the reset course.
  * @return array status array
@@ -470,7 +462,7 @@ function folder_cm_info_view(cm_info $cm) {
         }
         // display folder
         $renderer = $PAGE->get_renderer('mod_folder');
-        $cm->set_content($renderer->display_folder($folder));
+        $cm->set_content($renderer->display_folder($folder), true);
     }
 }
 

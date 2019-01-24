@@ -267,6 +267,10 @@ class mod_assign_renderer extends plugin_renderer_base {
         $o .= $this->output->box_start('boxaligncenter gradingsummarytable');
         $t = new html_table();
 
+        // Visibility Status.
+        $this->add_table_row_tuple($t, get_string('hiddenfromstudents'),
+            (!$summary->isvisible) ? get_string('yes') : get_string('no'));
+
         // Status.
         if ($summary->teamsubmission) {
             if ($summary->warnofungroupedusers) {
@@ -924,7 +928,7 @@ class mod_assign_renderer extends plugin_renderer_base {
                     $o .= $this->output->single_button(new moodle_url('/mod/assign/view.php', $urlparams),
                                                        get_string('addsubmission', 'assign'), 'get');
                     $o .= $this->output->box_start('boxaligncenter submithelp');
-                    $o .= get_string('editsubmission_help', 'assign');
+                    $o .= get_string('addsubmission_help', 'assign');
                     $o .= $this->output->box_end();
                     $o .= $this->output->box_end();
                 } else if ($submission->status == ASSIGN_SUBMISSION_STATUS_REOPENED) {
@@ -1419,11 +1423,15 @@ class mod_assign_renderer extends plugin_renderer_base {
                                              'moodle',
                                              array('class'=>'icon'));
             $result .= '<li yuiConfig=\'' . json_encode($yuiconfig) . '\'>' .
-                       '<div>' . $image . ' ' .
-                                 $file->fileurl . ' ' .
-                                 $plagiarismlinks . ' ' .
-                                 $file->portfoliobutton . '</div>' .
-                       '</li>';
+                '<div>' .
+                    '<div class="fileuploadsubmission">' . $image . ' ' .
+                    $file->fileurl . ' ' .
+                    $plagiarismlinks . ' ' .
+                    $file->portfoliobutton . ' ' .
+                    '</div>' .
+                    '<div class="fileuploadsubmissiontime">' . $file->timemodified . '</div>' .
+                '</div>' .
+            '</li>';
         }
 
         $result .= '</ul>';

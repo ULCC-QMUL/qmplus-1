@@ -119,6 +119,7 @@ abstract class question_test_helper {
         $catcontext = context::instance_by_id($cat->contextid, MUST_EXIST);
         $contexts = new question_edit_contexts($catcontext);
         $dataforformconstructor = new stdClass();
+        $dataforformconstructor->createdby = $questiondata->createdby;
         $dataforformconstructor->qtype = $questiondata->qtype;
         $dataforformconstructor->contextid = $questiondata->contextid = $catcontext->id;
         $dataforformconstructor->category = $questiondata->category = $cat->id;
@@ -169,6 +170,7 @@ class test_question_maker {
 
         $q->id = 0;
         $q->category = 0;
+        $q->idnumber = null;
         $q->parent = 0;
         $q->questiontextformat = FORMAT_HTML;
         $q->generalfeedbackformat = FORMAT_HTML;
@@ -189,6 +191,7 @@ class test_question_maker {
 
         $qdata->id = 0;
         $qdata->category = 0;
+        $qdata->idnumber = null;
         $qdata->contextid = 0;
         $qdata->parent = 0;
         $qdata->questiontextformat = FORMAT_HTML;
