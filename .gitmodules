@@ -609,3 +609,6 @@
 [submodule "local/qsection"]
 	path = local/qsection
 	url = git@github.com:ULCC-QMUL/moodle-local_qsection.git
+[submodule "report/apocalypse"]
+	path = report/apocalypse
+	url = git@github.com:catalyst/moodle-report_apocalypse.git
