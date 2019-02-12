@@ -603,3 +603,6 @@
 [submodule "blocks/qmul_blindmarking"]
 	path = blocks/qmul_blindmarking
 	url = git@github.com:ULCC-QMUL/moodle-block_qmul_blindmarking.git
+[submodule "theme/boost_o365teams"]
+	path = theme/boost_o365teams
+	url = git@github.com:Microsoft/moodle-theme_boost_o365teams.git
