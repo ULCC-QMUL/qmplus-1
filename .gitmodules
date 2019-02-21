@@ -600,3 +600,6 @@
 [submodule "theme/boost_o365teams"]
 	path = theme/boost_o365teams
 	url = git@github.com:Microsoft/moodle-theme_boost_o365teams.git
+[submodule "mod/checklist"]
+	path = mod/checklist
+	url = git@github.com:davosmith/moodle-checklist.git
