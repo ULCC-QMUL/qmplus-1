@@ -323,15 +323,11 @@ class api {
               ORDER BY " . $DB->sql_fullname();
         $foundusers = $DB->get_records_sql_menu($sql, $params + $excludeparams, $limitfrom, $limitnum);
 
-        $orderedcontacts = array();
+        $contacts = [];
         if (!empty($foundusers)) {
             $contacts = helper::get_member_info($userid, array_keys($foundusers));
-            // The get_member_info returns an associative array, so is not ordered in the same way.
-            // We need to reorder it again based on query's result.
-            foreach ($foundusers as $key => $value) {
-                $contact = $contacts[$key];
-                $contact->conversations = self::get_conversations_between_users($userid, $key, 0, 1000);
-                $orderedcontacts[] = $contact;
+            foreach ($contacts as $memberuserid => $memberinfo) {
+                $contacts[$memberuserid]->conversations = self::get_conversations_between_users($userid, $memberuserid, 0, 1000);
             }
         }
 
@@ -417,19 +413,15 @@ class api {
             $foundusers = $returnedusers;
         }
 
-        $orderednoncontacts = array();
+        $noncontacts = [];
         if (!empty($foundusers)) {
             $noncontacts = helper::get_member_info($userid, array_keys($foundusers));
-            // The get_member_info returns an associative array, so is not ordered in the same way.
-            // We need to reorder it again based on query's result.
-            foreach ($foundusers as $key => $value) {
-                $contact = $noncontacts[$key];
-                $contact->conversations = self::get_conversations_between_users($userid, $key, 0, 1000);
-                $orderednoncontacts[] = $contact;
+            foreach ($noncontacts as $memberuserid => $memberinfo) {
+                $noncontacts[$memberuserid]->conversations = self::get_conversations_between_users($userid, $memberuserid, 0, 1000);
             }
         }
 
-        return array($orderedcontacts, $orderednoncontacts);
+        return array(array_values($contacts), array_values($noncontacts));
     }
 
     /**
@@ -698,6 +690,10 @@ class api {
 
             // Don't use array_merge, as we lose array keys.
             $memberinfo = $individualmemberinfo + $groupmemberinfo;
+
+            if (empty($memberinfo)) {
+                return [];
+            }
 
             // Update the members array with the member information.
             $deletedmembers = [];
@@ -2500,6 +2496,31 @@ class api {
         $request->timecreated = time();
 
         $request->id = $DB->insert_record('message_contact_requests', $request);
+
+        // Send a notification.
+        $userfrom = \core_user::get_user($userid);
+        $userfromfullname = fullname($userfrom);
+        $userto = \core_user::get_user($requesteduserid);
+        $url = new \moodle_url('/message/pendingcontactrequests.php');
+
+        $subject = get_string('messagecontactrequestsnotificationsubject', 'core_message', $userfromfullname);
+        $fullmessage = get_string('messagecontactrequestsnotification', 'core_message', $userfromfullname);
+
+        $message = new \core\message\message();
+        $message->courseid = SITEID;
+        $message->component = 'moodle';
+        $message->name = 'messagecontactrequests';
+        $message->notification = 1;
+        $message->userfrom = $userfrom;
+        $message->userto = $userto;
+        $message->subject = $subject;
+        $message->fullmessage = text_to_html($fullmessage);
+        $message->fullmessageformat = FORMAT_HTML;
+        $message->fullmessagehtml = $fullmessage;
+        $message->smallmessage = '';
+        $message->contexturl = $url->out(false);
+
+        message_send($message);
 
         return $request;
     }
