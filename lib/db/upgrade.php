@@ -2889,62 +2889,6 @@ function xmldb_main_upgrade($oldversion) {
         upgrade_main_savepoint(true, 2018120301.02);
     }
 
-<<<<<<< HEAD
-    // Automatically generated Moodle v3.4.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    if ($oldversion < 2017111300.02) {
-
-        // Define field basicauth to be added to oauth2_issuer.
-        $table = new xmldb_table('oauth2_issuer');
-        $field = new xmldb_field('basicauth', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0', 'showonloginpage');
-
-        // Conditionally launch add field basicauth.
-        if (!$dbman->field_exists($table, $field)) {
-            $dbman->add_field($table, $field);
-        }
-
-        // Main savepoint reached.
-        upgrade_main_savepoint(true, 2017111300.02);
-    }
-
-    if ($oldversion < 2017111301.08) {
-
-        // Fix old block configurations that use the deprecated (and now removed) object class.
-        upgrade_fix_block_instance_configuration();
-
-        // Main savepoint reached.
-        upgrade_main_savepoint(true, 2017111301.08);
-    }
-
-    if ($oldversion < 2017111302.12) {
-        // Update default digital age consent map according to the current legislation on each country.
-        $ageofdigitalconsentmap = implode(PHP_EOL, [
-            '*, 16',
-            'AT, 14',
-            'ES, 14',
-            'US, 13'
-        ]);
-        set_config('agedigitalconsentmap', $ageofdigitalconsentmap);
-
-        // Main savepoint reached.
-        upgrade_main_savepoint(true, 2017111302.12);
-    }
-
-    if ($oldversion < 2017111303.07) {
-        // Add foreign key fk_user to the comments table.
-        $table = new xmldb_table('comments');
-        $key = new xmldb_key('fk_user', XMLDB_KEY_FOREIGN, array('userid'), 'user', array('id'));
-        $dbman->add_key($table, $key);
-
-        upgrade_main_savepoint(true, 2017111303.07);
-    }
-
-    if ($oldversion < 2017111303.08) {
-        // Add composite index ix_concomitem to the table comments.
-        $table = new xmldb_table('comments');
-        $index = new xmldb_index('ix_concomitem', XMLDB_INDEX_NOTUNIQUE, array('contextid', 'commentarea', 'itemid'));
-=======
     if ($oldversion <  2018120302.02) {
 
         // Delete all files that have been used in sections, which are already deleted.
@@ -2973,42 +2917,11 @@ function xmldb_main_upgrade($oldversion) {
         // Add index 'useridfrom' to the table 'notifications'.
         $table = new xmldb_table('notifications');
         $index = new xmldb_index('useridfrom', XMLDB_INDEX_NOTUNIQUE, ['useridfrom']);
->>>>>>> MOODLE_36_STABLE
 
         if (!$dbman->index_exists($table, $index)) {
             $dbman->add_index($table, $index);
         }
 
-<<<<<<< HEAD
-        upgrade_main_savepoint(true, 2017111303.08);
-    }
-
-    if ($oldversion < 2017111304.10) {
-        // Remove module associated blog posts for non-existent (deleted) modules.
-        $sql = "SELECT ba.contextid as modcontextid
-                  FROM {blog_association} ba
-                  JOIN {post} p
-                       ON p.id = ba.blogid
-             LEFT JOIN {context} c
-                       ON c.id = ba.contextid
-                 WHERE p.module = :module
-                       AND c.contextlevel IS NULL
-              GROUP BY ba.contextid";
-        if ($deletedmodules = $DB->get_records_sql($sql, array('module' => 'blog'))) {
-            foreach ($deletedmodules as $module) {
-                $assocblogids = $DB->get_fieldset_select('blog_association', 'blogid',
-                    'contextid = :contextid', ['contextid' => $module->modcontextid]);
-                list($sql, $params) = $DB->get_in_or_equal($assocblogids, SQL_PARAMS_NAMED);
-
-                $DB->delete_records_select('tag_instance', "itemid $sql", $params);
-                $DB->delete_records_select('post', "id $sql AND module = :module",
-                    array_merge($params, ['module' => 'blog']));
-                $DB->delete_records('blog_association', ['contextid' => $module->modcontextid]);
-            }
-        }
-        // Main savepoint reached.
-        upgrade_main_savepoint(true, 2017111304.10);
-=======
         upgrade_main_savepoint(true, 2018120302.03);
     }
 
@@ -3037,7 +2950,6 @@ function xmldb_main_upgrade($oldversion) {
 
         // Main savepoint reached.
         upgrade_main_savepoint(true, 2018120302.04);
->>>>>>> MOODLE_36_STABLE
     }
 
     return true;
