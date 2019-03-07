@@ -603,3 +603,6 @@
 [submodule "mod/checklist"]
 	path = mod/checklist
 	url = git@github.com:davosmith/moodle-checklist.git
+[submodule "files/converter/onedrive"]
+	path = files/converter/onedrive
+	url = git@bitbucket.org:uonmoodle/moodle-fileconverter_onedrive.git
