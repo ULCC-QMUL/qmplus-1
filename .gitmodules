@@ -606,3 +606,6 @@
 [submodule "files/converter/onedrive"]
 	path = files/converter/onedrive
 	url = git@bitbucket.org:uonmoodle/moodle-fileconverter_onedrive.git
+[submodule "local/qsection"]
+	path = local/qsection
+	url = git@github.com:ULCC-QMUL/moodle-local_qsection.git
