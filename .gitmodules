@@ -609,3 +609,6 @@
 [submodule "local/simple_course_creator"]
 	path = local/simple_course_creator
 	url = git@github.com:doiphode/moodle-local_simple_course_creator.git
+[submodule "mod/questionnaire"]
+	path = mod/questionnaire
+	url = git@github.com:doiphode/moodle-mod_questionnaire.git
