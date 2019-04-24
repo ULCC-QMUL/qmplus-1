@@ -308,9 +308,6 @@
 [submodule "mod/assign/feedback/onenote"]
 	path = mod/assign/feedback/onenote
 	url = git@github.com:Microsoft/moodle-assignfeedback_onenote.git
-[submodule "mod/assign/submission/onlineaudio"]
-	path = mod/assign/submission/onlineaudio
-	url = git@github.com:pauln/moodle-assignsubmission_onlineaudio.git
 [submodule "mod/assign/submission/qmcw_coversheet"]
 	path = mod/assign/submission/qmcw_coversheet
 	url = git@github.com:ULCC-QMUL/moodle-mod-assign-submission_qmcw_coversheet.git
