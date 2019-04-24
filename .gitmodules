@@ -606,3 +606,6 @@
 [submodule "mod/questionnaire"]
 	path = mod/questionnaire
 	url = git@github.com:doiphode/moodle-mod_questionnaire.git
+[submodule "mod/assign/submission/onlineaudio"]
+	path = mod/assign/submission/onlineaudio
+	url = git@github.com:ULCC-QMUL/moodle-assignsubmission_onlineaudio.git
