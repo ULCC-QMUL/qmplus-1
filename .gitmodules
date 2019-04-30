@@ -103,9 +103,6 @@
 [submodule "course/format/landingpage"]
 	path = course/format/landingpage
 	url = git@github.com:ULCC-QMUL/moodle-format_landingpage.git
-[submodule "course/format/topcoll"]
-	path = course/format/topcoll
-	url = git@github.com:gjb2048/moodle-format_topcoll.git
 [submodule "course/format/flexsections"]
 	path = course/format/flexsections
 	url = git@github.com:marinaglancy/moodle-format_flexsections.git
