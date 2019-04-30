@@ -606,3 +606,6 @@
 [submodule "mod/assign/submission/onlineaudio"]
 	path = mod/assign/submission/onlineaudio
 	url = git@github.com:ULCC-QMUL/moodle-assignsubmission_onlineaudio.git
+[submodule "course/format/topcoll"]
+	path = course/format/topcoll
+	url = git@github.com:ULCC-QMUL/moodle-format_topcoll.git
