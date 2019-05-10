@@ -29,7 +29,6 @@ define(['jquery', './tether', 'core/event'], function(jQuery, Tether, Event) {
     window.Tether = Tether;
 
     require(['theme_boost/aria',
-            'theme_boost/pending',
             'theme_boost/util',
             'theme_boost/alert',
             'theme_boost/button',
