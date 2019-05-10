@@ -5968,6 +5968,9 @@ img.iconsmall {
 .calendarwrapper {
   position: relative;
 }
+.summary-modal-container .description-content {
+  overflow-wrap: break-word;
+}
 .summary-modal-container .description-content > p {
   margin: 0;
 }
@@ -9166,6 +9169,9 @@ a.ygtvspacer:hover {
   flex-shrink: 0;
   overflow-x: hidden;
 }
+.message-drawer .footer-container textarea {
+  direction: ltr;
+}
 .message-drawer .matchtext {
   background-color: #ade6fe;
   color: #333;
@@ -9252,8 +9258,29 @@ a.ygtvspacer:hover {
 .message-drawer .last-message {
   min-height: 20px;
 }
+.message-drawer .message .tail {
+  content: '';
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border: 0.5rem solid transparent;
+  position: relative;
+}
+.message-drawer .message.send .tail {
+  right: 0;
+  margin-right: -0.5rem;
+  border-bottom-color: #e9ecef;
+}
+.message-drawer .message.received .tail {
+  left: 0;
+  margin-left: -0.5rem;
+  border-bottom-color: #fff;
+}
 .message-drawer .lazy-load-list {
   overflow-y: auto;
+}
+.dir-rtl .message-drawer {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
 }
 @media (max-width: 480px) {
   .messaging-area-container .messaging-area .messages-area.editing .messages-header {
@@ -22317,6 +22344,9 @@ ul.indented-list {
 }
 .position-relative {
   position: relative !important;
+}
+.position-sticky {
+  position: sticky !important;
 }
 .align-self-start {
   align-self: flex-start !important;

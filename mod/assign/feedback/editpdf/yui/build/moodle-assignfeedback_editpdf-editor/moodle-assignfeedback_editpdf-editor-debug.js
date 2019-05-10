@@ -1574,8 +1574,9 @@ Y.extend(ANNOTATIONSTAMP, M.assignfeedback_editpdf.annotation, {
 
         position = this.editor.get_window_coordinates(new M.assignfeedback_editpdf.point(this.x, this.y));
         node = Y.Node.create('<div/>');
+        // If these are absolutely positioned, they escape their scroll container.
         node.setStyles({
-            'position': 'absolute',
+            'position': 'relative',
             'display': 'inline-block',
             'backgroundImage': 'url(' + this.editor.get_stamp_image_url(this.path) + ')',
             'width': (this.endx - this.x),
@@ -2165,6 +2166,7 @@ Y.extend(COMMENTMENU, M.assignfeedback_editpdf.dropdown, {
                                                '<img src="' + M.util.image_url('t/delete', 'core') + '" ' +
                                                'alt="' + M.util.get_string('deletecomment', 'assignfeedback_editpdf') + '"/>' +
                                                '</a>');
+            linkitem.setAttribute('title', quickcomment.rawtext);
             listitem.append(linkitem);
             listitem.append(deletelinkitem);
 
@@ -2584,7 +2586,7 @@ var COMMENT = function(editor, gradeid, pageno, x, y, width, colour, rawtext) {
         });
 
         drawingregion.append(container);
-        container.setStyle('position', 'absolute');
+        container.setStyle('position', 'relative');
         container.setX(position.x);
         container.setY(position.y);
         drawable.store_position(container, position.x, position.y);
@@ -4779,7 +4781,7 @@ EDITOR.prototype = {
      */
     disable_touch_scroll: function() {
         if (this.event_listener_options_supported()) {
-            document.addEventListener('touchmove', this.stop_touch_scroll, {passive: false});
+            document.addEventListener('touchmove', this.stop_touch_scroll.bind(this), {passive: false});
         }
     },
 
@@ -4788,8 +4790,12 @@ EDITOR.prototype = {
      * @param {Object} e
      */
     stop_touch_scroll: function(e) {
-        e.stopPropagation();
-        e.preventDefault();
+        var drawingregion = this.get_dialogue_element(SELECTOR.DRAWINGREGION);
+
+        if (drawingregion.contains(e.target)) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
     }
 
 };
