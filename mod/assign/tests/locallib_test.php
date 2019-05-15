@@ -3011,11 +3011,6 @@ class mod_assign_locallib_testcase extends advanced_testcase {
         $teacher = $this->getDataGenerator()->create_and_enrol($course, 'teacher');
         $student = $this->getDataGenerator()->create_and_enrol($course, 'student');
 
-        $this->resetAfterTest();
-        $course = $this->getDataGenerator()->create_course();
-        $teacher = $this->getDataGenerator()->create_and_enrol($course, 'teacher');
-        $student = $this->getDataGenerator()->create_and_enrol($course, 'student');
-
         $sourcetext = "Hello!
 
 I'm writing to you from the Moodle Majlis in Muscat, Oman, where we just had several days of Moodle community goodness.

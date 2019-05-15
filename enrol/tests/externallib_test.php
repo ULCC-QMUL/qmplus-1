@@ -383,10 +383,6 @@ class core_enrol_externallib_testcase extends externallib_advanced_testcase {
             'lang'             => 'kk', // Check invalid language pack.
         );
 
-        $coursedata2 = array(
-            'lang'             => 'kk', // Check invalid language pack.
-        );
-
         $course1 = self::getDataGenerator()->create_course($coursedata1);
         $course2 = self::getDataGenerator()->create_course($coursedata2);
         $courses = array($course1, $course2);
