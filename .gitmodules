@@ -606,3 +606,6 @@
 [submodule "local/tabtransformer"]
 	path = local/tabtransformer
 	url = git@github.com:ULCC-QMUL/moodle-local_tabtransformer.git
+[submodule "blocks/course_overview"]
+	path = blocks/course_overview
+	url = git@github.com:thepurpleblob/moodle-block_course_overview.git
