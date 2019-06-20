@@ -612,3 +612,6 @@
 [submodule "course/format/topics2"]
 	path = course/format/topics2
 	url = git@github.com:opitz/moodle-format_topics2.git
+[submodule "local/bulkactions"]
+	path = local/bulkactions
+	url = git@github.com:/ULCC-QMUL/moodle-local_bulkactions
