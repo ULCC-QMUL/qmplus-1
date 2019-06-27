@@ -447,9 +447,6 @@
 [submodule "local/qmframework"]
 	path = local/qmframework
 	url = git@github.com:ULCC-QMUL/moodle-local_qmframework.git
-[submodule "mod/subpage"]
-	path = mod/subpage
-	url = git@github.com:ULCC-QMUL/moodle-mod_subpage.git
 [submodule "mod/tab"]
 	path = mod/tab
 	url = git@github.com:ULCC-QMUL/moodle-mod_tab.git
