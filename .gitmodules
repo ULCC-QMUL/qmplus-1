@@ -614,7 +614,7 @@
 	url = git@github.com:/ULCC-QMUL/moodle-local_bulkactions
 [submodule "mod/questionnaire"]
 	path = mod/questionnaire
-	url = git@github.com:PoetOS/moodle-mod_questionnaire.git
+	url = git@github.com:/doiphode/moodle-mod_questionnaire.git
 [submodule "blocks/xp"]
 	path = blocks/xp
 	url = git@github.com:/FMCorz/moodle-block_xp
