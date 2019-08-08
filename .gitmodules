@@ -621,3 +621,6 @@
 [submodule "filter/h5p"]
 	path = filter/h5p
 	url = git@github.com:rschrenk/moodle-filter_h5p.git
+[submodule "local/xp"]
+	path = local/xp
+	url = git@github.com:ULCC-QMUL/moodle-local_xp.git
