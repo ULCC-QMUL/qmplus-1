@@ -615,9 +615,6 @@
 [submodule "blocks/xp"]
 	path = blocks/xp
 	url = git@github.com:/FMCorz/moodle-block_xp
-[submodule "mod/questionnaire"]
-	path = mod/questionnaire
-	url = git@github.com:ULCC-QMUL/moodle-mod_questionnaire.git
 [submodule "filter/h5p"]
 	path = filter/h5p
 	url = git@github.com:rschrenk/moodle-filter_h5p.git
