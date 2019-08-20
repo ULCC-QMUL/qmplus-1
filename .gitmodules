@@ -624,3 +624,6 @@
 [submodule "mod/coursework"]
 	path = mod/coursework
 	url = git@github.com:aspark21/open-mod_coursework.git
+[submodule "mod/questionnaire"]
+	path = mod/questionnaire
+	url = git@github.com:PoetOS/moodle-mod_questionnaire.git
