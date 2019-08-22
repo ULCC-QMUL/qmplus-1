@@ -612,6 +612,15 @@
 [submodule "local/bulkactions"]
 	path = local/bulkactions
 	url = git@github.com:/ULCC-QMUL/moodle-local_bulkactions
+[submodule "blocks/xp"]
+	path = blocks/xp
+	url = git@github.com:/FMCorz/moodle-block_xp
+[submodule "filter/h5p"]
+	path = filter/h5p
+	url = git@github.com:rschrenk/moodle-filter_h5p.git
+[submodule "local/xp"]
+	path = local/xp
+	url = git@github.com:ULCC-QMUL/moodle-local_xp.git
 [submodule "mod/questionnaire"]
 	path = mod/questionnaire
 	url = git@github.com:PoetOS/moodle-mod_questionnaire.git
