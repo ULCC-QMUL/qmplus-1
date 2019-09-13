@@ -624,3 +624,6 @@
 [submodule "mod/questionnaire"]
 	path = mod/questionnaire
 	url = git@github.com:ULCC-QMUL/moodle-mod_questionnaire.git
+[submodule "blocks/modlib"]
+	path = blocks/modlib
+	url = git@github.com:/ULCC-QMUL/moodle-block_modlib
