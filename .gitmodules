@@ -630,3 +630,6 @@
 [submodule "mod/qmevaluation"]
 	path = mod/qmevaluation
 	url = git@github.com:ULCC-QMUL/moodle-mod_qmevaluation.git
+[submodule "blocks/kortext"]
+	path = blocks/kortext
+	url = git@github.com:ULCC-QMUL/moodle-block_kortext.git
