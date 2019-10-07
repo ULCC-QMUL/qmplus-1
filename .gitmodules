@@ -624,6 +624,3 @@
 [submodule "mod/questionnaire"]
 	path = mod/questionnaire
 	url = git@github.com:PoetOS/moodle-mod_questionnaire.git
-[submodule "local/kopere_dashboard"]
-	path = local/kopere_dashboard
-	url = git@github.com:/EduardoKrausME/moodle-local-kopere_dashboard
