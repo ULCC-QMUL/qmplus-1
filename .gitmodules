@@ -633,3 +633,6 @@
 [submodule "blocks/kortext"]
 	path = blocks/kortext
 	url = git@github.com:ULCC-QMUL/moodle-block_kortext.git
+[submodule "course/format/weeks2"]
+	path = course/format/weeks2
+	url = git@github.com:ULCC-QMUL/moodle-course_format_weeks2.git
