@@ -636,3 +636,6 @@
 [submodule "course/format/weeks2"]
 	path = course/format/weeks2
 	url = git@github.com:ULCC-QMUL/moodle-course_format_weeks2.git
+[submodule "blocks/bulkactivity"]
+	path = blocks/bulkactivity
+	url = git@github.com:doiphode/moodle-block_bulkactivity.git
