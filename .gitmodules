@@ -486,9 +486,6 @@
 [submodule "blocks/accessibility"]
 	path = blocks/accessibility
 	url = git@github.com:ULCC-QMUL/moodle-block_accessibility.git
-[submodule "blocks/reportsdash"]
-	path = blocks/reportsdash
-	url = git@github.com:ULCC-QMUL/moodle-block_reportsdash.git
 [submodule "blocks/checklist"]
 	path = blocks/checklist
 	url = git@github.com:ULCC-QMUL/moodle-block_checklist.git
@@ -621,9 +618,21 @@
 [submodule "local/xp"]
 	path = local/xp
 	url = git@github.com:ULCC-QMUL/moodle-local_xp.git
+[submodule "blocks/modlib"]
+	path = blocks/modlib
+	url = git@github.com:/ULCC-QMUL/moodle-block_modlib
 [submodule "mod/questionnaire"]
 	path = mod/questionnaire
 	url = git@github.com:PoetOS/moodle-mod_questionnaire.git
-[submodule "blocks/modlib"]
-	path = blocks/modlib
-	url = git@github.com:opitz/moodle-block_modlib.git
+[submodule "mod/qmevaluation"]
+	path = mod/qmevaluation
+	url = git@github.com:ULCC-QMUL/moodle-mod_qmevaluation.git
+[submodule "blocks/kortext"]
+	path = blocks/kortext
+	url = git@github.com:ULCC-QMUL/moodle-block_kortext.git
+[submodule "course/format/weeks2"]
+	path = course/format/weeks2
+	url = git@github.com:ULCC-QMUL/moodle-course_format_weeks2.git
+[submodule "blocks/bulkactivity"]
+	path = blocks/bulkactivity
+	url = git@github.com:doiphode/moodle-block_bulkactivity.git
