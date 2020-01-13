@@ -624,3 +624,18 @@
 [submodule "mod/questionnaire"]
 	path = mod/questionnaire
 	url = git@github.com:PoetOS/moodle-mod_questionnaire.git
+[submodule "blocks/modlib"]
+	path = blocks/modlib
+	url = git@github.com:ULCC-QMUL/moodle-block_modlib.git
+[submodule "mod/qmevaluation"]
+	path = mod/qmevaluation
+	url = git@github.com:ULCC-QMUL/moodle-mod_qmevaluation.git
+[submodule "blocks/kortext"]
+	path = blocks/kortext
+	url = git@github.com:ULCC-QMUL/moodle-block_kortext.git
+[submodule "blocks/bulkactivity"]
+	path = blocks/bulkactivity
+	url = git@github.com:doiphode/moodle-block_bulkactivity.git
+[submodule "course/format/weeks2"]
+	path = course/format/weeks2
+	url = git@github.com:ULCC-QMUL/moodle-course_format_weeks2.git
