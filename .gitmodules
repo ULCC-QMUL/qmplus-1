@@ -434,16 +434,16 @@
 	url = git@github.com:ULCC-QMUL/moodle-theme_qmul_science.git
 [submodule "theme/ulip"]
 	path = theme/ulip
-	url = git@github.com:/ULCC-QMUL/moodle-theme_ulip
+	url = git@github.com:ULCC-QMUL/moodle-theme_ulip.git
 [submodule "filter/imageopt"]
 	path = filter/imageopt
-	url = git@github.com:/gthomas2/moodle-filter_imageopt
+	url = git@github.com:gthomas2/moodle-filter_imageopt.git
 [submodule "lib/editor/atto/plugins/snippet"]
 	path = lib/editor/atto/plugins/snippet
-	url = git@github.com:/justinhunt/moodle-atto_snippet
+	url = git@github.com:justinhunt/moodle-atto_snippet.git
 [submodule "lib/editor/atto/plugins/echo360attoplugin"]
 	path = lib/editor/atto/plugins/echo360attoplugin
-	url = git@github.com:/ULCC-QMUL/moodle-editor_atto_echo360attoplugin
+	url = git@github.com:ULCC-QMUL/moodle-editor_atto_echo360attoplugin.git
 [submodule "local/qmframework"]
 	path = local/qmframework
 	url = git@github.com:ULCC-QMUL/moodle-local_qmframework.git
@@ -461,7 +461,7 @@
 	url = git@github.com:ULCC-QMUL/moodle-auth_dbsyncother2.git
 [submodule "blocks/completion_progress"]
 	path = blocks/completion_progress
-	url = git@github.com:/deraadt/moodle-block_completion_progress
+	url = git@github.com:deraadt/moodle-block_completion_progress.git
 [submodule "plagiarism/turnitin"]
 	path = plagiarism/turnitin
 	url = git@github.com:turnitin/moodle-plagiarism_turnitin.git
@@ -611,10 +611,10 @@
 	url = git@github.com:opitz/moodle-format_topics2.git
 [submodule "local/bulkactions"]
 	path = local/bulkactions
-	url = git@github.com:/ULCC-QMUL/moodle-local_bulkactions
+	url = git@github.com:ULCC-QMUL/moodle-local_bulkactions.git
 [submodule "blocks/xp"]
 	path = blocks/xp
-	url = git@github.com:/FMCorz/moodle-block_xp
+	url = git@github.com:FMCorz/moodle-block_xp.git
 [submodule "filter/h5p"]
 	path = filter/h5p
 	url = git@github.com:rschrenk/moodle-filter_h5p.git
