@@ -636,3 +636,9 @@
 [submodule "blocks/bulkactivity"]
 	path = blocks/bulkactivity
 	url = git@github.com:doiphode/moodle-block_bulkactivity.git
+[submodule "filter/embedquestion"]
+	path = filter/embedquestion
+	url = git@github.com:moodleou/moodle-filter_embedquestion.git
+[submodule "report/embedquestion"]
+	path = report/embedquestion
+	url = git@github.com:moodleou/moodle-report_embedquestion.git
