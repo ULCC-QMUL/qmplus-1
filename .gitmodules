@@ -622,3 +622,6 @@
 [submodule "course/format/weeks2"]
 	path = course/format/weeks2
 	url = git@github.com:ULCC-QMUL/moodle-course_format_weeks2.git
+[submodule "local/mass_enroll"]
+	path = local/mass_enroll
+	url = git@github.com:ULCC-QMUL/moodle-local_mass_enroll.git
