@@ -391,9 +391,6 @@
 [submodule "repository/office365"]
 	path = repository/office365
 	url = git@github.com:Microsoft/moodle-repository_office365.git
-[submodule "theme/essential"]
-	path = theme/essential
-	url = git@github.com:gjb2048/moodle-theme_essential.git
 [submodule "theme/synergy_bootstrap"]
 	path = theme/synergy_bootstrap
 	url = git@github.com:ULCC-QMUL/moodle-theme_synergy_bootstrap.git
