@@ -367,9 +367,6 @@
 [submodule "lib/editor/atto/plugins/mathslate"]
 	path = lib/editor/atto/plugins/mathslate
 	url = git@github.com:ULCC-QMUL/moodle-editor_atto_mathslate.git
-[submodule "lib/editor/atto/plugins/fullscreen"]
-	path = lib/editor/atto/plugins/fullscreen
-	url = git@github.com:dthies/moodle-atto_fullscreen.git
 [submodule "lib/editor/atto/plugins/fontfamily"]
 	path = lib/editor/atto/plugins/fontfamily
 	url = git@github.com:projectestac/moodle-atto_fontfamily.git
