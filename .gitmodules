@@ -619,3 +619,6 @@
 [submodule "local/mass_enroll"]
 	path = local/mass_enroll
 	url = git@github.com:ULCC-QMUL/moodle-local_mass_enroll.git
+[submodule "lib/editor/atto/plugins/fullscreen"]
+	path = lib/editor/atto/plugins/fullscreen
+	url = git@github.com:dthies/moodle-atto_fullscreen.git
