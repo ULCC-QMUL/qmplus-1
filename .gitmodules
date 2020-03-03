@@ -642,3 +642,6 @@
 [submodule "report/embedquestion"]
 	path = report/embedquestion
 	url = git@github.com:moodleou/moodle-report_embedquestion.git
+[submodule "lib/editor/atto/plugins/embedquestion"]
+	path = lib/editor/atto/plugins/embedquestion
+	url = git@github.com:moodleou/moodle-atto_embedquestion.git
