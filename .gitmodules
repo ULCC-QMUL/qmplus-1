@@ -651,3 +651,6 @@
 [submodule "filter/ally"]
 	path = filter/ally
 	url = git@github.com:blackboard-open-source/moodle-filter_ally.git
+[submodule "report/allylti"]
+	path = report/allylti
+	url = git@github.com:blackboard-open-source/moodle-report_allylti.git
