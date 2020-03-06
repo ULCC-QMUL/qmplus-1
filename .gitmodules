@@ -645,3 +645,12 @@
 [submodule "lib/editor/atto/plugins/embedquestion"]
 	path = lib/editor/atto/plugins/embedquestion
 	url = git@github.com:moodleou/moodle-atto_embedquestion.git
+[submodule "admin/tool/ally"]
+	path = admin/tool/ally
+	url = git@github.com:blackboard-open-source/moodle-tool_ally.git
+[submodule "filter/ally"]
+	path = filter/ally
+	url = git@github.com:blackboard-open-source/moodle-filter_ally.git
+[submodule "report/ally"]
+	path = report/ally
+	url = git@github.com:blackboard-open-source/moodle-report_allylti.git
