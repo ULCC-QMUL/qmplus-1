@@ -654,3 +654,6 @@
 [submodule "report/allylti"]
 	path = report/allylti
 	url = git@github.com:blackboard-open-source/moodle-report_allylti.git
+[submodule "blocks/assign_get_feedback"]
+	path = blocks/assign_get_feedback
+	url = git@github.com:vsotirasqmplus/moodle-block_assign_get_feedback.git
