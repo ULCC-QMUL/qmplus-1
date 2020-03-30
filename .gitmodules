@@ -603,9 +603,6 @@
 [submodule "blocks/course_overview"]
 	path = blocks/course_overview
 	url = git@github.com:thepurpleblob/moodle-block_course_overview.git
-[submodule "course/format/topics2"]
-	path = course/format/topics2
-	url = git@github.com:opitz/moodle-format_topics2.git
 [submodule "local/bulkactions"]
 	path = local/bulkactions
 	url = git@github.com:ULCC-QMUL/moodle-local_bulkactions.git
