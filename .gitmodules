@@ -654,3 +654,6 @@
 [submodule "course/format/topics2"]
 	path = course/format/topics2
 	url = git@github.com:ULCC-QMUL/moodle-format_topics2.git
+[submodule "report/embedquestion"]
+	path = report/embedquestion
+	url = git@github.com:ULCC-QMUL/moodle-report_embedquestion.git
