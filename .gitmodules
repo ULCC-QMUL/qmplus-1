@@ -634,6 +634,3 @@
 [submodule "report/allylti"]
 	path = report/allylti
 	url = git@github.com:blackboard-open-source/moodle-report_allylti.git
-[submodule "theme/essential"]
-	path = theme/essential
-	url = git@github.com:gjb2048/moodle-theme_essential.git
