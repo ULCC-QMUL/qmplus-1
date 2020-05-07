@@ -634,3 +634,6 @@
 [submodule "report/allylti"]
 	path = report/allylti
 	url = git@github.com:blackboard-open-source/moodle-report_allylti.git
+[submodule "filter/oembed"]
+	path = filter/oembed
+	url = git@github.com:ULCC-QMUL/moode-filter_oembed.git
