@@ -634,3 +634,6 @@
 [submodule "filter/oembed"]
 	path = filter/oembed
 	url = git@github.com:ULCC-QMUL/moode-filter_oembed.git
+[submodule "mod/questionnaire"]
+	path = mod/questionnaire
+	url = git@github.com:PoetOS/moodle-mod_questionnaire.git
