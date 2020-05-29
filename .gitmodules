@@ -211,9 +211,6 @@
 [submodule "mod/collaborate"]
 	path = mod/collaborate
 	url = git@github.com:moodlerooms/moodle-mod_collaborate.git
-[submodule "mod/forumng"]
-	path = mod/forumng
-	url = git@github.com:moodleou/moodle-mod_forumng.git
 [submodule "mod/kalvidassign"]
 	path = mod/kalvidassign
 	url = git@github.com:ULCC-QMUL/moodle-mod_kalvidassign.git
