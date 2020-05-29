@@ -421,9 +421,6 @@
 [submodule "blocks/accessibility"]
 	path = blocks/accessibility
 	url = git@github.com:ULCC-QMUL/moodle-block_accessibility.git
-[submodule "blocks/reportsdash"]
-	path = blocks/reportsdash
-	url = git@github.com:ULCC-QMUL/moodle-block_reportsdash.git
 [submodule "blocks/checklist"]
 	path = blocks/checklist
 	url = git@github.com:ULCC-QMUL/moodle-block_checklist.git
