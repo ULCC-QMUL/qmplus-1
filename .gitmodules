@@ -478,9 +478,6 @@
 [submodule "repository/evernote"]
 	path = repository/evernote
 	url = git@github.com:ULCC-QMUL/moodle-repository_evernote.git
-[submodule "theme/klass"]
-	path = theme/klass
-	url = git@github.com:lmsace/klass.git
 [submodule "user/profile/field/o365"]
 	path = user/profile/field/o365
 	url = git@github.com:ULCC-QMUL/moodle-profilefield_o365.git
