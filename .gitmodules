@@ -265,9 +265,6 @@
 [submodule "question/format/wordtable"]
 	path = question/format/wordtable
 	url = git@github.com:ecampbell/moodle-qformat_wordtable.git
-[submodule "question/type/jme"]
-	path = question/type/jme
-	url = git@github.com:jmvedrine/moodle-qtype_jme.git
 [submodule "question/type/multichoiceset"]
 	path = question/type/multichoiceset
 	url = git@github.com:jmvedrine/moodle-qtype_multichoiceset.git
