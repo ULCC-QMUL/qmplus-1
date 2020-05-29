@@ -193,9 +193,6 @@
 [submodule "local/widgets"]
 	path = local/widgets
 	url = git@github.com:ULCC-QMUL/moodle-local_widgets.git
-[submodule "mod/attendance"]
-	path = mod/attendance
-	url = git@github.com:danmarsden/moodle-mod_attendance.git
 [submodule "mod/turningtech"]
 	path = mod/turningtech
 	url = git@github.com:ULCC-QMUL/moodle-mod_turningtech.git
