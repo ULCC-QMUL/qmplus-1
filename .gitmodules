@@ -34,9 +34,6 @@
 [submodule "blocks/qmul_course_metadata"]
 	path = blocks/qmul_course_metadata
 	url = git@github.com:ULCC-QMUL/moodle-block_qmul_course_metadata.git
-[submodule "blocks/qmplus_course_overview"]
-	path = blocks/qmplus_course_overview
-	url = git@github.com:ULCC-QMUL/moodle-block_qmplus_course_overview.git
 [submodule "blocks/module_info"]
 	path = blocks/module_info
 	url = git@github.com:ULCC-QMUL/moodle-block_module_info.git
