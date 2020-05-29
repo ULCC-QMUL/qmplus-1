@@ -232,9 +232,6 @@
 [submodule "mod/pearson"]
 	path = mod/pearson
 	url = git@github.com:ULCC-QMUL/moodle-mod_pearson.git
-[submodule "mod/journal"]
-	path = mod/journal
-	url = git@github.com:elearningsoftware/moodle-mod_journal.git
 [submodule "mod/ratingallocate"]
 	path = mod/ratingallocate
 	url = git@github.com:learnweb/moodle-mod_ratingallocate.git
