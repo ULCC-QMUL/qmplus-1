@@ -19,9 +19,6 @@
 [submodule "blocks/course_menu"]
 	path = blocks/course_menu
 	url = git@github.com:ULCC-QMUL/moodle-block_course_menu.git
-[submodule "blocks/course_overview_campus"]
-	path = blocks/course_overview_campus
-	url = git@github.com:moodleuulm/moodle-block_course_overview_campus.git
 [submodule "blocks/course_profile"]
 	path = blocks/course_profile
 	url = git@github.com:ULCC-QMUL/moodle-block_course_profile.git
