@@ -16,9 +16,6 @@
 [submodule "blocks/assessment_information"]
 	path = blocks/assessment_information
 	url = git@github.com:ULCC-QMUL/moodle-block_assessment_information.git
-[submodule "blocks/attendance"]
-	path = blocks/attendance
-	url = git@github.com:danmarsden/moodle-block_attendance.git
 [submodule "blocks/course_menu"]
 	path = blocks/course_menu
 	url = git@github.com:ULCC-QMUL/moodle-block_course_menu.git
