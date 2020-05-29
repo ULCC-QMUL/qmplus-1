@@ -64,9 +64,6 @@
 [submodule "blocks/messages"]
 	path = blocks/messages
 	url = git@github.com:moodlehq/moodle-block_messages.git
-[submodule "blocks/course_reports"]
-	path = blocks/course_reports
-	url = git@github.com:ULCC-QMUL/moodle-block_course_reports.git
 [submodule "blocks/heatmap"]
 	path = blocks/heatmap
 	url = git@github.com:deraadt/moodle-block_heatmap.git
