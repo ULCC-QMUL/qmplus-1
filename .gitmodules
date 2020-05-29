@@ -283,9 +283,6 @@
 [submodule "question/type/pmatchreverse"]
 	path = question/type/pmatchreverse
 	url = git@github.com:timhunt/moodle-qtype_pmatchreverse.git
-[submodule "question/type/varnumeric"]
-	path = question/type/varnumeric
-	url = git@github.com:moodleou/moodle-qtype_varnumeric.git
 [submodule "question/type/varnumericset"]
 	path = question/type/varnumericset
 	url = git@github.com:moodleou/moodle-qtype_varnumericset.git
