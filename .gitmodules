@@ -220,9 +220,6 @@
 [submodule "mod/kalvidres"]
 	path = mod/kalvidres
 	url = git@github.com:ULCC-QMUL/moodle-mod_kalvidres.git
-[submodule "mod/nln"]
-	path = mod/nln
-	url = git@github.com:tonyjbutler/moodle-mod_nln.git
 [submodule "mod/oublog"]
 	path = mod/oublog
 	url = git@github.com:moodleou/moodle-mod_oublog.git
