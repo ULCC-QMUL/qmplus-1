@@ -67,9 +67,6 @@
 [submodule "blocks/onenote"]
 	path = blocks/onenote
 	url = git@github.com:Microsoft/moodle-block_onenote.git
-[submodule "blocks/quickscan"]
-	path = blocks/quickscan
-	url = git@github.com:lucisgit/moodle-block_quickscan.git
 [submodule "blocks/turnitin"]
 	path = blocks/turnitin
 	url = git@github.com:turnitin/moodle-block_turnitin.git
