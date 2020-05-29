@@ -64,9 +64,6 @@
 [submodule "blocks/messages"]
 	path = blocks/messages
 	url = git@github.com:moodlehq/moodle-block_messages.git
-[submodule "blocks/heatmap"]
-	path = blocks/heatmap
-	url = git@github.com:deraadt/moodle-block_heatmap.git
 [submodule "blocks/microsoft"]
 	path = blocks/microsoft
 	url = git@github.com:Microsoft/moodle-block_microsoft.git
