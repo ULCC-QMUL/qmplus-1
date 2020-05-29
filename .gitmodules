@@ -235,9 +235,6 @@
 [submodule "mod/scheduler"]
 	path = mod/scheduler
 	url = git@github.com:bostelm/moodle-mod_scheduler.git
-[submodule "mod/turnitintool"]
-	path = mod/turnitintool
-	url = git@github.com:turnitin/moodle-mod_turnitintool.git
 [submodule "mod/turnitintooltwo"]
 	path = mod/turnitintooltwo
 	url = git@github.com:turnitin/moodle-mod_turnitintooltwo.git
