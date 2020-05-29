@@ -463,9 +463,6 @@
 [submodule "local/mobile"]
 	path = local/mobile
 	url = git@github.com:moodlehq/moodle-local_mobile.git
-[submodule "mod/adaptivequiz"]
-	path = mod/adaptivequiz
-	url = git@github.com:ULCC-QMUL/moodle-mod_adaptivequiz.git
 [submodule "mod/hvp"]
 	path = mod/hvp
 	url = git@github.com:h5p/h5p-moodle-plugin.git
