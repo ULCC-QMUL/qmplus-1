@@ -568,3 +568,6 @@
 [submodule "blocks/qmplus_course_overview"]
 	path = blocks/qmplus_course_overview
 	url = git@github.com:ULCC-QMUL/moodle-block_qmplus_course_overview.git
+[submodule "report/embedquestion"]
+	path = report/embedquestion
+	url = git@github.com:ULCC-QMUL/moodle-report_embedquestion.git
