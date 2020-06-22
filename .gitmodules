@@ -406,9 +406,6 @@
 [submodule "blocks/accessibility"]
 	path = blocks/accessibility
 	url = git@github.com:ULCC-QMUL/moodle-block_accessibility.git
-[submodule "blocks/checklist"]
-	path = blocks/checklist
-	url = git@github.com:ULCC-QMUL/moodle-block_checklist.git
 [submodule "course/format/grid"]
 	path = course/format/grid
 	url = git@github.com:ULCC-QMUL/moodle-format_grid.git
