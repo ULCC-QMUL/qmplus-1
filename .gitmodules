@@ -568,3 +568,6 @@
 [submodule "report/embedquestion"]
 	path = report/embedquestion
 	url = git@github.com:ULCC-QMUL/moodle-report_embedquestion.git
+[submodule "blocks/checklist"]
+	path = blocks/checklist
+	url = git@github.com:davosmith/moodle-block_checklist.git
