@@ -571,3 +571,6 @@
 [submodule "blocks/checklist"]
 	path = blocks/checklist
 	url = git@github.com:davosmith/moodle-block_checklist.git
+[submodule "question/format/h5p"]
+	path = question/format/h5p
+	url = git@github.com:dthies/moodle-qformat_h5p.git
