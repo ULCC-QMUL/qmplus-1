@@ -574,3 +574,6 @@
 [submodule "question/format/h5p"]
 	path = question/format/h5p
 	url = git@github.com:dthies/moodle-qformat_h5p.git
+[submodule "lib/editor/atto/plugins/embedquestion"]
+	path = lib/editor/atto/plugins/embedquestion
+	url = git@github.com:moodleou/moodle-atto_embedquestion.git
