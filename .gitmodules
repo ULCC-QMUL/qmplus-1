@@ -574,3 +574,6 @@
 [submodule "lib/editor/atto/plugins/embedquestion"]
 	path = lib/editor/atto/plugins/embedquestion
 	url = git@github.com:moodleou/moodle-atto_embedquestion.git
+[submodule "blocks/sharing_cart"]
+	path = blocks/sharing_cart
+	url = git@github.com:donhinkelman/moodle-block_sharing_cart.git
