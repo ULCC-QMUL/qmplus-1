@@ -442,9 +442,6 @@
 [submodule "question/type/gapfill"]
 	path = question/type/gapfill
 	url = git@github.com:ULCC-QMUL/moodle-qtype_gapfill.git
-[submodule "question/type/ddmatch"]
-	path = question/type/ddmatch
-	url = git@github.com:ULCC-QMUL/moodle-qtype_ddmatch.git
 [submodule "lib/editor/atto/plugins/chemistry"]
 	path = lib/editor/atto/plugins/chemistry
 	url = git@github.com:ULCC-QMUL/moodle-editor_atto_chemistry.git
