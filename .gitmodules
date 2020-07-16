@@ -565,3 +565,6 @@
 [submodule "blocks/sharing_cart"]
 	path = blocks/sharing_cart
 	url = git@github.com:donhinkelman/moodle-block_sharing_cart.git
+[submodule "question/type/ddmatch"]
+	path = question/type/ddmatch
+	url = git@github.com:dualcube/Drag-and-Drop-Matching.git
