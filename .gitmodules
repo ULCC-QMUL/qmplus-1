@@ -568,3 +568,6 @@
 [submodule "question/type/ddmatch"]
 	path = question/type/ddmatch
 	url = git@github.com:dualcube/Drag-and-Drop-Matching.git
+[submodule "question/type/coderunner"]
+	path = question/type/coderunner
+	url = git@github.com:trampgeek/moodle-qtype_coderunner.git
