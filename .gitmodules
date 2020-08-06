@@ -574,3 +574,6 @@
 [submodule "question/behaviour/adaptive_adapted_for_coderunner"]
 	path = question/behaviour/adaptive_adapted_for_coderunner
 	url = git@github.com:trampgeek/moodle-qbehaviour_adaptive_adapted_for_coderunner.git
+[submodule "filter/echo360"]
+	path = filter/echo360
+	url = git@github.com:ULCC-QMUL/moodle-filter_echo360.git
