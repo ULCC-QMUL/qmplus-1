@@ -580,3 +580,6 @@
 [submodule "mod/attendance"]
 	path = mod/attendance
 	url = git@github.com:danmarsden/moodle-mod_attendance.git
+[submodule "report/assign_grades"]
+	path = report/assign_grades
+	url = git@github.com:ULCC-QMUL/moodle-report_assign_grades.git
