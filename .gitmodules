@@ -583,3 +583,6 @@
 [submodule "report/assign_grades"]
 	path = report/assign_grades
 	url = git@github.com:ULCC-QMUL/moodle-report_assign_grades.git
+[submodule "report/qmulogs"]
+	path = report/qmulogs
+	url = git@github.com:vsotirasqmplus/moodle-report_qmulogs.git
