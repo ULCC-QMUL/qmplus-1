@@ -568,3 +568,12 @@
 [submodule "question/type/ddmatch"]
 	path = question/type/ddmatch
 	url = git@github.com:dualcube/Drag-and-Drop-Matching.git
+[submodule "report/assign_grades"]
+	path = report/assign_grades
+	url = git@github.com:ULCC-QMUL/moodle-report_assign_grades.git
+[submodule "mod/attendance"]
+	path = mod/attendance
+	url = git@github.com:danmarsden/moodle-mod_attendance.git
+[submodule "filter/echo360"]
+	path = filter/echo360
+	url = git@github.com:ULCC-QMUL/moodle-filter_echo360.git
