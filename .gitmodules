@@ -586,3 +586,6 @@
 [submodule "report/qmulogs"]
 	path = report/qmulogs
 	url = git@github.com:vsotirasqmplus/moodle-report_qmulogs.git
+[submodule "local/qmul_download_feedback"]
+	path = local/qmul_download_feedback
+	url = git@github.com:ULCC-QMUL/moodle-local_qmul_download_feedback.git
