@@ -589,3 +589,6 @@
 [submodule "local/qmul_download_feedback"]
 	path = local/qmul_download_feedback
 	url = git@github.com:ULCC-QMUL/moodle-local_qmul_download_feedback.git
+[submodule "mod/zoom"]
+	path = mod/zoom
+	url = git@github.com:/ucla/moodle-mod_zoom
