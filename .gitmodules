@@ -589,3 +589,6 @@
 [submodule "mod/zoom"]
 	path = mod/zoom
 	url = git@github.com:/ucla/moodle-mod_zoom
+[submodule "local/anonymousposting"]
+	path = local/anonymousposting
+	url = git@github.com:doiphode/moodle-local_anonymousposting.git
