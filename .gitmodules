@@ -142,9 +142,6 @@
 [submodule "local/activitytodo"]
 	path = local/activitytodo
 	url = git@github.com:ULCC-QMUL/moodle-local_activitytodo.git
-[submodule "local/anonymousposting"]
-	path = local/anonymousposting
-	url = git@github.com:jleyva/moodle-local_anonymousposting.git
 [submodule "local/course_backup"]
 	path = local/course_backup
 	url = git@github.com:ULCC-QMUL/moodle-local_course_backup.git
