@@ -49,6 +49,8 @@ class api {
     const LOGIN_VIA_EMBEDDED_BROWSER = 3;
     /** @var int seconds an auto-login key will expire. */
     const LOGIN_KEY_TTL = 60;
+    /** @var string URL of the Moodle Apps Portal */
+    const MOODLE_APPS_PORTAL_URL = 'https://apps.moodle.com';
 
     /**
      * Returns a list of Moodle plugins supporting the mobile app.
@@ -449,6 +451,7 @@ class api {
                 '$mmSideMenuDelegate_mmaCompetency' => new lang_string('myplans', 'tool_lp'),
                 'CoreMainMenuDelegate_AddonBlog' => new lang_string('blog', 'blog'),
                 '$mmSideMenuDelegate_mmaFiles' => new lang_string('files'),
+                'CoreMainMenuDelegate_CoreTag' => new lang_string('tags'),
                 '$mmSideMenuDelegate_website' => new lang_string('webpage'),
                 '$mmSideMenuDelegate_help' => new lang_string('help'),
             ),

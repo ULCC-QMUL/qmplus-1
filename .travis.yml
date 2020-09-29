@@ -15,10 +15,11 @@ dist: xenial
 
 services:
     - mysql
+    - docker
 
 php:
     # We only run the highest and lowest supported versions to reduce the load on travis-ci.org.
-    - 7.3
+    - 7.4
     - 7.1.30 # Make this sticky because current default version (7.1.11) has a bug with redis-extension output (MDL-66062)
 
 addons:
@@ -48,11 +49,11 @@ jobs:
     fast_finish: true
 
     include:
-          # Run mysql only on 7.3 - it's just too slow
-        - php: 7.3
+          # Run mysql only on highest - it's just too slow
+        - php: 7.4
           env: DB=mysqli   TASK=PHPUNIT
-          # Run grunt/npm install on highest version ('node' is an alias for the latest node.js version.)
-        - php: 7.2
+          # Run grunt/npm install on highest version too ('node' is an alias for the latest node.js version.)
+        - php: 7.4
           env: DB=none     TASK=GRUNT   NVM_VERSION='lts/carbon'
 
 cache:
@@ -61,8 +62,9 @@ cache:
       - $HOME/.npm
 
 before_install:
+    - docker run -d -p 127.0.0.1:8080:80 --name exttests moodlehq/moodle-exttests
     # Avoid IPv6 default binding as service (causes redis not to start).
-    sudo service redis-server start --bind 127.0.0.1
+    - sudo service redis-server start --bind 127.0.0.1
 
 install:
     - >
@@ -169,6 +171,12 @@ before_script:
           -e "/require_once/i \\\$CFG->phpunit_dataroot = '\/home\/travis\/roots\/phpunit';" \
           -e "/require_once/i \\\$CFG->phpunit_prefix = 'p_';" \
           config.php ;
+        # Enable test external resources
+        sed -i \
+          -e "/require_once/i \\define('TEST_EXTERNAL_FILES_HTTP_URL', 'http://127.0.0.1:8080');" \
+          -e "/require_once/i \\define('TEST_EXTERNAL_FILES_HTTPS_URL', 'http://127.0.0.1:8080');" \
+          config.php ;
+
         # Redis cache store tests
         sed -i \
           -e "/require_once/i \\define('TEST_CACHESTORE_REDIS_TESTSERVERS', '127.0.0.1');" \
@@ -283,4 +291,12 @@ script:
           echo "$result"
           exit 1 ;
         fi
+      fi
+
+after_script:
+    - >
+      if [ "$TASK" = 'PHPUNIT' ];
+      then
+        EXTTESTS_HITS=$(docker logs exttests 2>&1 | grep -Fv -e 'AH00558' -e '[pid 1]' | wc -l)
+        echo -e "\nTest local resources number of hits: ${EXTTESTS_HITS}.\n"
       fi
