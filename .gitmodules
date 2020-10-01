@@ -43,9 +43,6 @@
 [submodule "blocks/pearson"]
 	path = blocks/pearson
 	url = git@github.com:ULCC-QMUL/moodle-block_pearson.git
-[submodule "blocks/progress"]
-	path = blocks/progress
-	url = git@github.com:deraadt/Moodle-block_progress.git
 [submodule "blocks/qmul_my_qmplus"]
 	path = blocks/qmul_my_qmplus
 	url = git@github.com:ULCC-QMUL/moodle-block_qmul_my_qmplus.git
