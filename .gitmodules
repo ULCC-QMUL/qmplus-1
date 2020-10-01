@@ -589,3 +589,6 @@
 [submodule "local/anonymousposting"]
 	path = local/anonymousposting
 	url = git@github.com:doiphode/moodle-local_anonymousposting.git
+[submodule "blocks/progress"]
+	path = blocks/progress
+	url = git@github.com:ULCC-QMUL/Moodle-block_progress.git
