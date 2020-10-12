@@ -592,3 +592,6 @@
 [submodule "blocks/progress"]
 	path = blocks/progress
 	url = git@github.com:ULCC-QMUL/Moodle-block_progress.git
+[submodule "mod/hsuforum"]
+	path = mod/hsuforum
+	url = git@github.com:open-lms-open-source/moodle-mod_hsuforum.git
