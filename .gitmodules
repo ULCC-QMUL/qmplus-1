@@ -592,3 +592,6 @@
 [submodule "mod/hsuforum"]
 	path = mod/hsuforum
 	url = git@github.com:open-lms-open-source/moodle-mod_hsuforum.git
+[submodule "local/mass_enroll"]
+	path = local/mass_enroll
+	url = git@github.com:doiphode/moodle-local_mass_enroll.git
