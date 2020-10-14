@@ -598,3 +598,6 @@
 [submodule "mod/groupmembers"]
 	path = mod/groupmembers
 	url = git@github.com:learnweb/moodle-mod_groupmembers.git
+[submodule "lib/editor/atto/plugins/teamsmeeting"]
+	path = lib/editor/atto/plugins/teamsmeeting
+	url = git@github.com:enovation/moodle-atto_teamsmeeting.git
