@@ -604,3 +604,6 @@
 [submodule "mod/quiz/report/downloadsubmissions"]
 	path = mod/quiz/report/downloadsubmissions
 	url = git@github.com:IITBombayWeb/moodle-quiz_downloadsubmissions.git
+[submodule "blocks/heatmap"]
+	path = blocks/heatmap
+	url = git@github.com:deraadt/moodle-block_heatmap.git
