@@ -598,3 +598,6 @@
 [submodule "mod/groupmembers"]
 	path = mod/groupmembers
 	url = git@github.com:learnweb/moodle-mod_groupmembers.git
+[submodule "report/myfeedback"]
+	path = report/myfeedback
+	url = git@github.com:uclmoodle/moodle-report_myfeedback.git
