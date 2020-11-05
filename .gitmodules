@@ -601,3 +601,6 @@
 [submodule "report/myfeedback"]
 	path = report/myfeedback
 	url = git@github.com:uclmoodle/moodle-report_myfeedback.git
+[submodule "mod/quiz/downloadsubmissions"]
+	path = mod/quiz/downloadsubmissions
+	url = git@github.com:IITBombayWeb/moodle-quiz_downloadsubmissions.git
