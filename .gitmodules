@@ -583,3 +583,6 @@
 [submodule "mod/groupmembers"]
 	path = mod/groupmembers
 	url = git@github.com:learnweb/moodle-mod_groupmembers.git
+[submodule "mod/quiz/report/downloadsubmissions"]
+	path = mod/quiz/report/downloadsubmissions
+	url = git@github.com:IITBombayWeb/moodle-quiz_downloadsubmissions.git
