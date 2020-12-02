@@ -580,3 +580,6 @@
 [submodule "mod/hsuforum"]
 	path = mod/hsuforum
 	url = https://github.com/open-lms-open-source/moodle-mod_hsuforum
+[submodule "mod/groupmembers"]
+	path = mod/groupmembers
+	url = https://github.com/learnweb/moodle-mod_groupmembers
