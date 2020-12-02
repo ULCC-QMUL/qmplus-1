@@ -586,3 +586,9 @@
 [submodule "mod/quiz/report/downloadsubmissions"]
 	path = mod/quiz/report/downloadsubmissions
 	url = https://github.com/IITBombayWeb/moodle-quiz_downloadsubmissions
+[submodule "question/type/coderunner"]
+	path = question/type/coderunner
+	url = https://github.com/trampgeek/moodle-qtype_coderunner
+[submodule "question/behaviour/adaptive_adapted_for_coderunner"]
+	path = question/behaviour/adaptive_adapted_for_coderunner
+	url = https://github.com/trampgeek/moodle-qbehaviour_adaptive_adapted_for_coderunner
