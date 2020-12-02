@@ -580,3 +580,6 @@
 [submodule "mod/hsuforum"]
 	path = mod/hsuforum
 	url = git@github.com:open-lms-open-source/moodle-mod_hsuforum.git
+[submodule "mod/groupmembers"]
+	path = mod/groupmembers
+	url = git@github.com:learnweb/moodle-mod_groupmembers.git
