@@ -574,21 +574,6 @@
 [submodule "filter/echo360"]
 	path = filter/echo360
 	url = git@github.com:ULCC-QMUL/moodle-filter_echo360.git
-[submodule "mod/hsuforum"]
-	path = mod/hsuforum
-	url = https://github.com/open-lms-open-source/moodle-mod_hsuforum
-[submodule "mod/groupmembers"]
-	path = mod/groupmembers
-	url = https://github.com/learnweb/moodle-mod_groupmembers
-[submodule "mod/quiz/report/downloadsubmissions"]
-	path = mod/quiz/report/downloadsubmissions
-	url = https://github.com/IITBombayWeb/moodle-quiz_downloadsubmissions
-[submodule "question/type/coderunner"]
-	path = question/type/coderunner
-	url = https://github.com/trampgeek/moodle-qtype_coderunner
-[submodule "question/behaviour/adaptive_adapted_for_coderunner"]
-	path = question/behaviour/adaptive_adapted_for_coderunner
-	url = https://github.com/trampgeek/moodle-qbehaviour_adaptive_adapted_for_coderunner
 [submodule "local/mass_enroll"]
 	path = local/mass_enroll
 	url = git@github.com:doiphode/moodle-local_mass_enroll.git
