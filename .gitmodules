@@ -610,3 +610,6 @@
 [submodule "local/assignmentgrade"]
 	path = local/assignmentgrade
 	url = git@github.com:ULCC-QMUL/moodle-local_assignmentgrade.git
+[submodule "local/adminer"]
+	path = local/adminer
+	url = git@github.com:grabs/moodle-local_adminer.git
