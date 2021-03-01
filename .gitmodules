@@ -201,7 +201,7 @@
 	url = git@github.com:davosmith/moodle-grade_checklist.git
 [submodule "grade/grading/form/btec"]
 	path = grade/grading/form/btec
-	url = git@github.com:ULCC-QMUL/moodle-gradingform_btec.git
+	url = git@github.com:marcusgreen/moodle-gradingform_btec.git
 [submodule "grade/import/directpearsonjson"]
 	path = grade/import/directpearsonjson
 	url = git@github.com:ULCC-QMUL/moodle-gradeimport_directpearsonjson.git
@@ -552,7 +552,7 @@
 	url = git@github.com:pauln/moodle-report_componentgrades.git
 [submodule "report/embedquestion"]
 	path = report/embedquestion
-	url = git@github.com:ULCC-QMUL/moodle-report_embedquestion.git
+	url = git@github.com:moodleou/moodle-report_embedquestion.git
 [submodule "report/forumgraph"]
 	path = report/forumgraph
 	url = git@github.com:ctchanandy/moodle-report_forumgraph.git
