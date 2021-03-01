@@ -607,3 +607,6 @@
 [submodule "user/profile/field/oidc"]
 	path = user/profile/field/oidc
 	url = git@github.com:ULCC-QMUL/moodle-profilefield_oidc.git
+[submodule "mod/book/tool/importhtml/wordimport"]
+	path = mod/book/tool/importhtml/wordimport
+	url = git@github.com:ecampbell/moodle-booktool_wordimport.git
