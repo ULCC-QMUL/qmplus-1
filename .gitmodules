@@ -522,7 +522,7 @@
 	url = git@github.com:marcusgreen/moodle-qtype_gapfill.git
 [submodule "question/type/multichoiceset"]
 	path = question/type/multichoiceset
-	url = git@github.com:jmvedrine/moodle-qtype_multichoiceset.git
+	url = git@github.com:ecampbell/moodle-qtype_multichoiceset.git
 [submodule "question/type/multinumerical"]
 	path = question/type/multinumerical
 	url = git@github.com:ndunand/moodle-qtype_multinumerical.git
