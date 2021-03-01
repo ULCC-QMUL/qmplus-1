@@ -147,7 +147,7 @@
 	url = git@github.com:ULCC-QMUL/moodle-course_format_qmulweeks.git
 [submodule "course/format/topcoll"]
 	path = course/format/topcoll
-	url = git@github.com:ULCC-QMUL/moodle-format_topcoll.git
+	url = git@github.com:gjb2048/moodle-format_topcoll.git
 [submodule "course/format/topics2"]
 	path = course/format/topics2
 	url = git@github.com:opitz/moodle-format_topics2.git
@@ -243,7 +243,7 @@
 	url = git@github.com:ULCC-QMUL/moodle-editor_atto_kalturamedia.git
 [submodule "lib/editor/atto/plugins/mathslate"]
 	path = lib/editor/atto/plugins/mathslate
-	url = git@github.com:ULCC-QMUL/moodle-editor_atto_mathslate.git
+	url = git@github.com:dthies/moodle-atto_mathslate.git
 [submodule "lib/editor/atto/plugins/morefontcolors"]
 	path = lib/editor/atto/plugins/morefontcolors
 	url = git@github.com:ndunand/moodle-atto_morefontcolors.git
@@ -273,7 +273,7 @@
 	url = git@github.com:ULCC-QMUL/moodle-editor_tinymce_kalturamedia.git
 [submodule "lib/editor/tinymce/plugins/mathslate"]
 	path = lib/editor/tinymce/plugins/mathslate
-	url = git@github.com:ULCC-QMUL/moodle-editor_tinymce_mathslate.git
+	url = git@github.com:dthies/moodle-editor_tinymce-mathslate.git
 [submodule "local/activitytodo"]
 	path = local/activitytodo
 	url = git@github.com:ULCC-QMUL/moodle-local_activitytodo.git
