@@ -78,7 +78,7 @@
 	url = git@github.com:Microsoft/moodle-block_onenote.git
 [submodule "blocks/onlinesurvey"]
 	path = blocks/onlinesurvey
-	url = git@github.com:ULCC-QMUL/moodle-block_onlinesurvey.git
+	url = git@github.com:EPPlugin/moodle-block_onlinesurvey.git
 [submodule "blocks/pearson"]
 	path = blocks/pearson
 	url = git@github.com:ULCC-QMUL/moodle-block_pearson.git
@@ -432,7 +432,7 @@
 	url = git@github.com:ULCC-QMUL/moodle-mod_kalvidres.git
 [submodule "mod/lightboxgallery"]
 	path = mod/lightboxgallery
-	url = git@github.com:ULCC-QMUL/moodle-mod_lightboxgallery.git
+	url = git@github.com:netspotau/moodle-mod_lightboxgallery.git
 [submodule "mod/oublog"]
 	path = mod/oublog
 	url = git@github.com:moodleou/moodle-mod_oublog.git
@@ -519,7 +519,7 @@
 	url = git@github.com:dualcube/Drag-and-Drop-Matching.git
 [submodule "question/type/gapfill"]
 	path = question/type/gapfill
-	url = git@github.com:ULCC-QMUL/moodle-qtype_gapfill.git
+	url = git@github.com:marcusgreen/moodle-qtype_gapfill.git
 [submodule "question/type/multichoiceset"]
 	path = question/type/multichoiceset
 	url = git@github.com:jmvedrine/moodle-qtype_multichoiceset.git
