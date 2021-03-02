@@ -561,7 +561,7 @@
 	url = git@github.com:uclmoodle/moodle-report_myfeedback.git
 [submodule "report/overviewstats"]
 	path = report/overviewstats
-	url = git@github.com:ULCC-QMUL/moodle-report_overviewstatistics.git
+	url = git@github.com:ericbram/moodle-report_overviewstats.git
 [submodule "report/qmplus"]
 	path = report/qmplus
 	url = git@github.com:ULCC-QMUL/moodle-report_qmplus.git
