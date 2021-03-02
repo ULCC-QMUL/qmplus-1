@@ -607,3 +607,6 @@
 [submodule "local/adminer"]
 	path = local/adminer
 	url = git@github.com:grabs/moodle-local_adminer.git
+[submodule "admin/tool/mergeusers"]
+	path = admin/tool/mergeusers
+	url = git@github.com:vsotirasqmplus/moodle-tool_mergeusers.git
